@@ -1,0 +1,63 @@
+name: dentxxpert_ai
+description: "AI-powered dental X-ray analysis application"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.7.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  timezone: ^0.9.2
+
+  image_picker: ^1.0.4
+  flutter_svg: ^2.0.7
+  flutter_neumorphic: ^3.2.0
+  animated_background: ^2.0.0
+  shimmer: ^3.0.0
+  lottie: ^3.3.1
+  google_maps_flutter: ^2.5.0
+  url_launcher: ^6.1.7
+  intl: ^0.20.2
+  intl_phone_field: ^3.2.0
+  firebase_core: ^2.25.4
+  firebase_auth: ^4.10.1
+  cloud_firestore: ^4.9.2
+  firebase_storage: ^11.5.2
+  firebase_messaging: ^14.7.9  # ✅ NEWLY ADDED for Push Notifications
+  js: ^0.6.7
+  http: 1.4.0
+  path: ^1.8.3
+  flutter_animate: ^4.5.0
+  table_calendar: ^3.1.2
+  connectivity_plus: ^6.0.5
+
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  mockito: ^5.4.2
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+  assets:
+
+    - assets/images/logo.png
+    - assets/tooth_pic.png
+    - assets/rebot.png
+    - assets/teeth.png
+    - assets/final_teeth.png
+    - assets/final_rebot.png
+    - assets/the_rebot.png
+    - assets/rebot_rebot.png
+    - assets/registration.png
+
+    # - assets/animations/ # Uncomment if this folder exists

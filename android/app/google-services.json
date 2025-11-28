@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "278613351640",
+    "project_id": "dentxpert-e90d4",
+    "storage_bucket": "dentxpert-e90d4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:278613351640:android:09734351300ac82ae00bad",
+        "android_client_info": {
+          "package_name": "com.example.dentxxpert_ai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoeZK_7hoXDcs8kcCOznq2N96GauWsZww"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
