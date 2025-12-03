@@ -1,0 +1,21 @@
+
+TOOTH DETECTION API - QUICK START
+==================================
+
+STEP 1: Install Python 3.11+
+   Download: https://www.python.org/
+
+STEP 2: Install Dependencies
+   pip install -r requirements.txt
+
+STEP 3: Start API Server
+   Double-click: START_API.bat
+
+STEP 4: Test API
+   Browser: http://localhost:5000/api/health
+
+STEP 5: Test Frontend
+   Open: frontend/index.html
+
+MODEL ACCURACY: 92.07% mAP@0.5
+==================================

@@ -6,10 +6,10 @@ class DentistRegistrationSuccessScreen extends StatefulWidget {
   final String specialization;
 
   const DentistRegistrationSuccessScreen({
-    Key? key,
+    super.key,
     required this.name,
     required this.specialization,
-  }) : super(key: key);
+  });
 
   @override
   State<DentistRegistrationSuccessScreen> createState() =>
@@ -48,15 +48,15 @@ class _DentistRegistrationSuccessScreenState
                       shape: BoxShape.circle,
                       gradient: LinearGradient(
                         colors: [
-                          Colors.cyanAccent.withOpacity(0.3),
-                          Colors.white12
+                          Colors.cyanAccent.withValues(alpha: 0.3),
+                          Colors.white12,
                         ],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.cyanAccent.withOpacity(0.6),
+                          color: Colors.cyanAccent.withValues(alpha: 0.6),
                           blurRadius: 20,
                           spreadRadius: 2,
                           offset: const Offset(0, 6),
@@ -83,8 +83,7 @@ class _DentistRegistrationSuccessScreenState
                   const SizedBox(height: 10),
                   Text(
                     'Specialization: ${widget.specialization}',
-                    style:
-                    const TextStyle(color: Colors.white70, fontSize: 16),
+                    style: const TextStyle(color: Colors.white70, fontSize: 16),
                   ),
                   const SizedBox(height: 20),
                   const Text(
@@ -97,8 +96,8 @@ class _DentistRegistrationSuccessScreenState
 
                   // View Listing Button
                   ElevatedButton.icon(
-                    onPressed: () =>
-                        Navigator.pushNamed(context, '/specialistList'),
+                    onPressed:
+                        () => Navigator.pushNamed(context, '/specialistList'),
                     icon: const Icon(Icons.visibility),
                     label: const Text('View Your Listing'),
                     style: ElevatedButton.styleFrom(
@@ -109,7 +108,7 @@ class _DentistRegistrationSuccessScreenState
                         borderRadius: BorderRadius.circular(14),
                       ),
                       elevation: 8,
-                      shadowColor: Colors.cyanAccent.withOpacity(0.4),
+                      shadowColor: Colors.cyanAccent.withValues(alpha: 0.4),
                     ),
                   ),
 

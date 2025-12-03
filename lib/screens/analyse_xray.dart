@@ -2,6 +2,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class AnalyseXray extends StatelessWidget {
+  const AnalyseXray({super.key});
+
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)?.settings.arguments as Map?;
@@ -47,14 +49,24 @@ class AnalyseXray extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(18),
-                    border: Border.all(color: Colors.cyanAccent.withOpacity(0.5), width: 2),
+                    border: Border.all(
+                      color: Colors.cyanAccent.withValues(alpha: 0.5),
+                      width: 2,
+                    ),
                     boxShadow: [
-                      BoxShadow(color: Colors.cyanAccent.withOpacity(0.3), blurRadius: 20)
+                      BoxShadow(
+                        color: Colors.cyanAccent.withValues(alpha: 0.3),
+                        blurRadius: 20,
+                      ),
                     ],
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(16),
-                    child: Image.asset(imagePath, height: 200, fit: BoxFit.cover),
+                    child: Image.asset(
+                      imagePath,
+                      height: 200,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               SizedBox(height: 25),
@@ -125,25 +137,29 @@ class AnalyseXray extends StatelessWidget {
     );
   }
 
-  Widget _glowCard({required IconData icon, required String title, required Widget content}) {
+  Widget _glowCard({
+    required IconData icon,
+    required String title,
+    required Widget content,
+  }) {
     return Container(
       margin: EdgeInsets.only(bottom: 20),
       padding: EdgeInsets.all(18),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [Colors.white10, Colors.white.withOpacity(0.05)],
+          colors: [Colors.white10, Colors.white.withValues(alpha: 0.05)],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
         borderRadius: BorderRadius.circular(18),
-        border: Border.all(color: Colors.cyanAccent.withOpacity(0.3)),
+        border: Border.all(color: Colors.cyanAccent.withValues(alpha: 0.3)),
         boxShadow: [
           BoxShadow(
-            color: Colors.cyanAccent.withOpacity(0.2),
+            color: Colors.cyanAccent.withValues(alpha: 0.2),
             blurRadius: 12,
             spreadRadius: 1,
             offset: Offset(0, 6),
-          )
+          ),
         ],
       ),
       child: Column(
@@ -156,7 +172,10 @@ class AnalyseXray extends StatelessWidget {
               Text(
                 title,
                 style: TextStyle(
-                    color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ],
           ),
@@ -172,7 +191,9 @@ class AnalyseXray extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: Row(
         children: [
-          Expanded(child: Text('$label:', style: TextStyle(color: Colors.white70))),
+          Expanded(
+            child: Text('$label:', style: TextStyle(color: Colors.white70)),
+          ),
           Text(value, style: TextStyle(color: Colors.white)),
         ],
       ),

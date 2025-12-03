@@ -40,15 +40,15 @@ class _DoctorLoginScreenState extends State<DoctorLoginScreen> {
           );
           return;
         }
-
       }
 
       // ✅ Dentist login using Firestore
-      final querySnapshot = await FirebaseFirestore.instance
-          .collection('dentists')
-          .where('email', isEqualTo: email)
-          .where('password', isEqualTo: password)
-          .get();
+      final querySnapshot =
+          await FirebaseFirestore.instance
+              .collection('dentists')
+              .where('email', isEqualTo: email)
+              .where('password', isEqualTo: password)
+              .get();
 
       if (querySnapshot.docs.isNotEmpty) {
         Navigator.pushReplacement(
@@ -63,11 +63,10 @@ class _DoctorLoginScreenState extends State<DoctorLoginScreen> {
         );
       }
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Login error: ${e.toString()}')),
-      );
-    }
-    finally {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('Login error: ${e.toString()}')));
+    } finally {
       setState(() => _isLoading = false);
     }
   }
@@ -101,7 +100,7 @@ class _DoctorLoginScreenState extends State<DoctorLoginScreen> {
                     borderRadius: BorderRadius.circular(30),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.cyanAccent.withOpacity(0.4),
+                        color: Colors.cyanAccent.withValues(alpha: 0.4),
                         blurRadius: 30,
                         spreadRadius: 1,
                         offset: const Offset(0, 10),
@@ -113,7 +112,11 @@ class _DoctorLoginScreenState extends State<DoctorLoginScreen> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        const Icon(Icons.lock, size: 60, color: Colors.cyanAccent),
+                        const Icon(
+                          Icons.lock,
+                          size: 60,
+                          color: Colors.cyanAccent,
+                        ),
                         const SizedBox(height: 20),
                         const Text(
                           'Dentist Portal Login',
@@ -137,7 +140,10 @@ class _DoctorLoginScreenState extends State<DoctorLoginScreen> {
                           style: const TextStyle(color: Colors.white),
                           decoration: _inputDecoration("Email", Icons.email),
                           validator: (value) {
-                            if (value == null || !RegExp(r'^[^@]+@[^@]+\.[^@]+$').hasMatch(value)) {
+                            if (value == null ||
+                                !RegExp(
+                                  r'^[^@]+@[^@]+\.[^@]+$',
+                                ).hasMatch(value)) {
                               return 'Enter a valid email address';
                             }
                             return null;
@@ -148,7 +154,10 @@ class _DoctorLoginScreenState extends State<DoctorLoginScreen> {
                           controller: _passwordController,
                           obscureText: true,
                           style: const TextStyle(color: Colors.white),
-                          decoration: _inputDecoration("Password", Icons.lock_outline),
+                          decoration: _inputDecoration(
+                            "Password",
+                            Icons.lock_outline,
+                          ),
                           validator: (value) {
                             if (value == null || value.length < 6) {
                               return 'Password must be at least 6 characters';
@@ -159,27 +168,37 @@ class _DoctorLoginScreenState extends State<DoctorLoginScreen> {
                         const SizedBox(height: 30),
 
                         _isLoading
-                            ? const CircularProgressIndicator(color: Colors.cyanAccent)
+                            ? const CircularProgressIndicator(
+                              color: Colors.cyanAccent,
+                            )
                             : SizedBox(
-                          width: double.infinity,
-                          child: ElevatedButton.icon(
-                            onPressed: _loginDoctor,
-                            icon: const Icon(Icons.login, color: Colors.black),
-                            label: const Text(
-                              'LOGIN',
-                              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                            ),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.cyanAccent,
-                              foregroundColor: Colors.black,
-                              padding: const EdgeInsets.symmetric(vertical: 14),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(18),
+                              width: double.infinity,
+                              child: ElevatedButton.icon(
+                                onPressed: _loginDoctor,
+                                icon: const Icon(
+                                  Icons.login,
+                                  color: Colors.black,
+                                ),
+                                label: const Text(
+                                  'LOGIN',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.cyanAccent,
+                                  foregroundColor: Colors.black,
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 14,
+                                  ),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(18),
+                                  ),
+                                  elevation: 10,
+                                ),
                               ),
-                              elevation: 10,
                             ),
-                          ),
-                        ),
                       ],
                     ),
                   ),

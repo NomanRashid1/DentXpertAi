@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AIResultsScreen extends StatelessWidget {
   final Map<String, dynamic> analysisData;
 
-  const AIResultsScreen({Key? key, required this.analysisData}) : super(key: key);
+  const AIResultsScreen({super.key, required this.analysisData});
 
   @override
   Widget build(BuildContext context) {

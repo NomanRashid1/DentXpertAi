@@ -1,0 +1,503 @@
+{
+  "unique_id": "389c28b4-af8d-4f8e-b368-064b3adb9663",
+  "input_image": "C:\\Users\\M.Ali\\Downloads\\Tooth_Detection_API_Package_FINAL\\uploads\\8b6a9410-a2cd-4b08-a81f-67c2af0389b2_108.jpg",
+  "output_image": "results_pridects\\389c28b4-af8d-4f8e-b368-064b3adb9663.jpg",
+  "total_detections": 23,
+  "detections": [
+    {
+      "tooth_number": 2,
+      "tooth_name": "Tooth #2",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.7392833232879639,
+      "bounding_box": {
+        "x1": 538,
+        "y1": 315,
+        "x2": 637,
+        "y2": 493
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 3,
+      "tooth_name": "Tooth #3",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.7359119653701782,
+      "bounding_box": {
+        "x1": 610,
+        "y1": 339,
+        "x2": 728,
+        "y2": 544
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 4,
+      "tooth_name": "Tooth #4",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.8889973163604736,
+      "bounding_box": {
+        "x1": 707,
+        "y1": 376,
+        "x2": 816,
+        "y2": 574
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 5,
+      "tooth_name": "Tooth #5",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.8993373513221741,
+      "bounding_box": {
+        "x1": 764,
+        "y1": 379,
+        "x2": 849,
+        "y2": 602
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 6,
+      "tooth_name": "Tooth #6",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.8245406150817871,
+      "bounding_box": {
+        "x1": 816,
+        "y1": 370,
+        "x2": 904,
+        "y2": 634
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 8,
+      "tooth_name": "Tooth #8",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.8017327189445496,
+      "bounding_box": {
+        "x1": 950,
+        "y1": 403,
+        "x2": 1031,
+        "y2": 646
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 9,
+      "tooth_name": "Tooth #9",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.7731247544288635,
+      "bounding_box": {
+        "x1": 1025,
+        "y1": 409,
+        "x2": 1101,
+        "y2": 646
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 10,
+      "tooth_name": "Tooth #10",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.7706243991851807,
+      "bounding_box": {
+        "x1": 1088,
+        "y1": 397,
+        "x2": 1164,
+        "y2": 636
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 11,
+      "tooth_name": "Upper Right Central Incisor",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.7099142670631409,
+      "bounding_box": {
+        "x1": 1148,
+        "y1": 367,
+        "x2": 1223,
+        "y2": 637
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 13,
+      "tooth_name": "Upper Right Canine",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.8189191222190857,
+      "bounding_box": {
+        "x1": 1233,
+        "y1": 393,
+        "x2": 1304,
+        "y2": 586
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 14,
+      "tooth_name": "Upper Right First Premolar",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.8452268838882446,
+      "bounding_box": {
+        "x1": 1296,
+        "y1": 384,
+        "x2": 1401,
+        "y2": 586
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 15,
+      "tooth_name": "Upper Right Second Premolar",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.835007905960083,
+      "bounding_box": {
+        "x1": 1378,
+        "y1": 353,
+        "x2": 1477,
+        "y2": 531
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 20,
+      "tooth_name": "Tooth #20",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.9136077761650085,
+      "bounding_box": {
+        "x1": 1216,
+        "y1": 619,
+        "x2": 1316,
+        "y2": 810
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 21,
+      "tooth_name": "Upper Left Central Incisor",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.8849336504936218,
+      "bounding_box": {
+        "x1": 1158,
+        "y1": 632,
+        "x2": 1243,
+        "y2": 846
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 22,
+      "tooth_name": "Upper Left Lateral Incisor",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.8531363010406494,
+      "bounding_box": {
+        "x1": 1103,
+        "y1": 639,
+        "x2": 1181,
+        "y2": 871
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 23,
+      "tooth_name": "Upper Left Canine",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.7454301714897156,
+      "bounding_box": {
+        "x1": 1048,
+        "y1": 649,
+        "x2": 1113,
+        "y2": 843
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 25,
+      "tooth_name": "Upper Left Second Premolar",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.7296687960624695,
+      "bounding_box": {
+        "x1": 951,
+        "y1": 657,
+        "x2": 1013,
+        "y2": 832
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 26,
+      "tooth_name": "Upper Left First Molar",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.7771403193473816,
+      "bounding_box": {
+        "x1": 897,
+        "y1": 652,
+        "x2": 961,
+        "y2": 841
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 27,
+      "tooth_name": "Upper Left Second Molar",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.8028401136398315,
+      "bounding_box": {
+        "x1": 780,
+        "y1": 640,
+        "x2": 904,
+        "y2": 841
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 29,
+      "tooth_name": "Tooth #29",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.7561642527580261,
+      "bounding_box": {
+        "x1": 720,
+        "y1": 628,
+        "x2": 855,
+        "y2": 816
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 30,
+      "tooth_name": "Tooth #30",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.8843526840209961,
+      "bounding_box": {
+        "x1": 586,
+        "y1": 584,
+        "x2": 787,
+        "y2": 789
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 31,
+      "tooth_name": "Lower Left Central Incisor",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.8820173144340515,
+      "bounding_box": {
+        "x1": 483,
+        "y1": 528,
+        "x2": 693,
+        "y2": 723
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 32,
+      "tooth_name": "Lower Left Lateral Incisor",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.7345003485679626,
+      "bounding_box": {
+        "x1": 417,
+        "y1": 511,
+        "x2": 571,
+        "y2": 664
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    }
+  ],
+  "report": "================================================================================\nDENTAL X-RAY ANALYSIS REPORT\n================================================================================\n\nImage: 8b6a9410-a2cd-4b08-a81f-67c2af0389b2_108.jpg\nTotal Teeth Detected: 23\n\n\n\n📋 OTHER FINDINGS:\n--------------------------------------------------------------------------------\n\n🦷 Tooth #2 (#2)\n   Status: Healthy (None)\n   Confidence: 73.93%\n\n🦷 Tooth #3 (#3)\n   Status: Healthy (None)\n   Confidence: 73.59%\n\n🦷 Tooth #4 (#4)\n   Status: Healthy (None)\n   Confidence: 88.90%\n\n🦷 Tooth #5 (#5)\n   Status: Healthy (None)\n   Confidence: 89.93%\n\n🦷 Tooth #6 (#6)\n   Status: Healthy (None)\n   Confidence: 82.45%\n\n🦷 Tooth #8 (#8)\n   Status: Healthy (None)\n   Confidence: 80.17%\n\n🦷 Tooth #9 (#9)\n   Status: Healthy (None)\n   Confidence: 77.31%\n\n🦷 Tooth #10 (#10)\n   Status: Healthy (None)\n   Confidence: 77.06%\n\n🦷 Upper Right Central Incisor (#11)\n   Status: Healthy (None)\n   Confidence: 70.99%\n\n🦷 Upper Right Canine (#13)\n   Status: Healthy (None)\n   Confidence: 81.89%\n\n🦷 Upper Right First Premolar (#14)\n   Status: Healthy (None)\n   Confidence: 84.52%\n\n🦷 Upper Right Second Premolar (#15)\n   Status: Healthy (None)\n   Confidence: 83.50%\n\n🦷 Tooth #20 (#20)\n   Status: Healthy (None)\n   Confidence: 91.36%\n\n🦷 Upper Left Central Incisor (#21)\n   Status: Healthy (None)\n   Confidence: 88.49%\n\n🦷 Upper Left Lateral Incisor (#22)\n   Status: Healthy (None)\n   Confidence: 85.31%\n\n🦷 Upper Left Canine (#23)\n   Status: Healthy (None)\n   Confidence: 74.54%\n\n🦷 Upper Left Second Premolar (#25)\n   Status: Healthy (None)\n   Confidence: 72.97%\n\n🦷 Upper Left First Molar (#26)\n   Status: Healthy (None)\n   Confidence: 77.71%\n\n🦷 Upper Left Second Molar (#27)\n   Status: Healthy (None)\n   Confidence: 80.28%\n\n🦷 Tooth #29 (#29)\n   Status: Healthy (None)\n   Confidence: 75.62%\n\n🦷 Tooth #30 (#30)\n   Status: Healthy (None)\n   Confidence: 88.44%\n\n🦷 Lower Left Central Incisor (#31)\n   Status: Healthy (None)\n   Confidence: 88.20%\n\n🦷 Lower Left Lateral Incisor (#32)\n   Status: Healthy (None)\n   Confidence: 73.45%\n\n================================================================================\nEND OF REPORT\n================================================================================",
+  "summary": {
+    "total_teeth": 23,
+    "disease_distribution": {
+      "Healthy": 23
+    },
+    "severity_distribution": {
+      "None": 23
+    },
+    "healthy_teeth": 23,
+    "diseased_teeth": 0
+  }
+}

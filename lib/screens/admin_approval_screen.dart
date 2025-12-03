@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AdminApprovalScreen extends StatefulWidget {
-  const AdminApprovalScreen({Key? key}) : super(key: key);
+  const AdminApprovalScreen({super.key});
 
   @override
   State<AdminApprovalScreen> createState() => _AdminApprovalScreenState();
@@ -36,9 +36,7 @@ class _AdminApprovalScreenState extends State<AdminApprovalScreen> {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Admin Approval Portal"),
-      ),
+      appBar: AppBar(title: const Text("Admin Approval Portal")),
       body: StreamBuilder<QuerySnapshot>(
         stream: getAppointments(),
         builder: (context, snapshot) {

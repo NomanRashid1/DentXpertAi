@@ -1,0 +1,214 @@
+================================================================================
+DENTAL X-RAY ANALYSIS REPORT
+================================================================================
+
+Image: 223a9436-7033-4609-a4f6-145a363a5bc2_52.png
+Total Teeth Detected: 40
+
+
+
+📋 OTHER FINDINGS:
+--------------------------------------------------------------------------------
+
+🦷 Tooth #1 (#1)
+   Status: Enamel Erosion (Mild)
+   Confidence: 38.82%
+
+🦷 Tooth #2 (#2)
+   Status: Healthy (None)
+   Confidence: 45.28%
+
+🦷 Tooth #3 (#3)
+   Status: Healthy (None)
+   Confidence: 52.44%
+
+🦷 Tooth #3 (#3)
+   Status: Healthy (None)
+   Confidence: 40.02%
+
+🦷 Tooth #4 (#4)
+   Status: Cavity (Caries) (Mild)
+   Confidence: 51.77%
+
+🦷 Tooth #4 (#4)
+   Status: Enamel Erosion (Mild)
+   Confidence: 38.41%
+
+🦷 Tooth #8 (#8)
+   Status: Enamel Erosion (Mild)
+   Confidence: 38.77%
+
+🦷 Tooth #9 (#9)
+   Status: Healthy (None)
+   Confidence: 80.54%
+
+🦷 Tooth #9 (#9)
+   Status: Tooth Fracture (Mild)
+   Confidence: 50.08%
+
+🦷 Tooth #10 (#10)
+   Status: Cavity (Caries) (Mild)
+   Confidence: 58.27%
+
+🦷 Tooth #10 (#10)
+   Status: Cavity (Caries) (Mild)
+   Confidence: 56.83%
+
+🦷 Upper Right Central Incisor (#11)
+   Status: Healthy (None)
+   Confidence: 71.38%
+
+🦷 Upper Right Central Incisor (#11)
+   Status: Healthy (None)
+   Confidence: 66.93%
+
+🦷 Upper Right Lateral Incisor (#12)
+   Status: Healthy (None)
+   Confidence: 71.55%
+
+🦷 Upper Right Lateral Incisor (#12)
+   Status: Enamel Erosion (Mild)
+   Confidence: 33.08%
+
+🦷 Upper Right Canine (#13)
+   Status: Healthy (None)
+   Confidence: 54.42%
+
+🦷 Upper Right Canine (#13)
+   Status: Healthy (None)
+   Confidence: 47.50%
+
+🦷 Upper Right First Premolar (#14)
+   Status: Enamel Erosion (Mild)
+   Confidence: 33.90%
+
+🦷 Upper Right Second Premolar (#15)
+   Status: Enamel Erosion (Mild)
+   Confidence: 31.51%
+
+🦷 Upper Right First Molar (#16)
+   Status: Dental Calculus (Mild)
+   Confidence: 62.81%
+
+🦷 Upper Right Second Molar (#17)
+   Status: Enamel Erosion (Mild)
+   Confidence: 34.19%
+
+🦷 Upper Right Second Molar (#17)
+   Status: Enamel Erosion (Mild)
+   Confidence: 25.52%
+
+🦷 Upper Right Third Molar (Wisdom) (#18)
+   Status: Enamel Erosion (Mild)
+   Confidence: 35.43%
+
+🦷 Upper Right Third Molar (Wisdom) (#18)
+   Status: Enamel Erosion (Mild)
+   Confidence: 30.22%
+
+🦷 Tooth #19 (#19)
+   Status: Tooth Fracture (Mild)
+   Confidence: 42.83%
+
+🦷 Tooth #20 (#20)
+   Status: Enamel Erosion (Mild)
+   Confidence: 31.57%
+
+🦷 Tooth #20 (#20)
+   Status: Enamel Erosion (Mild)
+   Confidence: 29.99%
+
+🦷 Upper Left Central Incisor (#21)
+   Status: Healthy (None)
+   Confidence: 58.13%
+
+🦷 Upper Left Central Incisor (#21)
+   Status: Healthy (None)
+   Confidence: 54.75%
+
+🦷 Upper Left Lateral Incisor (#22)
+   Status: Healthy (None)
+   Confidence: 80.26%
+
+🦷 Upper Left Canine (#23)
+   Status: Healthy (None)
+   Confidence: 42.44%
+
+🦷 Upper Left Canine (#23)
+   Status: Enamel Erosion (Mild)
+   Confidence: 35.57%
+
+🦷 Upper Left First Premolar (#24)
+   Status: Enamel Erosion (Mild)
+   Confidence: 38.22%
+
+🦷 Upper Left First Premolar (#24)
+   Status: Enamel Erosion (Mild)
+   Confidence: 28.90%
+
+🦷 Upper Left Second Premolar (#25)
+   Status: Enamel Erosion (Mild)
+   Confidence: 30.46%
+
+🦷 Tooth #30 (#30)
+   Status: Gingivitis (Mild)
+   Confidence: 67.34%
+
+🦷 Tooth #30 (#30)
+   Status: Gingivitis (Mild)
+   Confidence: 51.32%
+
+🦷 Lower Left Central Incisor (#31)
+   Status: Healthy (None)
+   Confidence: 53.08%
+
+🦷 Lower Left Central Incisor (#31)
+   Status: Healthy (None)
+   Confidence: 51.37%
+
+🦷 Lower Left Lateral Incisor (#32)
+   Status: Enamel Erosion (Mild)
+   Confidence: 32.12%
+
+
+💡 AI-GENERATED INSIGHTS:
+--------------------------------------------------------------------------------
+Error generating AI insights: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp
+Please retry in 7.574985075s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash-exp"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash-exp"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, retry_delay {
+  seconds: 7
+}
+]
+
+================================================================================
+END OF REPORT
+================================================================================

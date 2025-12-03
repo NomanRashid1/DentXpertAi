@@ -1,8 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'edit_doctor_profile_screen.dart';
-import 'notification_service.dart';
 import 'doctor_appointment_screen.dart'; // ✅ New screen to show appointments
 
 class DoctorDashboardScreen extends StatelessWidget {
@@ -11,10 +9,11 @@ class DoctorDashboardScreen extends StatelessWidget {
   const DoctorDashboardScreen({super.key, required this.doctorEmail});
 
   Future<DocumentSnapshot?> fetchDoctorData() async {
-    final querySnapshot = await FirebaseFirestore.instance
-        .collection('dentists')
-        .where('email', isEqualTo: doctorEmail)
-        .get();
+    final querySnapshot =
+        await FirebaseFirestore.instance
+            .collection('dentists')
+            .where('email', isEqualTo: doctorEmail)
+            .get();
     if (querySnapshot.docs.isNotEmpty) {
       return querySnapshot.docs.first;
     }
@@ -63,12 +62,12 @@ class DoctorDashboardScreen extends StatelessWidget {
                     children: [
                       Container(
                         decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.05),
+                          color: Colors.white.withValues(alpha: 0.05),
                           borderRadius: BorderRadius.circular(24),
                           border: Border.all(color: Colors.white12),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.cyanAccent.withOpacity(0.2),
+                              color: Colors.cyanAccent.withValues(alpha: 0.2),
                               blurRadius: 12,
                               offset: const Offset(0, 6),
                             ),
@@ -80,7 +79,11 @@ class DoctorDashboardScreen extends StatelessWidget {
                             CircleAvatar(
                               radius: 50,
                               backgroundColor: Colors.cyanAccent,
-                              child: const Icon(Icons.person, size: 50, color: Colors.black),
+                              child: const Icon(
+                                Icons.person,
+                                size: 50,
+                                color: Colors.black,
+                              ),
                             ),
                             const SizedBox(height: 16),
                             Text(
@@ -102,7 +105,10 @@ class DoctorDashboardScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 30),
-                      _buildInfoTile('Clinic Address', data['clinicAddress'] ?? ''),
+                      _buildInfoTile(
+                        'Clinic Address',
+                        data['clinicAddress'] ?? '',
+                      ),
                       _buildInfoTile('Charges (PKR)', data['charges'] ?? ''),
                       _buildInfoTile('Email', data['email'] ?? ''),
                       _buildInfoTile('Phone', data['phone'] ?? ''),
@@ -114,7 +120,10 @@ class DoctorDashboardScreen extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) => DoctorAppointmentsScreen(doctorEmail: doctorEmail),
+                              builder:
+                                  (_) => DoctorAppointmentsScreen(
+                                    doctorEmail: doctorEmail,
+                                  ),
                             ),
                           );
                         },
@@ -135,9 +144,10 @@ class DoctorDashboardScreen extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) => EditDoctorProfileScreen(
-                                doctorEmail: doctorEmail,
-                              ),
+                              builder:
+                                  (_) => EditDoctorProfileScreen(
+                                    doctorEmail: doctorEmail,
+                                  ),
                             ),
                           );
                         },
@@ -169,14 +179,20 @@ class DoctorDashboardScreen extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.08),
+          color: Colors.white.withValues(alpha: 0.08),
           borderRadius: BorderRadius.circular(16),
           border: Border.all(color: Colors.white10),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(title, style: const TextStyle(color: Colors.white70, fontWeight: FontWeight.w600)),
+            Text(
+              title,
+              style: const TextStyle(
+                color: Colors.white70,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
             Flexible(
               child: Text(
                 value,

@@ -4,6 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart'; // ✅ RE-ADDED FIREBASE 
 // ❌ REMOVED: SpecialistData class (no longer needed, using Firestore instead)
 
 class SpecialistListScreen extends StatefulWidget {
+  const SpecialistListScreen({super.key});
+
   @override
   _SpecialistListScreenState createState() => _SpecialistListScreenState();
 }
@@ -34,7 +36,9 @@ class _SpecialistListScreenState extends State<SpecialistListScreen> {
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 ),
-                borderRadius: BorderRadius.vertical(bottom: Radius.circular(32)),
+                borderRadius: BorderRadius.vertical(
+                  bottom: Radius.circular(32),
+                ),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,7 +49,11 @@ class _SpecialistListScreenState extends State<SpecialistListScreen> {
                       SizedBox(width: 8),
                       Text(
                         'Nearby Dental Specialists',
-                        style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: Colors.white),
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
                       ),
                     ],
                   ),
@@ -70,17 +78,24 @@ class _SpecialistListScreenState extends State<SpecialistListScreen> {
                       filled: true,
                       fillColor: Colors.white,
                       prefixIcon: const Icon(Icons.search, color: Colors.black),
-                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(color: Colors.cyanAccent.withOpacity(0.4)),
+                        borderSide: BorderSide(
+                          color: Colors.cyanAccent.withValues(alpha: 0.4),
+                        ),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
-                        borderSide: const BorderSide(color: Colors.cyanAccent, width: 2),
+                        borderSide: const BorderSide(
+                          color: Colors.cyanAccent,
+                          width: 2,
+                        ),
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -90,51 +105,75 @@ class _SpecialistListScreenState extends State<SpecialistListScreen> {
             Expanded(
               child: StreamBuilder<QuerySnapshot>(
                 // 1. Point to the 'dentists' collection and order by creation time
-                stream: FirebaseFirestore.instance
-                    .collection('dentists')
-                    .orderBy('createdAt', descending: true)
-                    .snapshots(),
+                stream:
+                    FirebaseFirestore.instance
+                        .collection('dentists')
+                        .orderBy('createdAt', descending: true)
+                        .snapshots(),
 
                 builder: (context, snapshot) {
                   // Handle loading state
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Center(child: CircularProgressIndicator(color: Colors.cyanAccent));
+                    return const Center(
+                      child: CircularProgressIndicator(
+                        color: Colors.cyanAccent,
+                      ),
+                    );
                   }
 
                   // Handle errors
                   if (snapshot.hasError) {
-                    return Center(child: Text('Error loading dentists: ${snapshot.error}', style: const TextStyle(color: Colors.red)));
+                    return Center(
+                      child: Text(
+                        'Error loading dentists: ${snapshot.error}',
+                        style: const TextStyle(color: Colors.red),
+                      ),
+                    );
                   }
 
                   // Handle no data case
                   if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
                     return const Center(
-                      child: Text('No dentists found.', style: TextStyle(color: Colors.white70)),
+                      child: Text(
+                        'No dentists found.',
+                        style: TextStyle(color: Colors.white70),
+                      ),
                     );
                   }
 
                   // 2. Apply search filter to the documents
-                  final filteredDocs = snapshot.data!.docs.where((doc) {
-                    final data = doc.data() as Map<String, dynamic>;
-                    // Assuming 'clinicAddress' contains the city information
-                    final city = (data['clinicAddress'] ?? '').toString().toLowerCase();
-                    return _searchCity.isEmpty || city.contains(_searchCity);
-                  }).toList();
+                  final filteredDocs =
+                      snapshot.data!.docs.where((doc) {
+                        final data = doc.data() as Map<String, dynamic>;
+                        // Assuming 'clinicAddress' contains the city information
+                        final city =
+                            (data['clinicAddress'] ?? '')
+                                .toString()
+                                .toLowerCase();
+                        return _searchCity.isEmpty ||
+                            city.contains(_searchCity);
+                      }).toList();
 
                   // Handle case after filtering
                   if (filteredDocs.isEmpty) {
                     return const Center(
-                      child: Text('No dentists match your search criteria.', style: TextStyle(color: Colors.white70)),
+                      child: Text(
+                        'No dentists match your search criteria.',
+                        style: TextStyle(color: Colors.white70),
+                      ),
                     );
                   }
 
-
                   // 3. Build the list view with the filtered, real-time data
                   return ListView.builder(
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 8,
+                    ),
                     itemCount: filteredDocs.length,
                     itemBuilder: (context, index) {
-                      final data = filteredDocs[index].data() as Map<String, dynamic>;
+                      final data =
+                          filteredDocs[index].data() as Map<String, dynamic>;
 
                       return GestureDetector(
                         onTap: () {
@@ -150,8 +189,10 @@ class _SpecialistListScreenState extends State<SpecialistListScreen> {
                           margin: const EdgeInsets.only(bottom: 20),
                           padding: const EdgeInsets.all(18),
                           decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.05),
-                            border: Border.all(color: Colors.cyanAccent.withOpacity(0.2)),
+                            color: Colors.white.withValues(alpha: 0.05),
+                            border: Border.all(
+                              color: Colors.cyanAccent.withValues(alpha: 0.2),
+                            ),
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Column(
@@ -162,12 +203,17 @@ class _SpecialistListScreenState extends State<SpecialistListScreen> {
                                   const CircleAvatar(
                                     radius: 32,
                                     backgroundColor: Colors.cyanAccent,
-                                    child: Icon(Icons.person, size: 32, color: Colors.black),
+                                    child: Icon(
+                                      Icons.person,
+                                      size: 32,
+                                      color: Colors.black,
+                                    ),
                                   ),
                                   const SizedBox(width: 16),
                                   Expanded(
                                     child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           data['name'] ?? 'Dr. Unknown',
@@ -179,13 +225,19 @@ class _SpecialistListScreenState extends State<SpecialistListScreen> {
                                         ),
                                         const SizedBox(height: 4),
                                         Text(
-                                          data['specialization'] ?? 'General Dentist',
-                                          style: const TextStyle(color: Colors.white70),
+                                          data['specialization'] ??
+                                              'General Dentist',
+                                          style: const TextStyle(
+                                            color: Colors.white70,
+                                          ),
                                         ),
                                         const SizedBox(height: 6),
                                         Text(
                                           data['bio'] ?? 'No bio available.',
-                                          style: const TextStyle(color: Colors.white60, fontSize: 13),
+                                          style: const TextStyle(
+                                            color: Colors.white60,
+                                            fontSize: 13,
+                                          ),
                                           maxLines: 3,
                                           overflow: TextOverflow.ellipsis,
                                         ),
@@ -196,16 +248,24 @@ class _SpecialistListScreenState extends State<SpecialistListScreen> {
                               ),
                               const SizedBox(height: 16),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Row(
                                     children: [
-                                      const Icon(Icons.attach_money, size: 20, color: Colors.cyanAccent),
+                                      const Icon(
+                                        Icons.attach_money,
+                                        size: 20,
+                                        color: Colors.cyanAccent,
+                                      ),
                                       const SizedBox(width: 6),
                                       Text(
                                         // The 'charges' field is stored as 'PKR XXXX'
                                         '${data['charges'] ?? '0'} /hour',
-                                        style: const TextStyle(color: Colors.white, fontSize: 14),
+                                        style: const TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 14,
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -217,7 +277,10 @@ class _SpecialistListScreenState extends State<SpecialistListScreen> {
                                         arguments: {'doctor': data},
                                       );
                                     },
-                                    icon: const Icon(Icons.calendar_today, size: 16),
+                                    icon: const Icon(
+                                      Icons.calendar_today,
+                                      size: 16,
+                                    ),
                                     label: const Text('Book'),
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors.cyanAccent,
@@ -225,8 +288,13 @@ class _SpecialistListScreenState extends State<SpecialistListScreen> {
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(12),
                                       ),
-                                      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-                                      textStyle: const TextStyle(fontWeight: FontWeight.bold),
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 14,
+                                        vertical: 10,
+                                      ),
+                                      textStyle: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -251,7 +319,7 @@ class _SpecialistListScreenState extends State<SpecialistListScreen> {
 
 class DoctorDetailScreen extends StatelessWidget {
   final Map<String, dynamic> data;
-  const DoctorDetailScreen({required this.data});
+  const DoctorDetailScreen({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -274,7 +342,7 @@ class DoctorDetailScreen extends StatelessWidget {
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.cyanAccent.withOpacity(0.6),
+                    color: Colors.cyanAccent.withValues(alpha: 0.6),
                     blurRadius: 20,
                     spreadRadius: 3,
                   ),
@@ -307,12 +375,28 @@ class DoctorDetailScreen extends StatelessWidget {
             const SizedBox(height: 30),
 
             // Detail Cards
-            _infoCard(Icons.badge, 'Experience', '${data['experience'] ?? '0'} years'),
-            _infoCard(Icons.monetization_on, 'Charges', data['charges'] ?? 'N/A'),
+            _infoCard(
+              Icons.badge,
+              'Experience',
+              '${data['experience'] ?? '0'} years',
+            ),
+            _infoCard(
+              Icons.monetization_on,
+              'Charges',
+              data['charges'] ?? 'N/A',
+            ),
             _infoCard(Icons.business, 'Clinic', data['clinicName'] ?? ''),
-            _infoCard(Icons.location_on, 'Address', data['clinicAddress'] ?? ''),
+            _infoCard(
+              Icons.location_on,
+              'Address',
+              data['clinicAddress'] ?? '',
+            ),
             _infoCard(Icons.phone, 'Contact', data['phone'] ?? ''),
-            _infoCard(Icons.info_outline, 'Bio', data['bio'] ?? 'No bio available'),
+            _infoCard(
+              Icons.info_outline,
+              'Bio',
+              data['bio'] ?? 'No bio available',
+            ),
           ],
         ),
       ),
@@ -324,12 +408,12 @@ class DoctorDetailScreen extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 8),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.05),
+        color: Colors.white.withValues(alpha: 0.05),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.cyanAccent.withOpacity(0.2)),
+        border: Border.all(color: Colors.cyanAccent.withValues(alpha: 0.2)),
         boxShadow: [
           BoxShadow(
-            color: Colors.cyanAccent.withOpacity(0.05),
+            color: Colors.cyanAccent.withValues(alpha: 0.05),
             blurRadius: 8,
             spreadRadius: 1,
             offset: const Offset(0, 2),
@@ -351,7 +435,11 @@ class DoctorDetailScreen extends StatelessWidget {
                 const SizedBox(height: 4),
                 Text(
                   value.isNotEmpty ? value : 'N/A',
-                  style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500),
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ],
             ),

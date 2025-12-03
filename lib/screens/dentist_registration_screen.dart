@@ -9,8 +9,11 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 import 'dart:io';
 
 class DentistRegistrationScreen extends StatefulWidget {
+  const DentistRegistrationScreen({super.key});
+
   @override
-  _DentistRegistrationScreenState createState() => _DentistRegistrationScreenState();
+  _DentistRegistrationScreenState createState() =>
+      _DentistRegistrationScreenState();
 }
 
 class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
@@ -24,10 +27,12 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
   final TextEditingController _cnicController = TextEditingController();
   final TextEditingController _experienceController = TextEditingController();
   final TextEditingController _clinicNameController = TextEditingController();
-  final TextEditingController _clinicAddressController = TextEditingController();
+  final TextEditingController _clinicAddressController =
+      TextEditingController();
   final TextEditingController _chargesController = TextEditingController();
   final TextEditingController _bioController = TextEditingController();
-  final TextEditingController _emergencyChargesController = TextEditingController();
+  final TextEditingController _emergencyChargesController =
+      TextEditingController();
 
   bool offersEmergency = false;
   List<String> timeSlots = [];
@@ -37,8 +42,14 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
   String? _selectedSpecialization;
 
   final List<String> specializations = [
-    'Orthodontist', 'Endodontist', 'Prosthodontist', 'Periodontist',
-    'Oral Surgeon', 'Pediatric Dentist', 'Cosmetic Dentist', 'General Dentist'
+    'Orthodontist',
+    'Endodontist',
+    'Prosthodontist',
+    'Periodontist',
+    'Oral Surgeon',
+    'Pediatric Dentist',
+    'Cosmetic Dentist',
+    'General Dentist',
   ];
 
   @override
@@ -79,7 +90,11 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
 
     if (_frontCardImage == null || _backCardImage == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Please upload both front and back license card images")),
+        const SnackBar(
+          content: Text(
+            "Please upload both front and back license card images",
+          ),
+        ),
       );
       return;
     }
@@ -100,7 +115,10 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
         'clinicName': _clinicNameController.text,
         'phone': _phoneController.text,
         'offersEmergency': offersEmergency,
-        'emergencyCharges': offersEmergency ? ('PKR ${_emergencyChargesController.text}') : null,
+        'emergencyCharges':
+            offersEmergency
+                ? ('PKR ${_emergencyChargesController.text}')
+                : null,
         'timeSlots': timeSlots,
         'isApproved': false,
         'createdAt': FieldValue.serverTimestamp(),
@@ -113,15 +131,15 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
       Navigator.pushReplacementNamed(
         context,
         '/registrationSuccess',
-        arguments: {
-          'name': name,
-          'specialization': specialization,
-        },
+        arguments: {'name': name, 'specialization': specialization},
       );
-
     } on FirebaseException catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Submission failed: ${e.message}. Check Firestore Rules.")),
+        SnackBar(
+          content: Text(
+            "Submission failed: ${e.message}. Check Firestore Rules.",
+          ),
+        ),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -135,63 +153,97 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
 
   Future<void> _showTimeSlotDialog() async {
     final List<String> availableSlots = [
-      "9:00 AM", "9:30 AM", "10:00 AM", "10:30 AM",
-      "11:00 AM", "11:30 AM", "12:00 PM", "12:30 PM",
-      "2:00 PM", "2:30 PM", "3:00 PM", "3:30 PM",
-      "4:00 PM", "4:30 PM", "5:00 PM", "5:30 PM",
+      "9:00 AM",
+      "9:30 AM",
+      "10:00 AM",
+      "10:30 AM",
+      "11:00 AM",
+      "11:30 AM",
+      "12:00 PM",
+      "12:30 PM",
+      "2:00 PM",
+      "2:30 PM",
+      "3:00 PM",
+      "3:30 PM",
+      "4:00 PM",
+      "4:30 PM",
+      "5:00 PM",
+      "5:30 PM",
     ];
 
     String? selectedSlot;
 
     await showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: const Color(0xFF04152D),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        title: const Text("Select Time Slot", style: TextStyle(color: Colors.white)),
-        content: StatefulBuilder(
-          builder: (context, setState) {
-            return DropdownButtonFormField<String>(
-              value: selectedSlot,
-              items: availableSlots.map((slot) {
-                return DropdownMenuItem(
-                  value: slot,
-                  child: Text(slot, style: const TextStyle(color: Colors.white)),
+      builder:
+          (context) => AlertDialog(
+            backgroundColor: const Color(0xFF04152D),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            title: const Text(
+              "Select Time Slot",
+              style: TextStyle(color: Colors.white),
+            ),
+            content: StatefulBuilder(
+              builder: (context, setState) {
+                return DropdownButtonFormField<String>(
+                  value: selectedSlot,
+                  items:
+                      availableSlots.map((slot) {
+                        return DropdownMenuItem(
+                          value: slot,
+                          child: Text(
+                            slot,
+                            style: const TextStyle(color: Colors.white),
+                          ),
+                        );
+                      }).toList(),
+                  onChanged: (val) => setState(() => selectedSlot = val),
+                  decoration: const InputDecoration(
+                    hintText: "Choose a time",
+                    hintStyle: TextStyle(color: Colors.white54),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.cyanAccent),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.cyanAccent,
+                        width: 2,
+                      ),
+                    ),
+                  ),
+                  dropdownColor: Colors.black,
+                  style: const TextStyle(color: Colors.white),
                 );
-              }).toList(),
-              onChanged: (val) => setState(() => selectedSlot = val),
-              decoration: const InputDecoration(
-                hintText: "Choose a time",
-                hintStyle: TextStyle(color: Colors.white54),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.cyanAccent),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.cyanAccent, width: 2),
+              },
+            ),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  if (selectedSlot != null &&
+                      !timeSlots.contains(selectedSlot)) {
+                    setState(() => timeSlots.add(selectedSlot!));
+                  }
+                  Navigator.pop(context);
+                },
+                child: const Text(
+                  "Add",
+                  style: TextStyle(color: Colors.cyanAccent),
                 ),
               ),
-              dropdownColor: Colors.black,
-              style: const TextStyle(color: Colors.white),
-            );
-          },
-        ),
-        actions: [
-          TextButton(
-            onPressed: () {
-              if (selectedSlot != null && !timeSlots.contains(selectedSlot)) {
-                setState(() => timeSlots.add(selectedSlot!));
-              }
-              Navigator.pop(context);
-            },
-            child: const Text("Add", style: TextStyle(color: Colors.cyanAccent)),
+            ],
           ),
-        ],
-      ),
     );
   }
 
-  Widget _buildFormField(String label, TextEditingController controller,
-      {bool isPassword = false, bool isNumeric = false, int? maxLines = 1}) {
+  Widget _buildFormField(
+    String label,
+    TextEditingController controller, {
+    bool isPassword = false,
+    bool isNumeric = false,
+    int? maxLines = 1,
+  }) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: TextFormField(
@@ -228,7 +280,8 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
             if (value == null || value.isEmpty) {
               return 'Password is required';
             }
-            final passwordPattern = r'^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$';
+            final passwordPattern =
+                r'^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$';
             final regex = RegExp(passwordPattern);
             if (!regex.hasMatch(value)) {
               return 'Include at least 1 letter, 1 number & 1 symbol';
@@ -240,7 +293,6 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
           }
           return null;
         },
-
       ),
     );
   }
@@ -262,33 +314,40 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
               height: 120,
               width: double.infinity,
               decoration: BoxDecoration(
-                border: Border.all(color: Colors.cyanAccent.withOpacity(0.5)),
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white.withOpacity(0.05),
-              ),
-              child: imageFile == null
-                  ? const Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.cloud_upload, color: Colors.cyanAccent, size: 40),
-                    SizedBox(height: 8),
-                    Text(
-                      'Upload Image',
-                      style: TextStyle(color: Colors.white70),
-                    ),
-                  ],
+                border: Border.all(
+                  color: Colors.cyanAccent.withValues(alpha: 0.5),
                 ),
-              )
-                  : ClipRRect(
                 borderRadius: BorderRadius.circular(10),
-                child: Image.file(
-                  imageFile,
-                  fit: BoxFit.cover,
-                  height: 120,
-                  width: double.infinity,
-                ),
+                color: Colors.white.withValues(alpha: 0.05),
               ),
+              child:
+                  imageFile == null
+                      ? const Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.cloud_upload,
+                              color: Colors.cyanAccent,
+                              size: 40,
+                            ),
+                            SizedBox(height: 8),
+                            Text(
+                              'Upload Image',
+                              style: TextStyle(color: Colors.white70),
+                            ),
+                          ],
+                        ),
+                      )
+                      : ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Image.file(
+                          imageFile,
+                          fit: BoxFit.cover,
+                          height: 120,
+                          width: double.infinity,
+                        ),
+                      ),
             ),
           ),
         ],
@@ -305,7 +364,11 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
           const SizedBox(height: 12),
           const Text(
             'Dentist Registration',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
           ),
           const SizedBox(height: 24),
           // --- Personal Details ---
@@ -325,7 +388,10 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
-                borderSide: const BorderSide(color: Colors.cyanAccent, width: 2),
+                borderSide: const BorderSide(
+                  color: Colors.cyanAccent,
+                  width: 2,
+                ),
               ),
             ),
             initialCountryCode: 'PK',
@@ -336,41 +402,59 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
               _phoneController.text = phone?.completeNumber ?? '';
             },
           ),
-          _buildFormField('CNIC / License No.', _cnicController, isNumeric: true),
+          _buildFormField(
+            'CNIC / License No.',
+            _cnicController,
+            isNumeric: true,
+          ),
 
           // --- License Images ---
           _buildImagePicker('Front License Card', _frontCardImage, 'front'),
           _buildImagePicker('Back License Card', _backCardImage, 'back'),
 
           // --- Professional Details ---
-          _buildFormField('Experience (years)', _experienceController, isNumeric: true),
+          _buildFormField(
+            'Experience (years)',
+            _experienceController,
+            isNumeric: true,
+          ),
 
           DropdownButtonFormField<String>(
             value: _selectedSpecialization,
-            items: specializations.map((spec) {
-              return DropdownMenuItem(
-                value: spec,
-                child: Text(spec, style: const TextStyle(color: Colors.white)),
-              );
-            }).toList(),
-            onChanged: (value) => setState(() => _selectedSpecialization = value),
+            items:
+                specializations.map((spec) {
+                  return DropdownMenuItem(
+                    value: spec,
+                    child: Text(
+                      spec,
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                  );
+                }).toList(),
+            onChanged:
+                (value) => setState(() => _selectedSpecialization = value),
             decoration: InputDecoration(
               labelText: 'Specialization',
               labelStyle: const TextStyle(color: Colors.white70),
               filled: true,
-              fillColor: Colors.white.withOpacity(0.05),
+              fillColor: Colors.white.withValues(alpha: 0.05),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: const BorderSide(color: Colors.cyanAccent),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
-                borderSide: const BorderSide(color: Colors.cyanAccent, width: 2),
+                borderSide: const BorderSide(
+                  color: Colors.cyanAccent,
+                  width: 2,
+                ),
               ),
             ),
             dropdownColor: const Color(0xFF04152D),
             style: const TextStyle(color: Colors.white),
-            validator: (value) => value == null ? 'Please select a specialization' : null,
+            validator:
+                (value) =>
+                    value == null ? 'Please select a specialization' : null,
           ),
 
           // --- Clinic Details ---
@@ -386,14 +470,17 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
               gradient: LinearGradient(
-                colors: [Colors.cyanAccent.withOpacity(0.2), Colors.white10],
+                colors: [
+                  Colors.cyanAccent.withValues(alpha: 0.2),
+                  Colors.white10,
+                ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),
               border: Border.all(color: Colors.cyanAccent, width: 1.5),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.cyanAccent.withOpacity(0.3),
+                  color: Colors.cyanAccent.withValues(alpha: 0.3),
                   blurRadius: 10,
                   spreadRadius: 1,
                   offset: const Offset(0, 4),
@@ -405,12 +492,19 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
               children: [
                 Row(
                   children: [
-                    const Icon(Icons.local_hospital_rounded, color: Colors.cyanAccent),
+                    const Icon(
+                      Icons.local_hospital_rounded,
+                      color: Colors.cyanAccent,
+                    ),
                     const SizedBox(width: 10),
                     const Expanded(
                       child: Text(
                         'Offers Emergency Appointments',
-                        style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                     Switch(
@@ -423,7 +517,11 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
                 ),
                 const SizedBox(height: 10),
                 if (offersEmergency)
-                  _buildFormField('Emergency Charges (PKR)', _emergencyChargesController, isNumeric: true),
+                  _buildFormField(
+                    'Emergency Charges (PKR)',
+                    _emergencyChargesController,
+                    isNumeric: true,
+                  ),
               ],
             ),
           ),
@@ -434,12 +532,20 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
             child: ElevatedButton.icon(
               onPressed: _showTimeSlotDialog,
               icon: const Icon(Icons.access_time, size: 20),
-              label: const Text('Add Available Time Slot', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
+              label: const Text(
+                'Add Available Time Slot',
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+              ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.cyanAccent,
                 foregroundColor: Colors.black,
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 12,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
                 elevation: 4,
               ),
             ),
@@ -450,14 +556,24 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
               child: Wrap(
                 spacing: 8.0,
                 runSpacing: 4.0,
-                children: timeSlots.map((slot) {
-                  return Chip(
-                    label: Text(slot, style: const TextStyle(color: Colors.black)),
-                    backgroundColor: Colors.cyanAccent.withOpacity(0.8),
-                    deleteIcon: const Icon(Icons.close, color: Colors.black, size: 18),
-                    onDeleted: () => setState(() => timeSlots.remove(slot)),
-                  );
-                }).toList(),
+                children:
+                    timeSlots.map((slot) {
+                      return Chip(
+                        label: Text(
+                          slot,
+                          style: const TextStyle(color: Colors.black),
+                        ),
+                        backgroundColor: Colors.cyanAccent.withValues(
+                          alpha: 0.8,
+                        ),
+                        deleteIcon: const Icon(
+                          Icons.close,
+                          color: Colors.black,
+                          size: 18,
+                        ),
+                        onDeleted: () => setState(() => timeSlots.remove(slot)),
+                      );
+                    }).toList(),
               ),
             ),
 
@@ -466,17 +582,19 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
           // --- Submit Button ---
           ElevatedButton(
             onPressed: _submitForm,
-            child: const Text(
-              'SUBMIT REGISTRATION',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.cyanAccent,
               foregroundColor: Colors.black,
               minimumSize: const Size(double.infinity, 56),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
               elevation: 6,
-              shadowColor: Colors.cyanAccent.withOpacity(0.4),
+              shadowColor: Colors.cyanAccent.withValues(alpha: 0.4),
+            ),
+            child: const Text(
+              'SUBMIT REGISTRATION',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ),
         ],
@@ -520,13 +638,17 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
               child: Center(
                 child: Card(
                   elevation: 6,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                  color: Colors.white.withOpacity(0.05),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  color: Colors.white.withValues(alpha: 0.05),
                   child: Container(
                     padding: const EdgeInsets.all(24),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: Colors.cyanAccent.withOpacity(0.3)),
+                      border: Border.all(
+                        color: Colors.cyanAccent.withValues(alpha: 0.3),
+                      ),
                     ),
                     child: buildForm(),
                   ),

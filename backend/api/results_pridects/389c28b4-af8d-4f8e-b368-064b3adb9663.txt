@@ -1,0 +1,107 @@
+================================================================================
+DENTAL X-RAY ANALYSIS REPORT
+================================================================================
+
+Image: 8b6a9410-a2cd-4b08-a81f-67c2af0389b2_108.jpg
+Total Teeth Detected: 23
+
+
+
+📋 OTHER FINDINGS:
+--------------------------------------------------------------------------------
+
+🦷 Tooth #2 (#2)
+   Status: Healthy (None)
+   Confidence: 73.93%
+
+🦷 Tooth #3 (#3)
+   Status: Healthy (None)
+   Confidence: 73.59%
+
+🦷 Tooth #4 (#4)
+   Status: Healthy (None)
+   Confidence: 88.90%
+
+🦷 Tooth #5 (#5)
+   Status: Healthy (None)
+   Confidence: 89.93%
+
+🦷 Tooth #6 (#6)
+   Status: Healthy (None)
+   Confidence: 82.45%
+
+🦷 Tooth #8 (#8)
+   Status: Healthy (None)
+   Confidence: 80.17%
+
+🦷 Tooth #9 (#9)
+   Status: Healthy (None)
+   Confidence: 77.31%
+
+🦷 Tooth #10 (#10)
+   Status: Healthy (None)
+   Confidence: 77.06%
+
+🦷 Upper Right Central Incisor (#11)
+   Status: Healthy (None)
+   Confidence: 70.99%
+
+🦷 Upper Right Canine (#13)
+   Status: Healthy (None)
+   Confidence: 81.89%
+
+🦷 Upper Right First Premolar (#14)
+   Status: Healthy (None)
+   Confidence: 84.52%
+
+🦷 Upper Right Second Premolar (#15)
+   Status: Healthy (None)
+   Confidence: 83.50%
+
+🦷 Tooth #20 (#20)
+   Status: Healthy (None)
+   Confidence: 91.36%
+
+🦷 Upper Left Central Incisor (#21)
+   Status: Healthy (None)
+   Confidence: 88.49%
+
+🦷 Upper Left Lateral Incisor (#22)
+   Status: Healthy (None)
+   Confidence: 85.31%
+
+🦷 Upper Left Canine (#23)
+   Status: Healthy (None)
+   Confidence: 74.54%
+
+🦷 Upper Left Second Premolar (#25)
+   Status: Healthy (None)
+   Confidence: 72.97%
+
+🦷 Upper Left First Molar (#26)
+   Status: Healthy (None)
+   Confidence: 77.71%
+
+🦷 Upper Left Second Molar (#27)
+   Status: Healthy (None)
+   Confidence: 80.28%
+
+🦷 Tooth #29 (#29)
+   Status: Healthy (None)
+   Confidence: 75.62%
+
+🦷 Tooth #30 (#30)
+   Status: Healthy (None)
+   Confidence: 88.44%
+
+🦷 Lower Left Central Incisor (#31)
+   Status: Healthy (None)
+   Confidence: 88.20%
+
+🦷 Lower Left Lateral Incisor (#32)
+   Status: Healthy (None)
+   Confidence: 73.45%
+
+================================================================================
+END OF REPORT
+================================================================================

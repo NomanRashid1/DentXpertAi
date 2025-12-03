@@ -23,7 +23,10 @@ class DoctorChoiceScreen extends StatelessWidget {
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
                 child: Container(
-                  padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 28),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 40,
+                    horizontal: 28,
+                  ),
                   decoration: BoxDecoration(
                     color: const Color(0xAA0D1B2A), // Better glass tone
                     borderRadius: BorderRadius.circular(32),
@@ -33,7 +36,7 @@ class DoctorChoiceScreen extends StatelessWidget {
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.cyanAccent.withOpacity(0.2),
+                        color: Colors.cyanAccent.withValues(alpha: 0.2),
                         blurRadius: 40,
                         offset: const Offset(0, 12),
                       ),
@@ -49,7 +52,9 @@ class DoctorChoiceScreen extends StatelessWidget {
                           shape: BoxShape.circle,
                           boxShadow: [
                             BoxShadow(
-                              color: const Color(0xFF00FFF7).withOpacity(0.9),
+                              color: const Color(
+                                0xFF00FFF7,
+                              ).withValues(alpha: 0.9),
                               blurRadius: 50,
                               spreadRadius: 8,
                             ),

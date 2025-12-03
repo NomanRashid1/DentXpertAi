@@ -3,6 +3,8 @@ import 'dart:async';
 import 'dart:ui';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
@@ -16,8 +18,10 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
 
-    _controller =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 1200));
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 1200),
+    );
     _fadeIn = CurvedAnimation(parent: _controller, curve: Curves.easeIn);
     _controller.forward();
 
@@ -59,7 +63,10 @@ class _SplashScreenState extends State<SplashScreen>
           // This creates a reliable buffer at the bottom of the screen.
           SafeArea(
             child: Align(
-              alignment: const Alignment(0.0, -0.05), // Shifted 5% up from true center
+              alignment: const Alignment(
+                0.0,
+                -0.05,
+              ), // Shifted 5% up from true center
               child: FadeTransition(
                 opacity: _fadeIn,
                 child: ClipRRect(
@@ -70,7 +77,7 @@ class _SplashScreenState extends State<SplashScreen>
                       width: 320,
                       padding: const EdgeInsets.all(30),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.1),
+                        color: Colors.white.withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(25),
                         border: Border.all(color: Colors.white30),
                         boxShadow: const [
@@ -87,9 +94,10 @@ class _SplashScreenState extends State<SplashScreen>
                           Image.asset('assets/images/logo.png', height: 100),
                           const SizedBox(height: 20),
                           ShaderMask(
-                            shaderCallback: (bounds) => const LinearGradient(
-                              colors: [Colors.cyanAccent, Colors.white],
-                            ).createShader(bounds),
+                            shaderCallback:
+                                (bounds) => const LinearGradient(
+                                  colors: [Colors.cyanAccent, Colors.white],
+                                ).createShader(bounds),
                             child: const Text(
                               'DentXpertAI',
                               style: TextStyle(
@@ -131,7 +139,7 @@ class _SplashScreenState extends State<SplashScreen>
                   child: Text(
                     '© DentXpertAI 2025 | Advanced Diagnostics',
                     style: TextStyle(
-                      color: Colors.cyanAccent.withOpacity(0.6),
+                      color: Colors.cyanAccent.withValues(alpha: 0.6),
                       fontSize: 12,
                       fontWeight: FontWeight.w300,
                     ),
@@ -140,7 +148,6 @@ class _SplashScreenState extends State<SplashScreen>
               ),
             ),
           ),
-
         ],
       ),
     );

@@ -7,13 +7,14 @@ class EmailVerificationScreen extends StatefulWidget {
   final bool isLinkSent; // We still use this to display the prompt
 
   const EmailVerificationScreen({
-    Key? key,
+    super.key,
     required this.email,
     this.isLinkSent = false,
-  }) : super(key: key);
+  });
 
   @override
-  State<EmailVerificationScreen> createState() => _EmailVerificationScreenState();
+  State<EmailVerificationScreen> createState() =>
+      _EmailVerificationScreenState();
 }
 
 class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
@@ -44,10 +45,9 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
     // --- SIMULATION SUCCESS: Directly navigate ---
     if (mounted) {
       // Navigate to the User Home Screen immediately
-      Navigator.of(context).pushNamedAndRemoveUntil(
-        '/userHome',
-            (route) => false,
-      );
+      Navigator.of(
+        context,
+      ).pushNamedAndRemoveUntil('/userHome', (route) => false);
     }
     // --- END SIMULATION ---
 
@@ -97,10 +97,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
 
                 Text(
                   'A 6-digit code has been sent to:',
-                  style: const TextStyle(
-                    fontSize: 16,
-                    color: Colors.white70,
-                  ),
+                  style: const TextStyle(fontSize: 16, color: Colors.white70),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 5),
@@ -123,20 +120,26 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                   maxLength: 6, // Limit input to 6 digits
                   textAlign: TextAlign.center,
                   style: const TextStyle(
-                      color: Colors.white, fontSize: 24, letterSpacing: 10),
+                    color: Colors.white,
+                    fontSize: 24,
+                    letterSpacing: 10,
+                  ),
                   cursorColor: Colors.cyanAccent,
                   decoration: InputDecoration(
                     hintText: '• • • • • •',
                     hintStyle: TextStyle(color: Colors.white54, fontSize: 24),
                     filled: true,
-                    fillColor: Colors.white.withOpacity(0.1),
+                    fillColor: Colors.white.withValues(alpha: 0.1),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide.none,
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
-                      borderSide: const BorderSide(color: Colors.cyanAccent, width: 2),
+                      borderSide: const BorderSide(
+                        color: Colors.cyanAccent,
+                        width: 2,
+                      ),
                     ),
                     counterText: '', // Hide the character counter
                   ),
@@ -157,17 +160,30 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                   height: 55,
                   child: ElevatedButton.icon(
                     onPressed: _isLoading ? null : _verifyCodeAndLogin,
-                    icon: _isLoading
-                        ? const SizedBox(height: 20, width: 20, child: CircularProgressIndicator(color: Colors.black, strokeWidth: 2))
-                        : const Icon(Icons.login),
+                    icon:
+                        _isLoading
+                            ? const SizedBox(
+                              height: 20,
+                              width: 20,
+                              child: CircularProgressIndicator(
+                                color: Colors.black,
+                                strokeWidth: 2,
+                              ),
+                            )
+                            : const Icon(Icons.login),
                     label: Text(
                       _isLoading ? 'VERIFYING...' : 'VERIFY & LOGIN',
-                      style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.cyanAccent,
                       foregroundColor: Colors.black,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
                     ),
                   ),
                 ),
@@ -175,10 +191,13 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                 const SizedBox(height: 15),
 
                 TextButton(
-                  onPressed: _isLoading ? null : () {
-                    // Allow user to go back to the input screen
-                    Navigator.pop(context);
-                  },
+                  onPressed:
+                      _isLoading
+                          ? null
+                          : () {
+                            // Allow user to go back to the input screen
+                            Navigator.pop(context);
+                          },
                   child: const Text(
                     'Go Back to Email Input',
                     style: TextStyle(color: Colors.white70),

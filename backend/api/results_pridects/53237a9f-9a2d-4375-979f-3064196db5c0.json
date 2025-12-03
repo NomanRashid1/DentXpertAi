@@ -1,0 +1,2226 @@
+{
+  "unique_id": "53237a9f-9a2d-4375-979f-3064196db5c0",
+  "input_image": "D:\\GitHub\\DentXpertAi\\backend\\uploads\\f76cb8f0-c959-4b82-9715-3ef9f1c05851_52.png",
+  "output_image": "results_pridects\\53237a9f-9a2d-4375-979f-3064196db5c0.jpg",
+  "total_detections": 40,
+  "detections": [
+    {
+      "tooth_number": 1,
+      "tooth_name": "Tooth #1",
+      "disease_type": "Enamel Erosion",
+      "severity": "Mild",
+      "affected_area": "Crown",
+      "confidence": 0.388170063495636,
+      "bounding_box": {
+        "x1": 1572,
+        "y1": 289,
+        "x2": 1699,
+        "y2": 477
+      },
+      "polygon": [
+        [
+          1603,
+          289
+        ],
+        [
+          1667,
+          289
+        ],
+        [
+          1699,
+          326
+        ],
+        [
+          1699,
+          401
+        ],
+        [
+          1667,
+          477
+        ],
+        [
+          1603,
+          477
+        ],
+        [
+          1572,
+          401
+        ],
+        [
+          1572,
+          326
+        ]
+      ],
+      "color": "#FFA500",
+      "recommendations": [
+        "Reduce acidic food/drink consumption",
+        "Use fluoride toothpaste",
+        "Consider dental bonding or veneers"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 2,
+      "tooth_name": "Tooth #2",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.45281514525413513,
+      "bounding_box": {
+        "x1": 1486,
+        "y1": 307,
+        "x2": 1619,
+        "y2": 522
+      },
+      "polygon": [
+        [
+          1519,
+          307
+        ],
+        [
+          1585,
+          307
+        ],
+        [
+          1619,
+          350
+        ],
+        [
+          1619,
+          436
+        ],
+        [
+          1585,
+          522
+        ],
+        [
+          1519,
+          522
+        ],
+        [
+          1486,
+          436
+        ],
+        [
+          1486,
+          350
+        ]
+      ],
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 3,
+      "tooth_name": "Tooth #3",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.5244322419166565,
+      "bounding_box": {
+        "x1": 1381,
+        "y1": 332,
+        "x2": 1509,
+        "y2": 557
+      },
+      "polygon": [
+        [
+          1413,
+          332
+        ],
+        [
+          1477,
+          332
+        ],
+        [
+          1509,
+          377
+        ],
+        [
+          1509,
+          467
+        ],
+        [
+          1477,
+          557
+        ],
+        [
+          1413,
+          557
+        ],
+        [
+          1381,
+          467
+        ],
+        [
+          1381,
+          377
+        ]
+      ],
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 3,
+      "tooth_name": "Tooth #3",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.400225430727005,
+      "bounding_box": {
+        "x1": 446,
+        "y1": 344,
+        "x2": 587,
+        "y2": 550
+      },
+      "polygon": [
+        [
+          481,
+          344
+        ],
+        [
+          551,
+          344
+        ],
+        [
+          587,
+          385
+        ],
+        [
+          587,
+          467
+        ],
+        [
+          551,
+          550
+        ],
+        [
+          481,
+          550
+        ],
+        [
+          446,
+          467
+        ],
+        [
+          446,
+          385
+        ]
+      ],
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 4,
+      "tooth_name": "Tooth #4",
+      "disease_type": "Cavity (Caries)",
+      "severity": "Mild",
+      "affected_area": "Crown",
+      "confidence": 0.5177484750747681,
+      "bounding_box": {
+        "x1": 1301,
+        "y1": 340,
+        "x2": 1399,
+        "y2": 574
+      },
+      "polygon": [
+        [
+          1325,
+          340
+        ],
+        [
+          1374,
+          340
+        ],
+        [
+          1399,
+          386
+        ],
+        [
+          1399,
+          480
+        ],
+        [
+          1374,
+          574
+        ],
+        [
+          1325,
+          574
+        ],
+        [
+          1301,
+          480
+        ],
+        [
+          1301,
+          386
+        ]
+      ],
+      "color": "#FF0000",
+      "recommendations": [
+        "Dental filling required",
+        "Regular dental checkups recommended",
+        "Improve oral hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 4,
+      "tooth_name": "Tooth #4",
+      "disease_type": "Enamel Erosion",
+      "severity": "Mild",
+      "affected_area": "Crown",
+      "confidence": 0.38406917452812195,
+      "bounding_box": {
+        "x1": 562,
+        "y1": 345,
+        "x2": 662,
+        "y2": 568
+      },
+      "polygon": [
+        [
+          587,
+          345
+        ],
+        [
+          637,
+          345
+        ],
+        [
+          662,
+          389
+        ],
+        [
+          662,
+          478
+        ],
+        [
+          637,
+          568
+        ],
+        [
+          587,
+          568
+        ],
+        [
+          562,
+          478
+        ],
+        [
+          562,
+          389
+        ]
+      ],
+      "color": "#FFA500",
+      "recommendations": [
+        "Reduce acidic food/drink consumption",
+        "Use fluoride toothpaste",
+        "Consider dental bonding or veneers"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 8,
+      "tooth_name": "Tooth #8",
+      "disease_type": "Enamel Erosion",
+      "severity": "Mild",
+      "affected_area": "Crown",
+      "confidence": 0.38771286606788635,
+      "bounding_box": {
+        "x1": 874,
+        "y1": 357,
+        "x2": 988,
+        "y2": 621
+      },
+      "polygon": [
+        [
+          902,
+          357
+        ],
+        [
+          959,
+          357
+        ],
+        [
+          988,
+          409
+        ],
+        [
+          988,
+          515
+        ],
+        [
+          959,
+          621
+        ],
+        [
+          902,
+          621
+        ],
+        [
+          874,
+          515
+        ],
+        [
+          874,
+          409
+        ]
+      ],
+      "color": "#FFA500",
+      "recommendations": [
+        "Reduce acidic food/drink consumption",
+        "Use fluoride toothpaste",
+        "Consider dental bonding or veneers"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 9,
+      "tooth_name": "Tooth #9",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.8053717017173767,
+      "bounding_box": {
+        "x1": 980,
+        "y1": 365,
+        "x2": 1091,
+        "y2": 627
+      },
+      "polygon": [
+        [
+          1007,
+          365
+        ],
+        [
+          1063,
+          365
+        ],
+        [
+          1091,
+          417
+        ],
+        [
+          1091,
+          522
+        ],
+        [
+          1063,
+          627
+        ],
+        [
+          1007,
+          627
+        ],
+        [
+          980,
+          522
+        ],
+        [
+          980,
+          417
+        ]
+      ],
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 9,
+      "tooth_name": "Tooth #9",
+      "disease_type": "Tooth Fracture",
+      "severity": "Mild",
+      "affected_area": "Crown",
+      "confidence": 0.5007950663566589,
+      "bounding_box": {
+        "x1": 874,
+        "y1": 360,
+        "x2": 988,
+        "y2": 621
+      },
+      "polygon": [
+        [
+          902,
+          360
+        ],
+        [
+          959,
+          360
+        ],
+        [
+          988,
+          412
+        ],
+        [
+          988,
+          516
+        ],
+        [
+          959,
+          621
+        ],
+        [
+          902,
+          621
+        ],
+        [
+          874,
+          516
+        ],
+        [
+          874,
+          412
+        ]
+      ],
+      "color": "#FF8800",
+      "recommendations": [
+        "Dental crown or bonding needed",
+        "Avoid hard foods",
+        "Immediate dental consultation required"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 10,
+      "tooth_name": "Tooth #10",
+      "disease_type": "Cavity (Caries)",
+      "severity": "Mild",
+      "affected_area": "Crown",
+      "confidence": 0.5826556086540222,
+      "bounding_box": {
+        "x1": 792,
+        "y1": 369,
+        "x2": 900,
+        "y2": 598
+      },
+      "polygon": [
+        [
+          819,
+          369
+        ],
+        [
+          873,
+          369
+        ],
+        [
+          900,
+          414
+        ],
+        [
+          900,
+          506
+        ],
+        [
+          873,
+          598
+        ],
+        [
+          819,
+          598
+        ],
+        [
+          792,
+          506
+        ],
+        [
+          792,
+          414
+        ]
+      ],
+      "color": "#FF0000",
+      "recommendations": [
+        "Dental filling required",
+        "Regular dental checkups recommended",
+        "Improve oral hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 10,
+      "tooth_name": "Tooth #10",
+      "disease_type": "Cavity (Caries)",
+      "severity": "Mild",
+      "affected_area": "Crown",
+      "confidence": 0.5683276653289795,
+      "bounding_box": {
+        "x1": 1079,
+        "y1": 358,
+        "x2": 1169,
+        "y2": 610
+      },
+      "polygon": [
+        [
+          1101,
+          358
+        ],
+        [
+          1146,
+          358
+        ],
+        [
+          1169,
+          408
+        ],
+        [
+          1169,
+          509
+        ],
+        [
+          1146,
+          610
+        ],
+        [
+          1101,
+          610
+        ],
+        [
+          1079,
+          509
+        ],
+        [
+          1079,
+          408
+        ]
+      ],
+      "color": "#FF0000",
+      "recommendations": [
+        "Dental filling required",
+        "Regular dental checkups recommended",
+        "Improve oral hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 11,
+      "tooth_name": "Upper Right Central Incisor",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.7138481140136719,
+      "bounding_box": {
+        "x1": 1158,
+        "y1": 307,
+        "x2": 1263,
+        "y2": 606
+      },
+      "polygon": [
+        [
+          1184,
+          307
+        ],
+        [
+          1236,
+          307
+        ],
+        [
+          1263,
+          366
+        ],
+        [
+          1263,
+          486
+        ],
+        [
+          1236,
+          606
+        ],
+        [
+          1184,
+          606
+        ],
+        [
+          1158,
+          486
+        ],
+        [
+          1158,
+          366
+        ]
+      ],
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 11,
+      "tooth_name": "Upper Right Central Incisor",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.6693211793899536,
+      "bounding_box": {
+        "x1": 700,
+        "y1": 291,
+        "x2": 815,
+        "y2": 585
+      },
+      "polygon": [
+        [
+          728,
+          291
+        ],
+        [
+          786,
+          291
+        ],
+        [
+          815,
+          349
+        ],
+        [
+          815,
+          467
+        ],
+        [
+          786,
+          585
+        ],
+        [
+          728,
+          585
+        ],
+        [
+          700,
+          467
+        ],
+        [
+          700,
+          349
+        ]
+      ],
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 12,
+      "tooth_name": "Upper Right Lateral Incisor",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.7155246734619141,
+      "bounding_box": {
+        "x1": 1227,
+        "y1": 343,
+        "x2": 1324,
+        "y2": 589
+      },
+      "polygon": [
+        [
+          1251,
+          343
+        ],
+        [
+          1299,
+          343
+        ],
+        [
+          1324,
+          392
+        ],
+        [
+          1324,
+          490
+        ],
+        [
+          1299,
+          589
+        ],
+        [
+          1251,
+          589
+        ],
+        [
+          1227,
+          490
+        ],
+        [
+          1227,
+          392
+        ]
+      ],
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 12,
+      "tooth_name": "Upper Right Lateral Incisor",
+      "disease_type": "Enamel Erosion",
+      "severity": "Mild",
+      "affected_area": "Crown",
+      "confidence": 0.3307836949825287,
+      "bounding_box": {
+        "x1": 638,
+        "y1": 336,
+        "x2": 725,
+        "y2": 586
+      },
+      "polygon": [
+        [
+          659,
+          336
+        ],
+        [
+          703,
+          336
+        ],
+        [
+          725,
+          386
+        ],
+        [
+          725,
+          486
+        ],
+        [
+          703,
+          586
+        ],
+        [
+          659,
+          586
+        ],
+        [
+          638,
+          486
+        ],
+        [
+          638,
+          386
+        ]
+      ],
+      "color": "#FFA500",
+      "recommendations": [
+        "Reduce acidic food/drink consumption",
+        "Use fluoride toothpaste",
+        "Consider dental bonding or veneers"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 13,
+      "tooth_name": "Upper Right Canine",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.5441853404045105,
+      "bounding_box": {
+        "x1": 1301,
+        "y1": 338,
+        "x2": 1399,
+        "y2": 575
+      },
+      "polygon": [
+        [
+          1325,
+          338
+        ],
+        [
+          1374,
+          338
+        ],
+        [
+          1399,
+          385
+        ],
+        [
+          1399,
+          480
+        ],
+        [
+          1374,
+          575
+        ],
+        [
+          1325,
+          575
+        ],
+        [
+          1301,
+          480
+        ],
+        [
+          1301,
+          385
+        ]
+      ],
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 13,
+      "tooth_name": "Upper Right Canine",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.4750240743160248,
+      "bounding_box": {
+        "x1": 562,
+        "y1": 346,
+        "x2": 663,
+        "y2": 567
+      },
+      "polygon": [
+        [
+          587,
+          346
+        ],
+        [
+          637,
+          346
+        ],
+        [
+          663,
+          390
+        ],
+        [
+          663,
+          478
+        ],
+        [
+          637,
+          567
+        ],
+        [
+          587,
+          567
+        ],
+        [
+          562,
+          478
+        ],
+        [
+          562,
+          390
+        ]
+      ],
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 14,
+      "tooth_name": "Upper Right First Premolar",
+      "disease_type": "Enamel Erosion",
+      "severity": "Mild",
+      "affected_area": "Crown",
+      "confidence": 0.3390005826950073,
+      "bounding_box": {
+        "x1": 444,
+        "y1": 342,
+        "x2": 586,
+        "y2": 549
+      },
+      "polygon": [
+        [
+          479,
+          342
+        ],
+        [
+          550,
+          342
+        ],
+        [
+          586,
+          383
+        ],
+        [
+          586,
+          466
+        ],
+        [
+          550,
+          549
+        ],
+        [
+          479,
+          549
+        ],
+        [
+          444,
+          466
+        ],
+        [
+          444,
+          383
+        ]
+      ],
+      "color": "#FFA500",
+      "recommendations": [
+        "Reduce acidic food/drink consumption",
+        "Use fluoride toothpaste",
+        "Consider dental bonding or veneers"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 15,
+      "tooth_name": "Upper Right Second Premolar",
+      "disease_type": "Enamel Erosion",
+      "severity": "Mild",
+      "affected_area": "Crown",
+      "confidence": 0.31513577699661255,
+      "bounding_box": {
+        "x1": 331,
+        "y1": 310,
+        "x2": 474,
+        "y2": 510
+      },
+      "polygon": [
+        [
+          366,
+          310
+        ],
+        [
+          438,
+          310
+        ],
+        [
+          474,
+          350
+        ],
+        [
+          474,
+          430
+        ],
+        [
+          438,
+          510
+        ],
+        [
+          366,
+          510
+        ],
+        [
+          331,
+          430
+        ],
+        [
+          331,
+          350
+        ]
+      ],
+      "color": "#FFA500",
+      "recommendations": [
+        "Reduce acidic food/drink consumption",
+        "Use fluoride toothpaste",
+        "Consider dental bonding or veneers"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 16,
+      "tooth_name": "Upper Right First Molar",
+      "disease_type": "Dental Calculus",
+      "severity": "Mild",
+      "affected_area": "Crown",
+      "confidence": 0.6280897855758667,
+      "bounding_box": {
+        "x1": 250,
+        "y1": 272,
+        "x2": 393,
+        "y2": 457
+      },
+      "polygon": [
+        [
+          285,
+          272
+        ],
+        [
+          357,
+          272
+        ],
+        [
+          393,
+          309
+        ],
+        [
+          393,
+          383
+        ],
+        [
+          357,
+          457
+        ],
+        [
+          285,
+          457
+        ],
+        [
+          250,
+          383
+        ],
+        [
+          250,
+          309
+        ]
+      ],
+      "color": "#A0522D",
+      "recommendations": [
+        "Professional cleaning (scaling) required",
+        "Improve daily oral hygiene",
+        "Use tartar control toothpaste"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 17,
+      "tooth_name": "Upper Right Second Molar",
+      "disease_type": "Enamel Erosion",
+      "severity": "Mild",
+      "affected_area": "Crown",
+      "confidence": 0.3419475555419922,
+      "bounding_box": {
+        "x1": 1596,
+        "y1": 481,
+        "x2": 1747,
+        "y2": 660
+      },
+      "polygon": [
+        [
+          1633,
+          481
+        ],
+        [
+          1709,
+          481
+        ],
+        [
+          1747,
+          516
+        ],
+        [
+          1747,
+          588
+        ],
+        [
+          1709,
+          660
+        ],
+        [
+          1633,
+          660
+        ],
+        [
+          1596,
+          588
+        ],
+        [
+          1596,
+          516
+        ]
+      ],
+      "color": "#FFA500",
+      "recommendations": [
+        "Reduce acidic food/drink consumption",
+        "Use fluoride toothpaste",
+        "Consider dental bonding or veneers"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 17,
+      "tooth_name": "Upper Right Second Molar",
+      "disease_type": "Enamel Erosion",
+      "severity": "Mild",
+      "affected_area": "Crown",
+      "confidence": 0.25518032908439636,
+      "bounding_box": {
+        "x1": 207,
+        "y1": 465,
+        "x2": 385,
+        "y2": 643
+      },
+      "polygon": [
+        [
+          251,
+          465
+        ],
+        [
+          340,
+          465
+        ],
+        [
+          385,
+          500
+        ],
+        [
+          385,
+          571
+        ],
+        [
+          340,
+          643
+        ],
+        [
+          251,
+          643
+        ],
+        [
+          207,
+          571
+        ],
+        [
+          207,
+          500
+        ]
+      ],
+      "color": "#FFA500",
+      "recommendations": [
+        "Reduce acidic food/drink consumption",
+        "Use fluoride toothpaste",
+        "Consider dental bonding or veneers"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 18,
+      "tooth_name": "Upper Right Third Molar (Wisdom)",
+      "disease_type": "Enamel Erosion",
+      "severity": "Mild",
+      "affected_area": "Crown",
+      "confidence": 0.35430970788002014,
+      "bounding_box": {
+        "x1": 296,
+        "y1": 506,
+        "x2": 506,
+        "y2": 714
+      },
+      "polygon": [
+        [
+          348,
+          506
+        ],
+        [
+          453,
+          506
+        ],
+        [
+          506,
+          547
+        ],
+        [
+          506,
+          630
+        ],
+        [
+          453,
+          714
+        ],
+        [
+          348,
+          714
+        ],
+        [
+          296,
+          630
+        ],
+        [
+          296,
+          547
+        ]
+      ],
+      "color": "#FFA500",
+      "recommendations": [
+        "Reduce acidic food/drink consumption",
+        "Use fluoride toothpaste",
+        "Consider dental bonding or veneers"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 18,
+      "tooth_name": "Upper Right Third Molar (Wisdom)",
+      "disease_type": "Enamel Erosion",
+      "severity": "Mild",
+      "affected_area": "Crown",
+      "confidence": 0.3021979331970215,
+      "bounding_box": {
+        "x1": 1479,
+        "y1": 512,
+        "x2": 1660,
+        "y2": 732
+      },
+      "polygon": [
+        [
+          1524,
+          512
+        ],
+        [
+          1614,
+          512
+        ],
+        [
+          1660,
+          556
+        ],
+        [
+          1660,
+          644
+        ],
+        [
+          1614,
+          732
+        ],
+        [
+          1524,
+          732
+        ],
+        [
+          1479,
+          644
+        ],
+        [
+          1479,
+          556
+        ]
+      ],
+      "color": "#FFA500",
+      "recommendations": [
+        "Reduce acidic food/drink consumption",
+        "Use fluoride toothpaste",
+        "Consider dental bonding or veneers"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 19,
+      "tooth_name": "Tooth #19",
+      "disease_type": "Tooth Fracture",
+      "severity": "Mild",
+      "affected_area": "Crown",
+      "confidence": 0.42828571796417236,
+      "bounding_box": {
+        "x1": 416,
+        "y1": 551,
+        "x2": 629,
+        "y2": 786
+      },
+      "polygon": [
+        [
+          469,
+          551
+        ],
+        [
+          575,
+          551
+        ],
+        [
+          629,
+          598
+        ],
+        [
+          629,
+          692
+        ],
+        [
+          575,
+          786
+        ],
+        [
+          469,
+          786
+        ],
+        [
+          416,
+          692
+        ],
+        [
+          416,
+          598
+        ]
+      ],
+      "color": "#FF8800",
+      "recommendations": [
+        "Dental crown or bonding needed",
+        "Avoid hard foods",
+        "Immediate dental consultation required"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 20,
+      "tooth_name": "Tooth #20",
+      "disease_type": "Enamel Erosion",
+      "severity": "Mild",
+      "affected_area": "Crown",
+      "confidence": 0.3157200217247009,
+      "bounding_box": {
+        "x1": 566,
+        "y1": 584,
+        "x2": 707,
+        "y2": 811
+      },
+      "polygon": [
+        [
+          601,
+          584
+        ],
+        [
+          671,
+          584
+        ],
+        [
+          707,
+          629
+        ],
+        [
+          707,
+          720
+        ],
+        [
+          671,
+          811
+        ],
+        [
+          601,
+          811
+        ],
+        [
+          566,
+          720
+        ],
+        [
+          566,
+          629
+        ]
+      ],
+      "color": "#FFA500",
+      "recommendations": [
+        "Reduce acidic food/drink consumption",
+        "Use fluoride toothpaste",
+        "Consider dental bonding or veneers"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 20,
+      "tooth_name": "Tooth #20",
+      "disease_type": "Enamel Erosion",
+      "severity": "Mild",
+      "affected_area": "Crown",
+      "confidence": 0.29986631870269775,
+      "bounding_box": {
+        "x1": 1184,
+        "y1": 608,
+        "x2": 1292,
+        "y2": 820
+      },
+      "polygon": [
+        [
+          1211,
+          608
+        ],
+        [
+          1265,
+          608
+        ],
+        [
+          1292,
+          650
+        ],
+        [
+          1292,
+          735
+        ],
+        [
+          1265,
+          820
+        ],
+        [
+          1211,
+          820
+        ],
+        [
+          1184,
+          735
+        ],
+        [
+          1184,
+          650
+        ]
+      ],
+      "color": "#FFA500",
+      "recommendations": [
+        "Reduce acidic food/drink consumption",
+        "Use fluoride toothpaste",
+        "Consider dental bonding or veneers"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 21,
+      "tooth_name": "Upper Left Central Incisor",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.5813002586364746,
+      "bounding_box": {
+        "x1": 1184,
+        "y1": 607,
+        "x2": 1292,
+        "y2": 822
+      },
+      "polygon": [
+        [
+          1211,
+          607
+        ],
+        [
+          1265,
+          607
+        ],
+        [
+          1292,
+          650
+        ],
+        [
+          1292,
+          736
+        ],
+        [
+          1265,
+          822
+        ],
+        [
+          1211,
+          822
+        ],
+        [
+          1184,
+          736
+        ],
+        [
+          1184,
+          650
+        ]
+      ],
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 21,
+      "tooth_name": "Upper Left Central Incisor",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.5475031733512878,
+      "bounding_box": {
+        "x1": 669,
+        "y1": 593,
+        "x2": 788,
+        "y2": 813
+      },
+      "polygon": [
+        [
+          698,
+          593
+        ],
+        [
+          758,
+          593
+        ],
+        [
+          788,
+          637
+        ],
+        [
+          788,
+          725
+        ],
+        [
+          758,
+          813
+        ],
+        [
+          698,
+          813
+        ],
+        [
+          669,
+          725
+        ],
+        [
+          669,
+          637
+        ]
+      ],
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 22,
+      "tooth_name": "Upper Left Lateral Incisor",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.8025778532028198,
+      "bounding_box": {
+        "x1": 1109,
+        "y1": 613,
+        "x2": 1223,
+        "y2": 847
+      },
+      "polygon": [
+        [
+          1137,
+          613
+        ],
+        [
+          1194,
+          613
+        ],
+        [
+          1223,
+          659
+        ],
+        [
+          1223,
+          753
+        ],
+        [
+          1194,
+          847
+        ],
+        [
+          1137,
+          847
+        ],
+        [
+          1109,
+          753
+        ],
+        [
+          1109,
+          659
+        ]
+      ],
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 23,
+      "tooth_name": "Upper Left Canine",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.4244357645511627,
+      "bounding_box": {
+        "x1": 845,
+        "y1": 630,
+        "x2": 921,
+        "y2": 811
+      },
+      "polygon": [
+        [
+          864,
+          630
+        ],
+        [
+          902,
+          630
+        ],
+        [
+          921,
+          666
+        ],
+        [
+          921,
+          738
+        ],
+        [
+          902,
+          811
+        ],
+        [
+          864,
+          811
+        ],
+        [
+          845,
+          738
+        ],
+        [
+          845,
+          666
+        ]
+      ],
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 23,
+      "tooth_name": "Upper Left Canine",
+      "disease_type": "Enamel Erosion",
+      "severity": "Mild",
+      "affected_area": "Crown",
+      "confidence": 0.3556569218635559,
+      "bounding_box": {
+        "x1": 1042,
+        "y1": 629,
+        "x2": 1125,
+        "y2": 833
+      },
+      "polygon": [
+        [
+          1062,
+          629
+        ],
+        [
+          1104,
+          629
+        ],
+        [
+          1125,
+          669
+        ],
+        [
+          1125,
+          751
+        ],
+        [
+          1104,
+          833
+        ],
+        [
+          1062,
+          833
+        ],
+        [
+          1042,
+          751
+        ],
+        [
+          1042,
+          669
+        ]
+      ],
+      "color": "#FFA500",
+      "recommendations": [
+        "Reduce acidic food/drink consumption",
+        "Use fluoride toothpaste",
+        "Consider dental bonding or veneers"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 24,
+      "tooth_name": "Upper Left First Premolar",
+      "disease_type": "Enamel Erosion",
+      "severity": "Mild",
+      "affected_area": "Crown",
+      "confidence": 0.38224032521247864,
+      "bounding_box": {
+        "x1": 978,
+        "y1": 634,
+        "x2": 1053,
+        "y2": 812
+      },
+      "polygon": [
+        [
+          996,
+          634
+        ],
+        [
+          1034,
+          634
+        ],
+        [
+          1053,
+          669
+        ],
+        [
+          1053,
+          740
+        ],
+        [
+          1034,
+          812
+        ],
+        [
+          996,
+          812
+        ],
+        [
+          978,
+          740
+        ],
+        [
+          978,
+          669
+        ]
+      ],
+      "color": "#FFA500",
+      "recommendations": [
+        "Reduce acidic food/drink consumption",
+        "Use fluoride toothpaste",
+        "Consider dental bonding or veneers"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 24,
+      "tooth_name": "Upper Left First Premolar",
+      "disease_type": "Enamel Erosion",
+      "severity": "Mild",
+      "affected_area": "Crown",
+      "confidence": 0.2890224754810333,
+      "bounding_box": {
+        "x1": 912,
+        "y1": 633,
+        "x2": 984,
+        "y2": 811
+      },
+      "polygon": [
+        [
+          930,
+          633
+        ],
+        [
+          966,
+          633
+        ],
+        [
+          984,
+          668
+        ],
+        [
+          984,
+          739
+        ],
+        [
+          966,
+          811
+        ],
+        [
+          930,
+          811
+        ],
+        [
+          912,
+          739
+        ],
+        [
+          912,
+          668
+        ]
+      ],
+      "color": "#FFA500",
+      "recommendations": [
+        "Reduce acidic food/drink consumption",
+        "Use fluoride toothpaste",
+        "Consider dental bonding or veneers"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 25,
+      "tooth_name": "Upper Left Second Premolar",
+      "disease_type": "Enamel Erosion",
+      "severity": "Mild",
+      "affected_area": "Crown",
+      "confidence": 0.30457741022109985,
+      "bounding_box": {
+        "x1": 912,
+        "y1": 633,
+        "x2": 986,
+        "y2": 813
+      },
+      "polygon": [
+        [
+          930,
+          633
+        ],
+        [
+          967,
+          633
+        ],
+        [
+          986,
+          669
+        ],
+        [
+          986,
+          741
+        ],
+        [
+          967,
+          813
+        ],
+        [
+          930,
+          813
+        ],
+        [
+          912,
+          741
+        ],
+        [
+          912,
+          669
+        ]
+      ],
+      "color": "#FFA500",
+      "recommendations": [
+        "Reduce acidic food/drink consumption",
+        "Use fluoride toothpaste",
+        "Consider dental bonding or veneers"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 30,
+      "tooth_name": "Tooth #30",
+      "disease_type": "Gingivitis",
+      "severity": "Mild",
+      "affected_area": "Gum",
+      "confidence": 0.6734163165092468,
+      "bounding_box": {
+        "x1": 1339,
+        "y1": 555,
+        "x2": 1563,
+        "y2": 785
+      },
+      "polygon": [
+        [
+          1395,
+          555
+        ],
+        [
+          1507,
+          555
+        ],
+        [
+          1563,
+          601
+        ],
+        [
+          1563,
+          693
+        ],
+        [
+          1507,
+          785
+        ],
+        [
+          1395,
+          785
+        ],
+        [
+          1339,
+          693
+        ],
+        [
+          1339,
+          601
+        ]
+      ],
+      "color": "#FF69B4",
+      "recommendations": [
+        "Professional cleaning recommended",
+        "Improve brushing and flossing",
+        "Use antiseptic mouthwash"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 30,
+      "tooth_name": "Tooth #30",
+      "disease_type": "Gingivitis",
+      "severity": "Mild",
+      "affected_area": "Gum",
+      "confidence": 0.5131927728652954,
+      "bounding_box": {
+        "x1": 418,
+        "y1": 552,
+        "x2": 632,
+        "y2": 787
+      },
+      "polygon": [
+        [
+          471,
+          552
+        ],
+        [
+          578,
+          552
+        ],
+        [
+          632,
+          599
+        ],
+        [
+          632,
+          693
+        ],
+        [
+          578,
+          787
+        ],
+        [
+          471,
+          787
+        ],
+        [
+          418,
+          693
+        ],
+        [
+          418,
+          599
+        ]
+      ],
+      "color": "#FF69B4",
+      "recommendations": [
+        "Professional cleaning recommended",
+        "Improve brushing and flossing",
+        "Use antiseptic mouthwash"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 31,
+      "tooth_name": "Lower Left Central Incisor",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.5308258533477783,
+      "bounding_box": {
+        "x1": 1467,
+        "y1": 515,
+        "x2": 1663,
+        "y2": 735
+      },
+      "polygon": [
+        [
+          1516,
+          515
+        ],
+        [
+          1614,
+          515
+        ],
+        [
+          1663,
+          559
+        ],
+        [
+          1663,
+          647
+        ],
+        [
+          1614,
+          735
+        ],
+        [
+          1516,
+          735
+        ],
+        [
+          1467,
+          647
+        ],
+        [
+          1467,
+          559
+        ]
+      ],
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 31,
+      "tooth_name": "Lower Left Central Incisor",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.5136523842811584,
+      "bounding_box": {
+        "x1": 295,
+        "y1": 502,
+        "x2": 505,
+        "y2": 726
+      },
+      "polygon": [
+        [
+          347,
+          502
+        ],
+        [
+          452,
+          502
+        ],
+        [
+          505,
+          546
+        ],
+        [
+          505,
+          636
+        ],
+        [
+          452,
+          726
+        ],
+        [
+          347,
+          726
+        ],
+        [
+          295,
+          636
+        ],
+        [
+          295,
+          546
+        ]
+      ],
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue good oral hygiene",
+        "Regular checkups every 6 months",
+        "Maintain balanced diet"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 32,
+      "tooth_name": "Lower Left Lateral Incisor",
+      "disease_type": "Enamel Erosion",
+      "severity": "Mild",
+      "affected_area": "Crown",
+      "confidence": 0.3211824893951416,
+      "bounding_box": {
+        "x1": 1593,
+        "y1": 484,
+        "x2": 1752,
+        "y2": 663
+      },
+      "polygon": [
+        [
+          1632,
+          484
+        ],
+        [
+          1712,
+          484
+        ],
+        [
+          1752,
+          519
+        ],
+        [
+          1752,
+          591
+        ],
+        [
+          1712,
+          663
+        ],
+        [
+          1632,
+          663
+        ],
+        [
+          1593,
+          591
+        ],
+        [
+          1593,
+          519
+        ]
+      ],
+      "color": "#FFA500",
+      "recommendations": [
+        "Reduce acidic food/drink consumption",
+        "Use fluoride toothpaste",
+        "Consider dental bonding or veneers"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    }
+  ],
+  "report": "================================================================================\nDENTAL X-RAY ANALYSIS REPORT\n================================================================================\n\nImage: f76cb8f0-c959-4b82-9715-3ef9f1c05851_52.png\nTotal Teeth Detected: 40\n\n\n\n📋 OTHER FINDINGS:\n--------------------------------------------------------------------------------\n\n🦷 Tooth #1 (#1)\n   Status: Enamel Erosion (Mild)\n   Confidence: 38.82%\n\n🦷 Tooth #2 (#2)\n   Status: Healthy (None)\n   Confidence: 45.28%\n\n🦷 Tooth #3 (#3)\n   Status: Healthy (None)\n   Confidence: 52.44%\n\n🦷 Tooth #3 (#3)\n   Status: Healthy (None)\n   Confidence: 40.02%\n\n🦷 Tooth #4 (#4)\n   Status: Cavity (Caries) (Mild)\n   Confidence: 51.77%\n\n🦷 Tooth #4 (#4)\n   Status: Enamel Erosion (Mild)\n   Confidence: 38.41%\n\n🦷 Tooth #8 (#8)\n   Status: Enamel Erosion (Mild)\n   Confidence: 38.77%\n\n🦷 Tooth #9 (#9)\n   Status: Healthy (None)\n   Confidence: 80.54%\n\n🦷 Tooth #9 (#9)\n   Status: Tooth Fracture (Mild)\n   Confidence: 50.08%\n\n🦷 Tooth #10 (#10)\n   Status: Cavity (Caries) (Mild)\n   Confidence: 58.27%\n\n🦷 Tooth #10 (#10)\n   Status: Cavity (Caries) (Mild)\n   Confidence: 56.83%\n\n🦷 Upper Right Central Incisor (#11)\n   Status: Healthy (None)\n   Confidence: 71.38%\n\n🦷 Upper Right Central Incisor (#11)\n   Status: Healthy (None)\n   Confidence: 66.93%\n\n🦷 Upper Right Lateral Incisor (#12)\n   Status: Healthy (None)\n   Confidence: 71.55%\n\n🦷 Upper Right Lateral Incisor (#12)\n   Status: Enamel Erosion (Mild)\n   Confidence: 33.08%\n\n🦷 Upper Right Canine (#13)\n   Status: Healthy (None)\n   Confidence: 54.42%\n\n🦷 Upper Right Canine (#13)\n   Status: Healthy (None)\n   Confidence: 47.50%\n\n🦷 Upper Right First Premolar (#14)\n   Status: Enamel Erosion (Mild)\n   Confidence: 33.90%\n\n🦷 Upper Right Second Premolar (#15)\n   Status: Enamel Erosion (Mild)\n   Confidence: 31.51%\n\n🦷 Upper Right First Molar (#16)\n   Status: Dental Calculus (Mild)\n   Confidence: 62.81%\n\n🦷 Upper Right Second Molar (#17)\n   Status: Enamel Erosion (Mild)\n   Confidence: 34.19%\n\n🦷 Upper Right Second Molar (#17)\n   Status: Enamel Erosion (Mild)\n   Confidence: 25.52%\n\n🦷 Upper Right Third Molar (Wisdom) (#18)\n   Status: Enamel Erosion (Mild)\n   Confidence: 35.43%\n\n🦷 Upper Right Third Molar (Wisdom) (#18)\n   Status: Enamel Erosion (Mild)\n   Confidence: 30.22%\n\n🦷 Tooth #19 (#19)\n   Status: Tooth Fracture (Mild)\n   Confidence: 42.83%\n\n🦷 Tooth #20 (#20)\n   Status: Enamel Erosion (Mild)\n   Confidence: 31.57%\n\n🦷 Tooth #20 (#20)\n   Status: Enamel Erosion (Mild)\n   Confidence: 29.99%\n\n🦷 Upper Left Central Incisor (#21)\n   Status: Healthy (None)\n   Confidence: 58.13%\n\n🦷 Upper Left Central Incisor (#21)\n   Status: Healthy (None)\n   Confidence: 54.75%\n\n🦷 Upper Left Lateral Incisor (#22)\n   Status: Healthy (None)\n   Confidence: 80.26%\n\n🦷 Upper Left Canine (#23)\n   Status: Healthy (None)\n   Confidence: 42.44%\n\n🦷 Upper Left Canine (#23)\n   Status: Enamel Erosion (Mild)\n   Confidence: 35.57%\n\n🦷 Upper Left First Premolar (#24)\n   Status: Enamel Erosion (Mild)\n   Confidence: 38.22%\n\n🦷 Upper Left First Premolar (#24)\n   Status: Enamel Erosion (Mild)\n   Confidence: 28.90%\n\n🦷 Upper Left Second Premolar (#25)\n   Status: Enamel Erosion (Mild)\n   Confidence: 30.46%\n\n🦷 Tooth #30 (#30)\n   Status: Gingivitis (Mild)\n   Confidence: 67.34%\n\n🦷 Tooth #30 (#30)\n   Status: Gingivitis (Mild)\n   Confidence: 51.32%\n\n🦷 Lower Left Central Incisor (#31)\n   Status: Healthy (None)\n   Confidence: 53.08%\n\n🦷 Lower Left Central Incisor (#31)\n   Status: Healthy (None)\n   Confidence: 51.37%\n\n🦷 Lower Left Lateral Incisor (#32)\n   Status: Enamel Erosion (Mild)\n   Confidence: 32.12%\n\n================================================================================\nEND OF REPORT\n================================================================================",
+  "summary": {
+    "total_teeth": 40,
+    "disease_distribution": {
+      "Enamel Erosion": 17,
+      "Healthy": 15,
+      "Cavity (Caries)": 3,
+      "Tooth Fracture": 2,
+      "Dental Calculus": 1,
+      "Gingivitis": 2
+    },
+    "severity_distribution": {
+      "Mild": 25,
+      "None": 15
+    },
+    "healthy_teeth": 15,
+    "diseased_teeth": 25
+  }
+}

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class PatientProfileScreen extends StatelessWidget {
   final Map<String, dynamic> appointmentData;
 
-  const PatientProfileScreen({Key? key, required this.appointmentData}) : super(key: key);
+  const PatientProfileScreen({super.key, required this.appointmentData});
 
   @override
   Widget build(BuildContext context) {
@@ -28,28 +28,39 @@ class PatientProfileScreen extends StatelessWidget {
               _buildRow('Age', appointmentData['age']?.toString() ?? 'N/A'),
               _buildRow('Gender', appointmentData['gender'] ?? 'N/A'),
               _buildRow('Issue', appointmentData['issue']),
-              _buildRow('Consultation Mode', appointmentData['consultationMode']),
+              _buildRow(
+                'Consultation Mode',
+                appointmentData['consultationMode'],
+              ),
               _buildRow('Selected Date', appointmentData['selectedDate']),
               _buildRow('Selected Time', appointmentData['selectedTimeSlot']),
-              _buildRow('Emergency', appointmentData['emergencySelected'] == true ? 'Yes' : 'No'),
+              _buildRow(
+                'Emergency',
+                appointmentData['emergencySelected'] == true ? 'Yes' : 'No',
+              ),
               _buildRow('Status', appointmentData['status']),
               _buildRow('Doctor', appointmentData['doctor']?['name'] ?? 'N/A'),
-              if (appointmentData['xrayUrl'] != null && appointmentData['xrayUrl'].toString().isNotEmpty)
+              if (appointmentData['xrayUrl'] != null &&
+                  appointmentData['xrayUrl'].toString().isNotEmpty)
                 TextButton.icon(
                   onPressed: () {
                     showDialog(
                       context: context,
-                      builder: (_) => Dialog(
-                        backgroundColor: Colors.transparent,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: Image.network(appointmentData['xrayUrl']),
-                        ),
-                      ),
+                      builder:
+                          (_) => Dialog(
+                            backgroundColor: Colors.transparent,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(12),
+                              child: Image.network(appointmentData['xrayUrl']),
+                            ),
+                          ),
                     );
                   },
                   icon: const Icon(Icons.image, color: Colors.cyanAccent),
-                  label: const Text("View X-ray", style: TextStyle(color: Colors.cyanAccent)),
+                  label: const Text(
+                    "View X-ray",
+                    style: TextStyle(color: Colors.cyanAccent),
+                  ),
                 ),
             ],
           ),
@@ -64,8 +75,16 @@ class PatientProfileScreen extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('$label: ', style: const TextStyle(color: Colors.cyanAccent, fontWeight: FontWeight.bold)),
-          Expanded(child: Text(value, style: const TextStyle(color: Colors.white))),
+          Text(
+            '$label: ',
+            style: const TextStyle(
+              color: Colors.cyanAccent,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Expanded(
+            child: Text(value, style: const TextStyle(color: Colors.white)),
+          ),
         ],
       ),
     );

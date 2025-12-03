@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class OralHealthTrackerScreen extends StatelessWidget {
+  const OralHealthTrackerScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -8,7 +10,10 @@ class OralHealthTrackerScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: const Text('Oral Health Tracker', style: TextStyle(fontWeight: FontWeight.bold)),
+        title: const Text(
+          'Oral Health Tracker',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         centerTitle: true,
       ),
       floatingActionButton: FloatingActionButton(
@@ -25,28 +30,40 @@ class OralHealthTrackerScreen extends StatelessWidget {
                 icon: Icons.checklist,
                 title: 'Daily Hygiene Log',
                 subtitle: 'Track brushing, flossing, mouthwash',
-                trailing: const Icon(Icons.arrow_forward_ios, color: Colors.white54),
+                trailing: const Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.white54,
+                ),
                 onTap: () {},
               ),
               _buildCard(
                 icon: Icons.mood,
                 title: 'Symptoms Tracker',
                 subtitle: 'Log any pain or discomfort',
-                trailing: const Icon(Icons.arrow_forward_ios, color: Colors.white54),
+                trailing: const Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.white54,
+                ),
                 onTap: () {},
               ),
               _buildCard(
                 icon: Icons.history,
                 title: 'Treatment History',
                 subtitle: 'See your past treatments',
-                trailing: const Icon(Icons.arrow_forward_ios, color: Colors.white54),
+                trailing: const Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.white54,
+                ),
                 onTap: () {},
               ),
               _buildCard(
                 icon: Icons.alarm,
                 title: 'Medication Reminders',
                 subtitle: 'Don’t miss a dose!',
-                trailing: const Icon(Icons.arrow_forward_ios, color: Colors.white54),
+                trailing: const Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.white54,
+                ),
                 onTap: () {},
               ),
               _buildCard(
@@ -55,8 +72,11 @@ class OralHealthTrackerScreen extends StatelessWidget {
                 subtitle: 'Track your overall score',
                 trailing: CircleAvatar(
                   radius: 18,
-                  backgroundColor: Colors.cyanAccent.withOpacity(0.2),
-                  child: const Text('8.7', style: TextStyle(color: Colors.white)),
+                  backgroundColor: Colors.cyanAccent.withValues(alpha: 0.2),
+                  child: const Text(
+                    '8.7',
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
                 onTap: () {},
               ),
@@ -88,17 +108,17 @@ class OralHealthTrackerScreen extends StatelessWidget {
           ),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.2),
+              color: Colors.black.withValues(alpha: 0.2),
               blurRadius: 8,
               offset: const Offset(0, 4),
-            )
+            ),
           ],
         ),
         child: Row(
           children: [
             CircleAvatar(
               radius: 28,
-              backgroundColor: Colors.cyanAccent.withOpacity(0.2),
+              backgroundColor: Colors.cyanAccent.withValues(alpha: 0.2),
               child: Icon(icon, size: 28, color: Colors.cyanAccent),
             ),
             const SizedBox(width: 16),
@@ -106,7 +126,14 @@ class OralHealthTrackerScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(title, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white)),
+                  Text(
+                    title,
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
                   const SizedBox(height: 4),
                   Text(subtitle, style: const TextStyle(color: Colors.white70)),
                 ],

@@ -10,10 +10,10 @@ class PaymentScreen extends StatefulWidget {
   final String appointmentId;
 
   const PaymentScreen({
-    Key? key,
+    super.key,
     required this.appointmentData,
     required this.appointmentId,
-  }) : super(key: key);
+  });
 
   @override
   State<PaymentScreen> createState() => _PaymentScreenState();
@@ -34,7 +34,9 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
   Future<void> _processPayment() async {
     if (_proofImage == null) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Please upload a payment proof image")));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Please upload a payment proof image")),
+      );
       return;
     }
 
@@ -45,30 +47,42 @@ class _PaymentScreenState extends State<PaymentScreen> {
       final bytes = await _proofImage!.readAsBytes();
       final base64Image = base64Encode(bytes);
 
-      await FirebaseFirestore.instance.collection('appointments').doc(widget.appointmentId).update({
-        'paymentStatus': 'uploaded',
-        'status': 'pending',
-        'transactionProofBase64': base64Image,
-      });
+      await FirebaseFirestore.instance
+          .collection('appointments')
+          .doc(widget.appointmentId)
+          .update({
+            'paymentStatus': 'uploaded',
+            'status': 'pending',
+            'transactionProofBase64': base64Image,
+          });
 
       setState(() => _isProcessing = false);
 
       showDialog(
         context: context,
-        builder: (context) => AlertDialog(
-          title: const Text("Payment Submitted"),
-          content: const Text("Your proof has been saved. You'll be notified once the doctor confirms."),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.popUntil(context, ModalRoute.withName('/userHome')),
-              child: const Text("OK"),
+        builder:
+            (context) => AlertDialog(
+              title: const Text("Payment Submitted"),
+              content: const Text(
+                "Your proof has been saved. You'll be notified once the doctor confirms.",
+              ),
+              actions: [
+                TextButton(
+                  onPressed:
+                      () => Navigator.popUntil(
+                        context,
+                        ModalRoute.withName('/userHome'),
+                      ),
+                  child: const Text("OK"),
+                ),
+              ],
             ),
-          ],
-        ),
       );
     } catch (e) {
       setState(() => _isProcessing = false);
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Error: $e")));
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text("Error: $e")));
     }
   }
 
@@ -105,24 +119,39 @@ class _PaymentScreenState extends State<PaymentScreen> {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: _isProcessing ? null : _processPayment,
-              child: _isProcessing
-                  ? const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CircularProgressIndicator(color: Colors.black, strokeWidth: 2),
-                  SizedBox(width: 12),
-                  Text("Uploading...", style: TextStyle(color: Colors.white)),
-                ],
-              )
-                  : const Text('Submit Payment Proof', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.cyanAccent,
                 foregroundColor: Colors.black,
                 padding: const EdgeInsets.symmetric(vertical: 14),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
                 elevation: 6,
-                shadowColor: Colors.cyanAccent.withOpacity(0.4),
+                shadowColor: Colors.cyanAccent.withValues(alpha: 0.4),
               ),
+              child:
+                  _isProcessing
+                      ? const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CircularProgressIndicator(
+                            color: Colors.black,
+                            strokeWidth: 2,
+                          ),
+                          SizedBox(width: 12),
+                          Text(
+                            "Uploading...",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      )
+                      : const Text(
+                        'Submit Payment Proof',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
             ),
           ],
         ),
@@ -146,7 +175,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-              color: Colors.cyanAccent.withOpacity(0.3),
+              color: Colors.cyanAccent.withValues(alpha: 0.3),
               blurRadius: 8,
               offset: const Offset(0, 4),
             ),
@@ -164,7 +193,10 @@ class _PaymentScreenState extends State<PaymentScreen> {
               ),
             ),
             const SizedBox(height: 12),
-            _buildSummaryRow('Doctor:', 'Dr. ${appointment['doctor']['name'] ?? 'N/A'}'),
+            _buildSummaryRow(
+              'Doctor:',
+              'Dr. ${appointment['doctor']['name'] ?? 'N/A'}',
+            ),
             _buildSummaryRow('Date:', appointment['date'] ?? 'N/A'),
             _buildSummaryRow('Time:', appointment['assignedTime'] ?? 'N/A'),
             _buildSummaryRow('Mode:', appointment['consultationMode'] ?? 'N/A'),
@@ -199,7 +231,10 @@ class _PaymentScreenState extends State<PaymentScreen> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(label, style: const TextStyle(color: Colors.white70, fontSize: 14)),
+          Text(
+            label,
+            style: const TextStyle(color: Colors.white70, fontSize: 14),
+          ),
           Flexible(
             child: Text(
               value,
@@ -222,7 +257,11 @@ class _PaymentScreenState extends State<PaymentScreen> {
       children: [
         const Text(
           'Upload Proof of Payment',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.cyanAccent),
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+            color: Colors.cyanAccent,
+          ),
         ),
         const SizedBox(height: 12),
         GestureDetector(
@@ -232,14 +271,22 @@ class _PaymentScreenState extends State<PaymentScreen> {
             decoration: BoxDecoration(
               color: Colors.white10,
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: Colors.cyanAccent.withOpacity(0.4)),
+              border: Border.all(
+                color: Colors.cyanAccent.withValues(alpha: 0.4),
+              ),
             ),
-            child: _proofImage == null
-                ? const Center(child: Text("Tap to upload image", style: TextStyle(color: Colors.white70)))
-                : ClipRRect(
-              borderRadius: BorderRadius.circular(16),
-              child: Image.file(_proofImage!, fit: BoxFit.cover),
-            ),
+            child:
+                _proofImage == null
+                    ? const Center(
+                      child: Text(
+                        "Tap to upload image",
+                        style: TextStyle(color: Colors.white70),
+                      ),
+                    )
+                    : ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: Image.file(_proofImage!, fit: BoxFit.cover),
+                    ),
           ),
         ),
       ],

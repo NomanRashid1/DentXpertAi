@@ -4,12 +4,12 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'firebase_options.dart';
 
 // Screens
+import 'screens/email_setup.dart' as emailSetup;
+import 'screens/email_verification_screen.dart';
 import 'screens/splash_screen.dart';
 import 'screens/home_screen.dart';
-import 'screens/email_setup.dart';
-import 'screens/email_verification_screen.dart';
 import 'screens/user_home_screen.dart';
-import 'screens/xray_upload_screen.dart';
+import 'screens/xray_upload/xray_upload_screen.dart';
 import 'screens/specialist_list_screen.dart';
 import 'screens/dentist_registration_screen.dart';
 import 'screens/ai_results_screen.dart';
@@ -22,7 +22,6 @@ import 'screens/doctor_choice_screen.dart';
 import 'screens/doctor_login_screen.dart';
 import 'screens/edit_doctor_profile_screen.dart';
 import 'screens/appointment_screen.dart';
-import 'screens/notification_service.dart';
 import 'screens/user_appointment_screen.dart';
 import 'screens/payment_screen.dart' as payment;
 import 'screens/admin_approval_screen.dart';
@@ -86,7 +85,11 @@ class _DentXpertAIAppState extends State<DentXpertAIApp> {
       routes: {
         '/': (context) => SplashScreen(),
         '/home': (context) => HomeScreen(),
-        '/userEmailInput': (context) => EmailSetupScreen(),
+        '/userEmailInput':
+            (context) => emailSetup.EmailVerificationScreen(
+              email: '',
+              isLinkSent: false,
+            ),
         // ❌ REMOVED: '/emailVerification' moved to onGenerateRoute for argument handling
         '/userHome': (context) => UserHomeScreen(),
         '/xrayUpload': (context) => XrayUploadScreen(),
@@ -102,57 +105,57 @@ class _DentXpertAIAppState extends State<DentXpertAIApp> {
         '/adminApproval': (context) => const AdminApprovalScreen(),
       },
       onGenerateRoute: (settings) {
-        final args = settings.arguments as Map<String, dynamic>?; // Safely cast arguments
+        final args =
+            settings.arguments
+                as Map<String, dynamic>?; // Safely cast arguments
 
         switch (settings.name) {
-        // ✅ ADDED: Handler for Email Verification Screen
+          // ✅ ADDED: Handler for Email Verification Screen
           case '/emailVerification':
-          // Pass safely retrieved values, using empty string/false as defaults
+            // Pass safely retrieved values, using empty string/false as defaults
             return MaterialPageRoute(
-              builder: (context) => EmailVerificationScreen(
-                email: args?['email'] ?? '',
-                isLinkSent: args?['isLinkSent'] ?? false,
-              ),
+              builder:
+                  (context) => EmailVerificationScreen(
+                    email: args?['email'] ?? '',
+                    isLinkSent: args?['isLinkSent'] ?? false,
+                  ),
             );
           case '/aiResults':
             return MaterialPageRoute(
-              builder: (context) => AIResultsScreen(
-                analysisData: args ?? {},
-              ),
+              builder: (context) => AIResultsScreen(analysisData: args ?? {}),
             );
           case '/appointment':
             return MaterialPageRoute(
-              builder: (context) => AppointmentScreen(
-                doctor: args?['doctor'],
-              ),
+              builder: (context) => AppointmentScreen(doctor: args?['doctor']),
             );
           case '/payment':
             return MaterialPageRoute(
-              builder: (context) => payment.PaymentScreen(
-                appointmentId: args?['appointmentId'] ?? '',
-                appointmentData: args?['appointmentData'] ?? {},
-              ),
+              builder:
+                  (context) => payment.PaymentScreen(
+                    appointmentId: args?['appointmentId'] ?? '',
+                    appointmentData: args?['appointmentData'] ?? {},
+                  ),
             );
           case '/registrationSuccess':
             return MaterialPageRoute(
-              builder: (context) => DentistRegistrationSuccessScreen(
-                name: args?['name'] ?? 'Doctor',
-                specialization: args?['specialization'] ?? 'Dentist',
-              ),
+              builder:
+                  (context) => DentistRegistrationSuccessScreen(
+                    name: args?['name'] ?? 'Doctor',
+                    specialization: args?['specialization'] ?? 'Dentist',
+                  ),
             );
           case '/doctorDashboard':
             final email = args?['email'];
             return MaterialPageRoute(
-              builder: (context) => DoctorDashboardScreen(
-                doctorEmail: email ?? '',
-              ),
+              builder:
+                  (context) => DoctorDashboardScreen(doctorEmail: email ?? ''),
             );
           case '/editDoctorProfile':
             final email = args?['email'];
             return MaterialPageRoute(
-              builder: (context) => EditDoctorProfileScreen(
-                doctorEmail: email ?? '',
-              ),
+              builder:
+                  (context) =>
+                      EditDoctorProfileScreen(doctorEmail: email ?? ''),
             );
         }
 
@@ -164,24 +167,28 @@ class _DentXpertAIAppState extends State<DentXpertAIApp> {
 
   MaterialPageRoute _errorPage(String message) {
     return MaterialPageRoute(
-      builder: (context) => Scaffold(
-        backgroundColor: const Color(0xFF0B132B),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Icon(Icons.error_outline, size: 64, color: Colors.red),
-              const SizedBox(height: 16),
-              Text(message, style: Theme.of(context).textTheme.headlineSmall),
-              const SizedBox(height: 16),
-              ElevatedButton(
-                onPressed: () => Navigator.pushNamed(context, '/home'),
-                child: const Text('Return to Home'),
+      builder:
+          (context) => Scaffold(
+            backgroundColor: const Color(0xFF0B132B),
+            body: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(Icons.error_outline, size: 64, color: Colors.red),
+                  const SizedBox(height: 16),
+                  Text(
+                    message,
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+                  const SizedBox(height: 16),
+                  ElevatedButton(
+                    onPressed: () => Navigator.pushNamed(context, '/home'),
+                    child: const Text('Return to Home'),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
-      ),
     );
   }
 }

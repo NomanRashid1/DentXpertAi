@@ -43,7 +43,9 @@ class UserHomeScreen extends StatelessWidget {
                       color: Colors.cyanAccent,
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
-                      shadows: [Shadow(blurRadius: 12, color: Colors.cyanAccent)],
+                      shadows: [
+                        Shadow(blurRadius: 12, color: Colors.cyanAccent),
+                      ],
                     ),
                   ),
                   const SizedBox(height: 30),
@@ -51,23 +53,25 @@ class UserHomeScreen extends StatelessWidget {
                     icon: Icons.local_hospital_outlined,
                     title: 'Find a Dentist',
                     subtitle: 'Search trusted dental specialists',
-                    onTap: () => Navigator.pushNamed(context, '/specialistList'),
+                    onTap:
+                        () => Navigator.pushNamed(context, '/specialistList'),
                   ),
                   const SizedBox(height: 16),
                   _homeCard(
                     icon: Icons.calendar_today,
                     title: 'My Appointments',
                     subtitle: 'View your scheduled dental visits',
-                    onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => const UserAppointmentsScreen()),
-                    ),
+                    onTap:
+                        () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const UserAppointmentsScreen(),
+                          ),
+                        ),
                   ),
                   const SizedBox(height: 24),
 
                   // ✅ Show next appointment card
-
-
                   const SizedBox(height: 24),
                   const Text(
                     'Tips for Healthy Teeth',
@@ -103,12 +107,15 @@ class UserHomeScreen extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.07),
+              color: Colors.white.withValues(alpha: 0.07),
               borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: Colors.cyanAccent.withOpacity(0.3), width: 1.2),
+              border: Border.all(
+                color: Colors.cyanAccent.withValues(alpha: 0.3),
+                width: 1.2,
+              ),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.cyanAccent.withOpacity(0.2),
+                  color: Colors.cyanAccent.withValues(alpha: 0.2),
                   blurRadius: 10,
                   spreadRadius: 1,
                   offset: const Offset(2, 4),
@@ -123,9 +130,22 @@ class UserHomeScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(title, style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
+                      Text(
+                        title,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                       const SizedBox(height: 4),
-                      Text(subtitle, style: const TextStyle(color: Colors.white60, fontSize: 13)),
+                      Text(
+                        subtitle,
+                        style: const TextStyle(
+                          color: Colors.white60,
+                          fontSize: 13,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -140,12 +160,13 @@ class UserHomeScreen extends StatelessWidget {
 
   Widget _NextAppointmentCard(String userEmail) {
     return StreamBuilder<QuerySnapshot>(
-      stream: FirebaseFirestore.instance
-          .collection('appointments')
-          .where('patientEmail', isEqualTo: userEmail)
-          .where('status', isEqualTo: 'confirmed')
-          .orderBy('date')
-          .snapshots(),
+      stream:
+          FirebaseFirestore.instance
+              .collection('appointments')
+              .where('patientEmail', isEqualTo: userEmail)
+              .where('status', isEqualTo: 'confirmed')
+              .orderBy('date')
+              .snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
           return const Center(child: CircularProgressIndicator());
@@ -165,39 +186,61 @@ class UserHomeScreen extends StatelessWidget {
           width: double.infinity,
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.06),
+            color: Colors.white.withValues(alpha: 0.06),
             borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: Colors.cyanAccent.withOpacity(0.2)),
+            border: Border.all(color: Colors.cyanAccent.withValues(alpha: 0.2)),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text("Next Appointment",
-                  style: TextStyle(color: Colors.cyanAccent, fontSize: 18, fontWeight: FontWeight.bold)),
+              const Text(
+                "Next Appointment",
+                style: TextStyle(
+                  color: Colors.cyanAccent,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               const SizedBox(height: 8),
-              Text("Doctor: Dr. ${data['doctorName'] ?? ''}",
-                  style: const TextStyle(color: Colors.white)),
-              Text("Date: ${data['date'] ?? ''}",
-                  style: const TextStyle(color: Colors.white)),
-              if (data['assignedTime'] != null && data['assignedTime'].toString().isNotEmpty)
-                Text("Time: ${data['assignedTime']}", style: const TextStyle(color: Colors.white70)),
+              Text(
+                "Doctor: Dr. ${data['doctorName'] ?? ''}",
+                style: const TextStyle(color: Colors.white),
+              ),
+              Text(
+                "Date: ${data['date'] ?? ''}",
+                style: const TextStyle(color: Colors.white),
+              ),
+              if (data['assignedTime'] != null &&
+                  data['assignedTime'].toString().isNotEmpty)
+                Text(
+                  "Time: ${data['assignedTime']}",
+                  style: const TextStyle(color: Colors.white70),
+                ),
               const SizedBox(height: 10),
-              if (data['videoLink'] != null && data['videoLink'].toString().isNotEmpty)
+              if (data['videoLink'] != null &&
+                  data['videoLink'].toString().isNotEmpty)
                 ElevatedButton.icon(
                   onPressed: () async {
                     final uri = Uri.parse(data['videoLink']);
                     if (await canLaunchUrl(uri)) {
-                      await launchUrl(uri, mode: LaunchMode.externalApplication);
+                      await launchUrl(
+                        uri,
+                        mode: LaunchMode.externalApplication,
+                      );
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text("Unable to open video call link")),
+                        const SnackBar(
+                          content: Text("Unable to open video call link"),
+                        ),
                       );
                     }
                   },
                   icon: const Icon(Icons.videocam),
                   label: const Text("Join Video Call"),
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.cyanAccent, foregroundColor: Colors.black),
+                    backgroundColor: Colors.cyanAccent,
+                    foregroundColor: Colors.black,
+                  ),
                 ),
             ],
           ),
@@ -212,7 +255,7 @@ class UserHomeScreen extends StatelessWidget {
       "Floss regularly",
       "Avoid sugary snacks",
       "Visit the dentist every 6 months",
-      "Replace toothbrush often"
+      "Replace toothbrush often",
     ];
 
     return ListView.builder(
@@ -225,12 +268,16 @@ class UserHomeScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(14),
-            color: Colors.white.withOpacity(0.05),
+            color: Colors.white.withValues(alpha: 0.05),
             border: Border.all(color: Colors.white12),
           ),
           child: Row(
             children: [
-              const Icon(Icons.check_circle_outline, color: Colors.cyanAccent, size: 20),
+              const Icon(
+                Icons.check_circle_outline,
+                color: Colors.cyanAccent,
+                size: 20,
+              ),
               const SizedBox(width: 12),
               Expanded(
                 child: Text(

@@ -9,7 +9,10 @@ class EmergencyDentalScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFF0B132B),
       appBar: AppBar(
-        title: const Text('Dental Emergency', style: TextStyle(color: Colors.white)),
+        title: const Text(
+          'Dental Emergency',
+          style: TextStyle(color: Colors.white),
+        ),
         backgroundColor: Colors.red[900],
         iconTheme: const IconThemeData(color: Colors.white),
       ),
@@ -44,7 +47,7 @@ class EmergencyDentalScreen extends StatelessWidget {
 
   Widget _buildCriticalEmergencyCard(BuildContext context) {
     return Card(
-      color: Colors.red[900]!.withOpacity(0.2),
+      color: Colors.red[900]!.withValues(alpha: 0.2),
       elevation: 0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
@@ -57,7 +60,11 @@ class EmergencyDentalScreen extends StatelessWidget {
           children: [
             Row(
               children: [
-                const Icon(Icons.warning_amber_rounded, color: Colors.red, size: 28),
+                const Icon(
+                  Icons.warning_amber_rounded,
+                  color: Colors.red,
+                  size: 28,
+                ),
                 const SizedBox(width: 8),
                 Text(
                   'CRITICAL EMERGENCY',
@@ -80,10 +87,22 @@ class EmergencyDentalScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('• Difficulty breathing/swallowing', style: TextStyle(color: Colors.white)),
-                  Text('• Uncontrolled bleeding', style: TextStyle(color: Colors.white)),
-                  Text('• Severe facial trauma', style: TextStyle(color: Colors.white)),
-                  Text('• Swelling affecting vision', style: TextStyle(color: Colors.white)),
+                  Text(
+                    '• Difficulty breathing/swallowing',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  Text(
+                    '• Uncontrolled bleeding',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  Text(
+                    '• Severe facial trauma',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  Text(
+                    '• Swelling affecting vision',
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ],
               ),
             ),
@@ -114,9 +133,7 @@ class EmergencyDentalScreen extends StatelessWidget {
     return Card(
       color: const Color(0xFF1C2541),
       elevation: 4,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -179,9 +196,7 @@ class EmergencyDentalScreen extends StatelessWidget {
       onSelected: (bool selected) {},
       selectedColor: Colors.blue[800],
       backgroundColor: const Color(0xFF2C3654),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
     );
   }
 
@@ -189,9 +204,7 @@ class EmergencyDentalScreen extends StatelessWidget {
     return Card(
       color: const Color(0xFF1C2541),
       elevation: 4,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -243,13 +256,16 @@ class EmergencyDentalScreen extends StatelessWidget {
       leading: Container(
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          color: Colors.blue[800]!.withOpacity(0.2),
+          color: Colors.blue[800]!.withValues(alpha: 0.2),
           shape: BoxShape.circle,
         ),
         child: Icon(icon, color: Colors.blue[200]),
       ),
       title: Text(title, style: const TextStyle(color: Colors.white)),
-      subtitle: Text(subtitle, style: TextStyle(color: Colors.white.withOpacity(0.7))),
+      subtitle: Text(
+        subtitle,
+        style: TextStyle(color: Colors.white.withValues(alpha: 0.7)),
+      ),
       trailing: IconButton(
         icon: const Icon(Icons.call, color: Colors.green),
         onPressed: onTap,
@@ -262,9 +278,7 @@ class EmergencyDentalScreen extends StatelessWidget {
     return Card(
       color: const Color(0xFF1C2541),
       elevation: 4,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -305,7 +319,11 @@ class EmergencyDentalScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildFirstAidItem(BuildContext context, {required String title, required IconData icon}) {
+  Widget _buildFirstAidItem(
+    BuildContext context, {
+    required String title,
+    required IconData icon,
+  }) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
       child: ListTile(
@@ -313,7 +331,7 @@ class EmergencyDentalScreen extends StatelessWidget {
         leading: Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: Colors.purple[800]!.withOpacity(0.2),
+            color: Colors.purple[800]!.withValues(alpha: 0.2),
             shape: BoxShape.circle,
           ),
           child: Icon(icon, color: Colors.purple[200]),
@@ -329,9 +347,7 @@ class EmergencyDentalScreen extends StatelessWidget {
     return Card(
       color: const Color(0xFF1C2541),
       elevation: 4,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -358,8 +374,10 @@ class EmergencyDentalScreen extends StatelessWidget {
                     children: [
                       Icon(Icons.map, size: 40, color: Colors.white54),
                       SizedBox(height: 8),
-                      Text('Map View Would Display Here',
-                          style: TextStyle(color: Colors.white70)),
+                      Text(
+                        'Map View Would Display Here',
+                        style: TextStyle(color: Colors.white70),
+                      ),
                     ],
                   ),
                 ),
@@ -413,70 +431,86 @@ class EmergencyDentalScreen extends StatelessWidget {
   void _showTriageResult(BuildContext context) {
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: const Color(0xFF1C2541),
-        title: const Text('Symptom Analysis', style: TextStyle(color: Colors.white)),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: Colors.orange[900]!.withOpacity(0.2),
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: Colors.orange),
-              ),
-              child: const Row(
-                children: [
-                  Icon(Icons.warning, color: Colors.orange),
-                  SizedBox(width: 10),
-                  Expanded(
-                    child: Text(
-                      'Urgent Care Needed',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+      builder:
+          (context) => AlertDialog(
+            backgroundColor: const Color(0xFF1C2541),
+            title: const Text(
+              'Symptom Analysis',
+              style: TextStyle(color: Colors.white),
+            ),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: Colors.orange[900]!.withValues(alpha: 0.2),
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(color: Colors.orange),
                   ),
-                ],
+                  child: const Row(
+                    children: [
+                      Icon(Icons.warning, color: Colors.orange),
+                      SizedBox(width: 10),
+                      Expanded(
+                        child: Text(
+                          'Urgent Care Needed',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 16),
+                const Text(
+                  'Based on your symptoms, you should:',
+                  style: TextStyle(color: Colors.white70),
+                ),
+                const SizedBox(height: 8),
+                const Padding(
+                  padding: EdgeInsets.only(left: 8),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '• See a dentist within 6 hours',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      Text(
+                        '• Apply cold compress to reduce swelling',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      Text(
+                        '• Avoid hot foods/drinks',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      Text(
+                        '• Take OTC pain reliever if needed',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text('Close'),
               ),
-            ),
-            const SizedBox(height: 16),
-            const Text(
-              'Based on your symptoms, you should:',
-              style: TextStyle(color: Colors.white70),
-            ),
-            const SizedBox(height: 8),
-            const Padding(
-              padding: EdgeInsets.only(left: 8),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('• See a dentist within 6 hours', style: TextStyle(color: Colors.white)),
-                  Text('• Apply cold compress to reduce swelling', style: TextStyle(color: Colors.white)),
-                  Text('• Avoid hot foods/drinks', style: TextStyle(color: Colors.white)),
-                  Text('• Take OTC pain reliever if needed', style: TextStyle(color: Colors.white)),
-                ],
+              ElevatedButton(
+                onPressed: () => _launchEmergencyCall('5551234567'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red[800],
+                ),
+                child: const Text('Call Dentist Now'),
               ),
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Close'),
+            ],
           ),
-          ElevatedButton(
-            onPressed: () => _launchEmergencyCall('5551234567'),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.red[800],
-            ),
-            child: const Text('Call Dentist Now'),
-          ),
-        ],
-      ),
     );
   }
 
@@ -495,12 +529,12 @@ class EmergencyDentalScreen extends StatelessWidget {
           'Pick up by the crown (chewing surface)',
           'Rinse gently with milk or saline if dirty',
           'Try to reinsert in socket if possible',
-          'Keep moist in milk or saliva'
+          'Keep moist in milk or saliva',
         ];
         dontList = [
           "Don't scrub or clean aggressively",
           "Don't let the tooth dry out",
-          "Don't wrap in dry tissue"
+          "Don't wrap in dry tissue",
         ];
         break;
       case 'Broken Tooth':
@@ -510,101 +544,117 @@ class EmergencyDentalScreen extends StatelessWidget {
           'Rinse mouth with warm water',
           'Apply gauze if bleeding',
           'Use cold compress for swelling',
-          'Save any broken pieces'
+          'Save any broken pieces',
         ];
         dontList = [
           "Don't probe with sharp objects",
           "Don't chew on that side",
-          "Don't ignore even if painless"
+          "Don't ignore even if painless",
         ];
         break;
-    // Add other cases similarly
+      // Add other cases similarly
     }
 
     showModalBottomSheet(
       context: context,
       backgroundColor: const Color(0xFF1C2541),
       isScrollControlled: true,
-      builder: (context) => SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(
-              child: Container(
-                  width: 60,
-                  height: 4,
-                  margin: const EdgeInsets.only(bottom: 16),
-                  decoration: BoxDecoration(
-                    color: Colors.white24,
-                    borderRadius: BorderRadius.circular(2),
-                  )),
-            ),
-            Text(
-              title,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 16),
-            Text(
-              doTitle,
-              style: TextStyle(
-                color: Colors.green[300],
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-              ),
-            ),
-            const SizedBox(height: 8),
-            ...doList.map((item) => Padding(
-              padding: const EdgeInsets.only(left: 8, bottom: 8),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text('• ', style: TextStyle(color: Colors.green)),
-                  Expanded(child: Text(item, style: const TextStyle(color: Colors.white))),
-                ],
-              ),
-            )),
-            const SizedBox(height: 16),
-            Text(
-              dontTitle,
-              style: TextStyle(
-                color: Colors.red[300],
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-              ),
-            ),
-            const SizedBox(height: 8),
-            ...dontList.map((item) => Padding(
-              padding: const EdgeInsets.only(left: 8, bottom: 8),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text('• ', style: TextStyle(color: Colors.red)),
-                  Expanded(child: Text(item, style: const TextStyle(color: Colors.white))),
-                ],
-              ),
-            )),
-            const SizedBox(height: 24),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () => _launchEmergencyCall('18005559876'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red[800],
-                  foregroundColor: Colors.white,
-                  padding: const EdgeInsets.symmetric(vertical: 16),
+      builder:
+          (context) => SingleChildScrollView(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: Container(
+                    width: 60,
+                    height: 4,
+                    margin: const EdgeInsets.only(bottom: 16),
+                    decoration: BoxDecoration(
+                      color: Colors.white24,
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                  ),
                 ),
-                child: const Text('NEED MORE HELP? CALL DENTAL HOTLINE'),
-              ),
+                Text(
+                  title,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  doTitle,
+                  style: TextStyle(
+                    color: Colors.green[300],
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                ...doList.map(
+                  (item) => Padding(
+                    padding: const EdgeInsets.only(left: 8, bottom: 8),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text('• ', style: TextStyle(color: Colors.green)),
+                        Expanded(
+                          child: Text(
+                            item,
+                            style: const TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  dontTitle,
+                  style: TextStyle(
+                    color: Colors.red[300],
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                ...dontList.map(
+                  (item) => Padding(
+                    padding: const EdgeInsets.only(left: 8, bottom: 8),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text('• ', style: TextStyle(color: Colors.red)),
+                        Expanded(
+                          child: Text(
+                            item,
+                            style: const TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 24),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () => _launchEmergencyCall('18005559876'),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red[800],
+                      foregroundColor: Colors.white,
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                    ),
+                    child: const Text('NEED MORE HELP? CALL DENTAL HOTLINE'),
+                  ),
+                ),
+                const SizedBox(height: 16),
+              ],
             ),
-            const SizedBox(height: 16),
-          ],
-        ),
-      ),
+          ),
     );
   }
 }

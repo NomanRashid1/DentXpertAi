@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -11,19 +10,16 @@ class HomeScreen extends StatelessWidget {
 
       body: SafeArea(
         child: Center(
-          child: SingleChildScrollView(   // ← FIXED: no overflow on small screens
+          child: SingleChildScrollView(
+            // ← FIXED: no overflow on small screens
             physics: const BouncingScrollPhysics(),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-
                   // IMAGE
-                  Image.asset(
-                    'assets/rebot_rebot.png',
-                    height: 350,
-                  ),
+                  Image.asset('assets/rebot_rebot.png', height: 350),
 
                   const SizedBox(height: 20),
 
@@ -50,10 +46,7 @@ class HomeScreen extends StatelessWidget {
                   const Text(
                     'Smarter Dental Diagnosis\n& AI-Powered Specialist Booking',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white70,
-                    ),
+                    style: TextStyle(fontSize: 16, color: Colors.white70),
                   ),
 
                   const SizedBox(height: 40),
@@ -63,7 +56,8 @@ class HomeScreen extends StatelessWidget {
                     context,
                     icon: Icons.person_outline,
                     label: 'Explore as a Patient',
-                    onTap: () => Navigator.pushNamed(context, '/userEmailInput'),
+                    onTap:
+                        () => Navigator.pushNamed(context, '/userEmailInput'),
                   ),
 
                   const SizedBox(height: 20),
@@ -81,10 +75,7 @@ class HomeScreen extends StatelessWidget {
                   // FOOTER TEXT
                   const Text(
                     '🦷 Bringing AI to your dental care experience',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.white38,
-                    ),
+                    style: TextStyle(fontSize: 12, color: Colors.white38),
                   ),
                 ],
               ),
@@ -97,16 +88,16 @@ class HomeScreen extends StatelessWidget {
 
   // CUSTOM BUTTON WIDGET
   Widget _primaryButton(
-      BuildContext context, {
-        required IconData icon,
-        required String label,
-        required VoidCallback onTap,
-      }) {
+    BuildContext context, {
+    required IconData icon,
+    required String label,
+    required VoidCallback onTap,
+  }) {
     return SizedBox(
       width: double.infinity,
       child: ElevatedButton.icon(
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.cyanAccent.withOpacity(0.15),
+          backgroundColor: Colors.cyanAccent.withValues(alpha: 0.15),
           foregroundColor: Colors.white,
           shadowColor: Colors.cyanAccent,
           elevation: 4,
