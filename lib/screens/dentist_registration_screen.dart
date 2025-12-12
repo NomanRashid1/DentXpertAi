@@ -1,9 +1,6 @@
-// ... existing imports ...
-// (Assume all existing imports are present)
-
-// Import the necessary files if you are editing this standalone
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart'; // 🚨 REQUIRED IMPORT
 import 'package:image_picker/image_picker.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'dart:io';
@@ -28,14 +25,15 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
   final TextEditingController _experienceController = TextEditingController();
   final TextEditingController _clinicNameController = TextEditingController();
   final TextEditingController _clinicAddressController =
-      TextEditingController();
+  TextEditingController();
   final TextEditingController _chargesController = TextEditingController();
   final TextEditingController _bioController = TextEditingController();
   final TextEditingController _emergencyChargesController =
-      TextEditingController();
+  TextEditingController();
 
   bool offersEmergency = false;
   List<String> timeSlots = [];
+  bool _isLoading = false;
 
   File? _frontCardImage;
   File? _backCardImage;
@@ -82,7 +80,7 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
     }
   }
 
-  // 🚀 Firebase Submission Logic
+  // 🚀 CORRECTED Firebase Submission Logic
   Future<void> _submitForm() async {
     if (!_formKey.currentState!.validate()) {
       return;
@@ -99,14 +97,28 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
       return;
     }
 
+    setState(() => _isLoading = true);
+
     final String name = _nameController.text;
     final String specialization = _selectedSpecialization ?? 'General Dentist';
+    final String email = _emailController.text.trim();
+    final String password = _passwordController.text;
 
     try {
-      // 1. Prepare data for Firestore
+      // 1. 🔑 CREATE FIREBASE AUTH USER FIRST
+      final UserCredential userCredential =
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      final String uid = userCredential.user!.uid;
+
+      // 2. Prepare data for Firestore (DO NOT include the password field)
       final Map<String, dynamic> dentistData = {
+        'uid': uid, // 🚨 Store the secure User ID
         'name': name,
-        'email': _emailController.text,
+        'email': email,
         'specialization': specialization,
         'experience': int.tryParse(_experienceController.text) ?? 0,
         'charges': 'PKR ${_chargesController.text}',
@@ -115,41 +127,56 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
         'clinicName': _clinicNameController.text,
         'phone': _phoneController.text,
         'offersEmergency': offersEmergency,
-        'emergencyCharges':
-            offersEmergency
-                ? ('PKR ${_emergencyChargesController.text}')
-                : null,
+        'emergencyCharges': offersEmergency
+            ? ('PKR ${_emergencyChargesController.text}')
+            : null,
         'timeSlots': timeSlots,
-        'isApproved': false,
+        'isApproved': false, // Requires admin approval before login
         'createdAt': FieldValue.serverTimestamp(),
       };
 
-      // 2. Save data to the 'dentists' collection
-      await FirebaseFirestore.instance.collection('dentists').add(dentistData);
+      // 3. Save data to the 'dentists' collection, using UID as document ID
+      await FirebaseFirestore.instance.collection('dentists').doc(uid).set(dentistData);
 
-      // 3. ✅ Navigate to the Success Screen, passing required arguments
-      Navigator.pushReplacementNamed(
-        context,
-        '/registrationSuccess',
-        arguments: {'name': name, 'specialization': specialization},
+      // 4. ✅ Navigate to the Success Screen
+      if (mounted) {
+        Navigator.pushReplacementNamed(
+          context,
+          '/registrationSuccess',
+          arguments: {'name': name, 'specialization': specialization},
+        );
+      }
+    } on FirebaseAuthException catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Registration failed: ${e.message}"),
+          backgroundColor: Colors.red,
+        ),
       );
     } on FirebaseException catch (e) {
+      // If Auth user was created but Firestore failed, you might want to delete the Auth user too.
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            "Submission failed: ${e.message}. Check Firestore Rules.",
+            "Database submission failed: ${e.message}. Check Firestore Rules.",
           ),
+          backgroundColor: Colors.red,
         ),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text("An unexpected error occurred: $e")),
       );
+    } finally {
+      if (mounted) {
+        setState(() => _isLoading = false);
+      }
     }
   }
 
-  // ... rest of the buildForm, _buildFormField, _buildImagePicker, and build methods ...
-  // (The rest of your code from your previous message remains the same)
+  // ----------------------------------------------------------------------------------
+  // 🎯 FIX LOCATION: The following methods must be correctly placed inside the State class
+  // ----------------------------------------------------------------------------------
 
   Future<void> _showTimeSlotDialog() async {
     final List<String> availableSlots = [
@@ -177,73 +204,73 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
       context: context,
       builder:
           (context) => AlertDialog(
-            backgroundColor: const Color(0xFF04152D),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-            title: const Text(
-              "Select Time Slot",
-              style: TextStyle(color: Colors.white),
-            ),
-            content: StatefulBuilder(
-              builder: (context, setState) {
-                return DropdownButtonFormField<String>(
-                  value: selectedSlot,
-                  items:
-                      availableSlots.map((slot) {
-                        return DropdownMenuItem(
-                          value: slot,
-                          child: Text(
-                            slot,
-                            style: const TextStyle(color: Colors.white),
-                          ),
-                        );
-                      }).toList(),
-                  onChanged: (val) => setState(() => selectedSlot = val),
-                  decoration: const InputDecoration(
-                    hintText: "Choose a time",
-                    hintStyle: TextStyle(color: Colors.white54),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.cyanAccent),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.cyanAccent,
-                        width: 2,
-                      ),
-                    ),
+        backgroundColor: const Color(0xFF04152D),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        title: const Text(
+          "Select Time Slot",
+          style: TextStyle(color: Colors.white),
+        ),
+        content: StatefulBuilder(
+          builder: (context, setState) {
+            return DropdownButtonFormField<String>(
+              value: selectedSlot,
+              items:
+              availableSlots.map((slot) {
+                return DropdownMenuItem(
+                  value: slot,
+                  child: Text(
+                    slot,
+                    style: const TextStyle(color: Colors.white),
                   ),
-                  dropdownColor: Colors.black,
-                  style: const TextStyle(color: Colors.white),
                 );
-              },
-            ),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  if (selectedSlot != null &&
-                      !timeSlots.contains(selectedSlot)) {
-                    setState(() => timeSlots.add(selectedSlot!));
-                  }
-                  Navigator.pop(context);
-                },
-                child: const Text(
-                  "Add",
-                  style: TextStyle(color: Colors.cyanAccent),
+              }).toList(),
+              onChanged: (val) => setState(() => selectedSlot = val),
+              decoration: const InputDecoration(
+                hintText: "Choose a time",
+                hintStyle: TextStyle(color: Colors.white54),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.cyanAccent),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.cyanAccent,
+                    width: 2,
+                  ),
                 ),
               ),
-            ],
+              dropdownColor: Colors.black,
+              style: const TextStyle(color: Colors.white),
+            );
+          },
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              if (selectedSlot != null &&
+                  !timeSlots.contains(selectedSlot)) {
+                setState(() => timeSlots.add(selectedSlot!));
+              }
+              Navigator.pop(context);
+            },
+            child: const Text(
+              "Add",
+              style: TextStyle(color: Colors.cyanAccent),
+            ),
           ),
+        ],
+      ),
     );
   }
 
   Widget _buildFormField(
-    String label,
-    TextEditingController controller, {
-    bool isPassword = false,
-    bool isNumeric = false,
-    int? maxLines = 1,
-  }) {
+      String label,
+      TextEditingController controller, {
+        bool isPassword = false,
+        bool isNumeric = false,
+        int? maxLines = 1,
+      }) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: TextFormField(
@@ -321,33 +348,33 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
                 color: Colors.white.withValues(alpha: 0.05),
               ),
               child:
-                  imageFile == null
-                      ? const Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.cloud_upload,
-                              color: Colors.cyanAccent,
-                              size: 40,
-                            ),
-                            SizedBox(height: 8),
-                            Text(
-                              'Upload Image',
-                              style: TextStyle(color: Colors.white70),
-                            ),
-                          ],
-                        ),
-                      )
-                      : ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: Image.file(
-                          imageFile,
-                          fit: BoxFit.cover,
-                          height: 120,
-                          width: double.infinity,
-                        ),
-                      ),
+              imageFile == null
+                  ? const Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.cloud_upload,
+                      color: Colors.cyanAccent,
+                      size: 40,
+                    ),
+                    SizedBox(height: 8),
+                    Text(
+                      'Upload Image',
+                      style: TextStyle(color: Colors.white70),
+                    ),
+                  ],
+                ),
+              )
+                  : ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.file(
+                  imageFile,
+                  fit: BoxFit.cover,
+                  height: 120,
+                  width: double.infinity,
+                ),
+              ),
             ),
           ),
         ],
@@ -355,6 +382,7 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
     );
   }
 
+  // 🎯 FIX LOCATION: This function must be inside the State class.
   Widget buildForm() {
     return Form(
       key: _formKey,
@@ -422,15 +450,15 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
           DropdownButtonFormField<String>(
             value: _selectedSpecialization,
             items:
-                specializations.map((spec) {
-                  return DropdownMenuItem(
-                    value: spec,
-                    child: Text(
-                      spec,
-                      style: const TextStyle(color: Colors.white),
-                    ),
-                  );
-                }).toList(),
+            specializations.map((spec) {
+              return DropdownMenuItem(
+                value: spec,
+                child: Text(
+                  spec,
+                  style: const TextStyle(color: Colors.white),
+                ),
+              );
+            }).toList(),
             onChanged:
                 (value) => setState(() => _selectedSpecialization = value),
             decoration: InputDecoration(
@@ -454,7 +482,7 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
             style: const TextStyle(color: Colors.white),
             validator:
                 (value) =>
-                    value == null ? 'Please select a specialization' : null,
+            value == null ? 'Please select a specialization' : null,
           ),
 
           // --- Clinic Details ---
@@ -557,23 +585,23 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
                 spacing: 8.0,
                 runSpacing: 4.0,
                 children:
-                    timeSlots.map((slot) {
-                      return Chip(
-                        label: Text(
-                          slot,
-                          style: const TextStyle(color: Colors.black),
-                        ),
-                        backgroundColor: Colors.cyanAccent.withValues(
-                          alpha: 0.8,
-                        ),
-                        deleteIcon: const Icon(
-                          Icons.close,
-                          color: Colors.black,
-                          size: 18,
-                        ),
-                        onDeleted: () => setState(() => timeSlots.remove(slot)),
-                      );
-                    }).toList(),
+                timeSlots.map((slot) {
+                  return Chip(
+                    label: Text(
+                      slot,
+                      style: const TextStyle(color: Colors.black),
+                    ),
+                    backgroundColor: Colors.cyanAccent.withValues(
+                      alpha: 0.8,
+                    ),
+                    deleteIcon: const Icon(
+                      Icons.close,
+                      color: Colors.black,
+                      size: 18,
+                    ),
+                    onDeleted: () => setState(() => timeSlots.remove(slot)),
+                  );
+                }).toList(),
               ),
             ),
 
@@ -581,7 +609,7 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
 
           // --- Submit Button ---
           ElevatedButton(
-            onPressed: _submitForm,
+            onPressed: _isLoading ? null : _submitForm, // Disable when loading
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.cyanAccent,
               foregroundColor: Colors.black,
@@ -592,7 +620,16 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
               elevation: 6,
               shadowColor: Colors.cyanAccent.withValues(alpha: 0.4),
             ),
-            child: const Text(
+            child: _isLoading
+                ? const SizedBox(
+              width: 24,
+              height: 24,
+              child: CircularProgressIndicator(
+                color: Colors.black,
+                strokeWidth: 3,
+              ),
+            )
+                : const Text(
               'SUBMIT REGISTRATION',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
@@ -650,7 +687,7 @@ class _DentistRegistrationScreenState extends State<DentistRegistrationScreen> {
                         color: Colors.cyanAccent.withValues(alpha: 0.3),
                       ),
                     ),
-                    child: buildForm(),
+                    child: buildForm(), // 🎯 Calling the correctly located method
                   ),
                 ),
               ),

@@ -1,23 +1,51 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'edit_doctor_profile_screen.dart';
-import 'doctor_appointment_screen.dart'; // ✅ New screen to show appointments
+import 'package:firebase_auth/firebase_auth.dart';
 
-class DoctorDashboardScreen extends StatelessWidget {
+class DoctorDashboardScreen extends StatefulWidget {
   final String doctorEmail;
 
   const DoctorDashboardScreen({super.key, required this.doctorEmail});
 
-  Future<DocumentSnapshot?> fetchDoctorData() async {
-    final querySnapshot =
-        await FirebaseFirestore.instance
-            .collection('dentists')
-            .where('email', isEqualTo: doctorEmail)
-            .get();
+  @override
+  State<DoctorDashboardScreen> createState() => _DoctorDashboardScreenState();
+}
+
+class _DoctorDashboardScreenState extends State<DoctorDashboardScreen> {
+  Future<DocumentSnapshot?>? _doctorDataFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    _doctorDataFuture = _fetchDoctorData();
+  }
+
+  Future<DocumentSnapshot?> _fetchDoctorData() async {
+    final querySnapshot = await FirebaseFirestore.instance
+        .collection('dentists')
+        .where('email', isEqualTo: widget.doctorEmail)
+        .get();
+
     if (querySnapshot.docs.isNotEmpty) {
       return querySnapshot.docs.first;
     }
     return null;
+  }
+
+  void _editProfile() async {
+    await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => EditDoctorProfileScreen(
+          doctorEmail: widget.doctorEmail,
+        ),
+      ),
+    );
+
+    setState(() {
+      _doctorDataFuture = _fetchDoctorData();
+    });
   }
 
   @override
@@ -37,7 +65,7 @@ class DoctorDashboardScreen extends StatelessWidget {
           ),
           SafeArea(
             child: FutureBuilder<DocumentSnapshot?>(
-              future: fetchDoctorData(),
+              future: _doctorDataFuture,
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const Center(
@@ -56,18 +84,28 @@ class DoctorDashboardScreen extends StatelessWidget {
 
                 final data = snapshot.data!.data() as Map<String, dynamic>;
 
+                final experienceValue = data['experience'];
+                String experienceString;
+                if (experienceValue is int) {
+                  experienceString = experienceValue.toString();
+                } else if (experienceValue is String) {
+                  experienceString = experienceValue;
+                } else {
+                  experienceString = 'N/A';
+                }
+
                 return SingleChildScrollView(
                   padding: const EdgeInsets.all(24),
                   child: Column(
                     children: [
                       Container(
                         decoration: BoxDecoration(
-                          color: Colors.white.withValues(alpha: 0.05),
+                          color: Colors.white.withOpacity(0.05),
                           borderRadius: BorderRadius.circular(24),
                           border: Border.all(color: Colors.white12),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.cyanAccent.withValues(alpha: 0.2),
+                              color: Colors.cyanAccent.withOpacity(0.2),
                               blurRadius: 12,
                               offset: const Offset(0, 6),
                             ),
@@ -112,19 +150,17 @@ class DoctorDashboardScreen extends StatelessWidget {
                       _buildInfoTile('Charges (PKR)', data['charges'] ?? ''),
                       _buildInfoTile('Email', data['email'] ?? ''),
                       _buildInfoTile('Phone', data['phone'] ?? ''),
-                      _buildInfoTile('Experience', data['experience'] ?? ''),
+                      _buildInfoTile('Experience', experienceString),
                       _buildInfoTile('Bio', data['bio'] ?? ''),
                       const SizedBox(height: 30),
+
+                      // ✅ FIXED: Using pushNamed with route instead of direct class
                       ElevatedButton.icon(
                         onPressed: () {
-                          Navigator.push(
+                          Navigator.pushNamed(
                             context,
-                            MaterialPageRoute(
-                              builder:
-                                  (_) => DoctorAppointmentsScreen(
-                                    doctorEmail: doctorEmail,
-                                  ),
-                            ),
+                            '/doctorAppointments',
+                            arguments: {'doctorEmail': widget.doctorEmail},
                           );
                         },
                         icon: const Icon(Icons.calendar_today),
@@ -140,17 +176,7 @@ class DoctorDashboardScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 24),
                       OutlinedButton.icon(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder:
-                                  (_) => EditDoctorProfileScreen(
-                                    doctorEmail: doctorEmail,
-                                  ),
-                            ),
-                          );
-                        },
+                        onPressed: _editProfile,
                         icon: const Icon(Icons.edit, color: Colors.cyanAccent),
                         label: const Text("Edit Profile"),
                         style: OutlinedButton.styleFrom(
@@ -179,7 +205,7 @@ class DoctorDashboardScreen extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.08),
+          color: Colors.white.withOpacity(0.08),
           borderRadius: BorderRadius.circular(16),
           border: Border.all(color: Colors.white10),
         ),

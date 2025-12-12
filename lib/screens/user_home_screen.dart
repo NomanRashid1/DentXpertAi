@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'user_appointment_screen.dart'; // ✅ Your appointment screen
+import 'user_appointment_screen.dart';
 
 class UserHomeScreen extends StatelessWidget {
   const UserHomeScreen({super.key});
@@ -53,25 +53,25 @@ class UserHomeScreen extends StatelessWidget {
                     icon: Icons.local_hospital_outlined,
                     title: 'Find a Dentist',
                     subtitle: 'Search trusted dental specialists',
-                    onTap:
-                        () => Navigator.pushNamed(context, '/specialistList'),
+                    onTap: () => Navigator.pushNamed(context, '/specialistList'),
                   ),
                   const SizedBox(height: 16),
                   _homeCard(
                     icon: Icons.calendar_today,
                     title: 'My Appointments',
                     subtitle: 'View your scheduled dental visits',
-                    onTap:
-                        () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const UserAppointmentsScreen(),
-                          ),
-                        ),
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const UserAppointmentsScreen(),
+                      ),
+                    ),
                   ),
                   const SizedBox(height: 24),
 
-                  // ✅ Show next appointment card
+                  // Next Appointment Card
+                  if (userEmail.isNotEmpty) _nextAppointmentCard(userEmail),
+
                   const SizedBox(height: 24),
                   const Text(
                     'Tips for Healthy Teeth',
@@ -158,26 +158,22 @@ class UserHomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _NextAppointmentCard(String userEmail) {
+  Widget _nextAppointmentCard(String userEmail) {
     return StreamBuilder<QuerySnapshot>(
-      stream:
-          FirebaseFirestore.instance
-              .collection('appointments')
-              .where('patientEmail', isEqualTo: userEmail)
-              .where('status', isEqualTo: 'confirmed')
-              .orderBy('date')
-              .snapshots(),
+      stream: FirebaseFirestore.instance
+          .collection('appointments')
+          .where('patientEmail', isEqualTo: userEmail)
+          .where('status', isEqualTo: 'confirmed')
+          .orderBy('date')
+          .snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
-          return const Center(child: CircularProgressIndicator());
+          return const SizedBox.shrink();
         }
 
         final docs = snapshot.data!.docs;
         if (docs.isEmpty) {
-          return const Text(
-            'No upcoming confirmed appointments.',
-            style: TextStyle(color: Colors.white70),
-          );
+          return const SizedBox.shrink();
         }
 
         final data = docs.first.data() as Map<String, dynamic>;
@@ -203,11 +199,11 @@ class UserHomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Text(
-                "Doctor: Dr. ${data['doctorName'] ?? ''}",
+                "Doctor: Dr. ${data['doctorName'] ?? 'Unknown'}",
                 style: const TextStyle(color: Colors.white),
               ),
               Text(
-                "Date: ${data['date'] ?? ''}",
+                "Date: ${data['date'] ?? 'Not set'}",
                 style: const TextStyle(color: Colors.white),
               ),
               if (data['assignedTime'] != null &&

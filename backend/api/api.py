@@ -235,8 +235,8 @@ if __name__ == '__main__':
     try:
         from waitress import serve
         print("✅ Using Waitress production server")
-        serve(app, host='0.0.0.0', port=5000, threads=4, channel_timeout=300)
+        serve(app, host='0.0.0.0', port=8080, threads=4, channel_timeout=300)
     except ImportError:
         print("⚠️  Waitress not found, falling back to Flask dev server")
         print("   Install waitress: pip install waitress")
-        app.run(debug=True, host='0.0.0.0', port=5000)
+        app.run(debug=True, host='0.0.0.0', port=8080)

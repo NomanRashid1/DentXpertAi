@@ -4,8 +4,8 @@ flask-cors>=4.0.0
 waitress>=2.1.2             # Production server
 
 # Computer Vision & AI
-torch==2.1.0+cpu; sys_platform == 'win32'
-torchvision==0.16.0+cpu; sys_platform == 'win32'
+torch==2.1.0; sys_platform == 'win32'
+torchvision==0.16.0; sys_platform == 'win32'
 ultralytics>=8.0.0          # YOLOv8
 opencv-python>=4.8.0        # Image processing
 pillow>=10.0.0              # Image manipulation

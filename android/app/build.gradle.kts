@@ -1,3 +1,5 @@
+// app/build.gradle.kts (Module Level)
+
 plugins {
     id("com.android.application")
     // START: FlutterFire Configuration
@@ -15,12 +17,15 @@ android {
     ndkVersion = "27.0.12077973"
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        // UPDATED: Change from VERSION_11 to VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_17
+        // UPDATED: Change from VERSION_11 to VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
+        // UPDATED: Change from VERSION_11.toString() to "17"
+        jvmTarget = "17"
     }
 
     defaultConfig {

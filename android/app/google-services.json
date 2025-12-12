@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "278613351640",
-    "project_id": "dentxpert-e90d4",
-    "storage_bucket": "dentxpert-e90d4.firebasestorage.app"
+    "project_number": "29614196880",
+    "project_id": "tomato-disease-app",
+    "storage_bucket": "tomato-disease-app.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:278613351640:android:09734351300ac82ae00bad",
+        "mobilesdk_app_id": "1:29614196880:android:2e4e6825677a68e21a7015",
         "android_client_info": {
           "package_name": "com.example.dentxxpert_ai"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCoeZK_7hoXDcs8kcCOznq2N96GauWsZww"
+          "current_key": "AIzaSyBePW0mOV3-CJAe80BUGNkCJa6ip0luWoU"
         }
       ],
       "services": {

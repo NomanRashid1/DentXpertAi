@@ -4,9 +4,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_storage/firebase_storage.dart'; // 💡 New Import for X-Ray Upload
-// Replace with your actual path, or keep it relative if correct:
-import 'payment_screen.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 class AppointmentScreen extends StatefulWidget {
   final Map<String, dynamic> doctor;
@@ -28,15 +26,27 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
   File? _xrayImage;
   bool emergencySelected = false;
   String consultationMode = 'Online';
-  bool _isSaving = false; // 💡 New: To prevent double-taps and show loading
+  bool _isSaving = false;
 
-  // Use 'timeSlots' or 'availableTimeSlots' consistently.
-  // Based on your DentistRegistrationScreen, 'timeSlots' might be correct.
-  List<String> get availableTimeSlots => List<String>.from(
-    widget.doctor['timeSlots'] ?? ['10:00 AM', '11:00 AM', '12:00 PM'],
-  );
+  List<String> get availableTimeSlots {
+    final slots = widget.doctor['timeSlots'];
+    if (slots == null) return ['10:00 AM', '11:00 AM', '12:00 PM'];
+    if (slots is List) {
+      return slots.map((e) => e.toString()).toList();
+    }
+    return ['10:00 AM', '11:00 AM', '12:00 PM'];
+  }
 
   bool get isEmergencyAvailable => widget.doctor['offersEmergency'] == true;
+
+  // 🎯 CRITICAL FIX: Helper function to safely convert Firestore values to String
+  String _safeString(String key) {
+    final value = widget.doctor[key];
+    if (value == null) return '0';
+    if (value is num) return value.toString();
+    if (value is String) return value;
+    return value.toString();
+  }
 
   @override
   void dispose() {
@@ -54,29 +64,35 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
     }
   }
 
-  // 🚀 New Function: Upload X-Ray to Firebase Storage
   Future<String?> _uploadXrayImage() async {
     if (_xrayImage == null) return null;
 
     try {
       final String fileName =
           '${DateTime.now().millisecondsSinceEpoch}_${widget.doctor['email']}_xray.jpg';
-      final storageRef = FirebaseStorage.instance.ref().child(
-        'xrays/$fileName',
-      );
-
-      // Upload the file
+      final storageRef = FirebaseStorage.instance.ref().child('xrays/$fileName');
       final uploadTask = storageRef.putFile(_xrayImage!);
-      final snapshot = await uploadTask.whenComplete(() {});
-
-      // Get the download URL
-      final downloadUrl = await snapshot.ref.getDownloadURL();
-      return downloadUrl;
+      
+      // Await the task directly to catch upload errors (e.g., Permission Denied)
+      final snapshot = await uploadTask;
+      
+      if (snapshot.state == TaskState.success) {
+        final downloadUrl = await storageRef.getDownloadURL();
+        return downloadUrl;
+      } else {
+        throw FirebaseException(
+            plugin: 'firebase_storage', 
+            code: 'upload-failed',
+            message: 'Upload failed with state: ${snapshot.state}'
+        );
+      }
     } on FirebaseException catch (e) {
       debugPrint('X-Ray upload failed: $e');
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Failed to upload X-ray image.')),
-      );
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Failed to upload X-ray: ${e.message}')),
+        );
+      }
       return null;
     }
   }
@@ -123,10 +139,9 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
     );
   }
 
-  // --- Widget Builders (Skipping redundant code for brevity, assumes they are correct) ---
-
   Widget _buildDoctorCard() {
-    // ... (Your existing _buildDoctorCard code)
+    final String regularCharges = _safeString('charges');
+
     return Card(
       elevation: 6,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -142,7 +157,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-              color: Colors.cyanAccent.withValues(alpha: 0.3),
+              color: Colors.cyanAccent.withOpacity(0.3),
               blurRadius: 8,
               offset: const Offset(0, 4),
             ),
@@ -167,7 +182,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                 ),
                 Flexible(
                   child: Text(
-                    'PKR ${widget.doctor['charges'] ?? '0'}', // 💡 Use regular charges here
+                    'PKR $regularCharges',
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -208,7 +223,6 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
   }
 
   Widget _buildPatientInfoSection() {
-    // ... (Your existing _buildPatientInfoSection code)
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -246,11 +260,10 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
   }
 
   Widget _buildTextField(
-    String label,
-    TextEditingController controller, {
-    TextInputType keyboardType = TextInputType.text,
-  }) {
-    // ... (Your existing _buildTextField code)
+      String label,
+      TextEditingController controller, {
+        TextInputType keyboardType = TextInputType.text,
+      }) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
       child: TextFormField(
@@ -261,7 +274,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
           labelText: label,
           labelStyle: const TextStyle(color: Colors.cyanAccent),
           filled: true,
-          fillColor: Colors.white.withValues(alpha: 0.05),
+          fillColor: Colors.white.withOpacity(0.05),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
             borderSide: const BorderSide(color: Colors.cyanAccent),
@@ -269,7 +282,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
             borderSide: BorderSide(
-              color: Colors.cyanAccent.withValues(alpha: 0.5),
+              color: Colors.cyanAccent.withOpacity(0.5),
             ),
           ),
           focusedBorder: OutlineInputBorder(
@@ -277,15 +290,13 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
             borderSide: const BorderSide(color: Colors.cyanAccent, width: 2),
           ),
         ),
-        validator:
-            (value) =>
-                value == null || value.trim().isEmpty ? 'Required' : null,
+        validator: (value) =>
+        value == null || value.trim().isEmpty ? 'Required' : null,
       ),
     );
   }
 
   Widget _buildIssueField() {
-    // ... (Your existing _buildIssueField code)
     return TextFormField(
       controller: issueController,
       maxLines: 3,
@@ -294,7 +305,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
         labelText: 'Describe Your Issue*',
         labelStyle: const TextStyle(color: Colors.cyanAccent),
         filled: true,
-        fillColor: Colors.white.withValues(alpha: 0.05),
+        fillColor: Colors.white.withOpacity(0.05),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(color: Colors.cyanAccent),
@@ -302,7 +313,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(
-            color: Colors.cyanAccent.withValues(alpha: 0.5),
+            color: Colors.cyanAccent.withOpacity(0.5),
           ),
         ),
         focusedBorder: OutlineInputBorder(
@@ -310,16 +321,13 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
           borderSide: const BorderSide(color: Colors.cyanAccent, width: 2),
         ),
       ),
-      validator:
-          (value) =>
-              value == null || value.trim().isEmpty
-                  ? 'Please describe your issue'
-                  : null,
+      validator: (value) => value == null || value.trim().isEmpty
+          ? 'Please describe your issue'
+          : null,
     );
   }
 
   Widget _buildAppointmentDetailsSection(BuildContext context) {
-    // ... (Your existing _buildAppointmentDetailsSection code)
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -354,7 +362,6 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
   }
 
   Widget _buildDatePicker(BuildContext context) {
-    // ... (Your existing _buildDatePicker code)
     return GestureDetector(
       onTap: () async {
         final pickedDate = await showDatePicker(
@@ -376,8 +383,8 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                     foregroundColor: Colors.cyanAccent,
                   ),
                 ),
-                dialogTheme: DialogThemeData(
-                  backgroundColor: const Color(0xFF001F3F),
+                dialogTheme: const DialogThemeData(
+                  backgroundColor: Color(0xFF001F3F),
                 ),
               ),
               child: child!,
@@ -390,11 +397,11 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: Colors.cyanAccent.withValues(alpha: 0.5)),
+          border: Border.all(color: Colors.cyanAccent.withOpacity(0.5)),
           gradient: LinearGradient(
             colors: [
-              Colors.white.withValues(alpha: 0.05),
-              Colors.cyanAccent.withValues(alpha: 0.05),
+              Colors.white.withOpacity(0.05),
+              Colors.cyanAccent.withOpacity(0.05),
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -426,7 +433,6 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
   }
 
   Widget _buildTimeSlotDropdown() {
-    // ... (Your existing _buildTimeSlotDropdown code)
     return DropdownButtonFormField<String>(
       value: selectedTimeSlot,
       dropdownColor: const Color(0xFF001F3F),
@@ -434,7 +440,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
         labelText: 'Select Time Slot*',
         labelStyle: const TextStyle(color: Colors.cyanAccent),
         filled: true,
-        fillColor: Colors.white.withValues(alpha: 0.05),
+        fillColor: Colors.white.withOpacity(0.05),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(color: Colors.cyanAccent),
@@ -442,7 +448,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(
-            color: Colors.cyanAccent.withValues(alpha: 0.5),
+            color: Colors.cyanAccent.withOpacity(0.5),
           ),
         ),
         focusedBorder: OutlineInputBorder(
@@ -450,25 +456,23 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
           borderSide: const BorderSide(color: Colors.cyanAccent, width: 2),
         ),
       ),
-      items:
-          availableTimeSlots
-              .map(
-                (slot) => DropdownMenuItem(
-                  value: slot,
-                  child: Text(
-                    slot,
-                    style: const TextStyle(color: Colors.white, fontSize: 14),
-                  ),
-                ),
-              )
-              .toList(),
+      items: availableTimeSlots
+          .map(
+            (slot) => DropdownMenuItem(
+          value: slot,
+          child: Text(
+            slot,
+            style: const TextStyle(color: Colors.white, fontSize: 14),
+          ),
+        ),
+      )
+          .toList(),
       onChanged: (val) => setState(() => selectedTimeSlot = val),
       validator: (val) => val == null ? 'Required' : null,
     );
   }
 
   Widget _buildConsultationModeToggle() {
-    // ... (Your existing _buildConsultationModeToggle code)
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -494,7 +498,6 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
   }
 
   Widget _buildConsultationChip(String mode) {
-    // ... (Your existing _buildConsultationChip code)
     final isSelected = consultationMode == mode;
     return ChoiceChip(
       label: Text(
@@ -508,10 +511,10 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
       ),
       selected: isSelected,
       selectedColor: Colors.cyanAccent,
-      backgroundColor: Colors.white.withValues(alpha: 0.05),
+      backgroundColor: Colors.white.withOpacity(0.05),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
-        side: BorderSide(color: Colors.cyanAccent.withValues(alpha: 0.5)),
+        side: BorderSide(color: Colors.cyanAccent.withOpacity(0.5)),
       ),
       onSelected: (selected) {
         if (selected) setState(() => consultationMode = mode);
@@ -521,8 +524,8 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
   }
 
   Widget _buildEmergencySwitch() {
-    // ... (Your existing _buildEmergencySwitch code)
-    final emergencyCharges = widget.doctor['emergencyCharges'] ?? '0';
+    final emergencyCharges = _safeString('emergencyCharges');
+
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
@@ -534,7 +537,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.redAccent.withValues(alpha: 0.3),
+            color: Colors.redAccent.withOpacity(0.3),
             blurRadius: 8,
             offset: const Offset(0, 4),
           ),
@@ -596,7 +599,6 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
   }
 
   Widget _buildXrayUploadSection() {
-    // ... (Your existing _buildXrayUploadSection code)
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -660,86 +662,88 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
 
   Widget _buildConfirmButton() {
     return ElevatedButton(
-      // Disable button while saving or if validation fails
-      onPressed:
-          _isSaving
-              ? null
-              : () async {
-                if (!_formKey.currentState!.validate() ||
-                    selectedTimeSlot == null) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text(
-                        'Please complete all required fields and select a time slot.',
-                      ),
-                    ),
-                  );
-                  return;
-                }
+      onPressed: _isSaving
+          ? null
+          : () async {
+        if (!_formKey.currentState!.validate() ||
+            selectedTimeSlot == null) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text(
+                'Please complete all required fields and select a time slot.',
+              ),
+            ),
+          );
+          return;
+        }
 
-                setState(() => _isSaving = true); // Start loading
+        setState(() => _isSaving = true);
 
-                try {
-                  final currentUser = FirebaseAuth.instance.currentUser;
-                  if (currentUser == null) {
-                    throw Exception("User is not logged in.");
-                  }
+        try {
+          final currentUser = FirebaseAuth.instance.currentUser;
+          if (currentUser == null) {
+            throw Exception("User is not logged in.");
+          }
 
-                  // 1. Upload X-Ray Image (if present)
-                  final String? xrayUrl = await _uploadXrayImage();
+          // 1. Upload X-Ray Image
+          final String? xrayUrl = await _uploadXrayImage();
 
-                  // 2. Determine Final Charges
-                  final chargesKey =
-                      emergencySelected ? 'emergencyCharges' : 'charges';
-                  final finalCharges = widget.doctor[chargesKey] ?? '0';
+          // 2. Determine Final Charges
+          final chargesKey =
+          emergencySelected ? 'emergencyCharges' : 'charges';
+          final finalCharges = _safeString(chargesKey);
 
-                  // 3. Prepare Appointment Data
-                  final appointmentData = {
-                    'doctor':
-                        widget.doctor, // Store full doctor data for easy access
-                    'doctorId': widget.doctor['email'],
-                    'patientName': nameController.text.trim(),
-                    'patientEmail':
-                        currentUser.email, // Use logged-in user email
-                    'patientId': currentUser.uid, // Use logged-in user UID
-                    'age': ageController.text.trim(),
-                    'phone': phoneController.text.trim(),
-                    'issue': issueController.text.trim(),
-                    'date': DateFormat('yyyy-MM-dd').format(selectedDate),
-                    'assignedTime': selectedTimeSlot,
-                    'consultationMode': consultationMode,
-                    'emergencySelected': emergencySelected,
-                    'xrayUrl': xrayUrl, // Store the uploaded URL
-                    'status': 'pending',
-                    'timestamp': DateTime.now(),
-                    'charges': finalCharges,
-                  };
+          // 3. Prepare Appointment Data
+          final appointmentData = {
+            'doctor': widget.doctor,
+            'doctorId': widget.doctor['email'],
+            'patientName': nameController.text.trim(),
+            'patientEmail': currentUser.email,
+            'patientId': currentUser.uid,
+            'age': ageController.text.trim(),
+            'phone': phoneController.text.trim(),
+            'issue': issueController.text.trim(),
+            'date': DateFormat('yyyy-MM-dd').format(selectedDate),
+            'assignedTime': selectedTimeSlot,
+            'consultationMode': consultationMode,
+            'emergencySelected': emergencySelected,
+            'xrayUrl': xrayUrl,
+            'status': 'pending',
+            'timestamp': DateTime.now(),
+            'charges': finalCharges,
+          };
 
-                  // 4. Save Appointment Data to Firestore
-                  final appointmentRef = await FirebaseFirestore.instance
-                      .collection('appointments')
-                      .add(appointmentData);
+          // 4. Save to Firestore
+          final appointmentRef = await FirebaseFirestore.instance
+              .collection('appointments')
+              .add(appointmentData);
 
-                  // 5. Navigate to Payment Screen
-                  await Navigator.pushNamed(
-                    context,
-                    '/payment',
-                    arguments: {
-                      'appointmentId': appointmentRef.id,
-                      'appointmentData': appointmentData,
-                    },
-                  );
-                } catch (e) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Booking failed: ${e.toString()}')),
-                  );
-                  debugPrint('Booking Error: $e');
-                } finally {
-                  if (mounted) {
-                    setState(() => _isSaving = false); // Stop loading
-                  }
-                }
+          // 5. Navigate to Payment
+          if (mounted) {
+            await Navigator.pushNamed(
+              context,
+              '/payment',
+              arguments: {
+                'appointmentId': appointmentRef.id,
+                'appointmentData': appointmentData,
               },
+            );
+          }
+        } catch (e) {
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text('Booking failed: ${e.toString()}'),
+              ),
+            );
+          }
+          debugPrint('Booking Error: $e');
+        } finally {
+          if (mounted) {
+            setState(() => _isSaving = false);
+          }
+        }
+      },
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.cyanAccent,
         foregroundColor: Colors.black,
@@ -747,20 +751,19 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         elevation: 4,
       ),
-      child:
-          _isSaving
-              ? const SizedBox(
-                height: 20,
-                width: 20,
-                child: CircularProgressIndicator(
-                  color: Colors.black,
-                  strokeWidth: 2,
-                ),
-              )
-              : const Text(
-                'Confirm & Pay',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
+      child: _isSaving
+          ? const SizedBox(
+        height: 20,
+        width: 20,
+        child: CircularProgressIndicator(
+          color: Colors.black,
+          strokeWidth: 2,
+        ),
+      )
+          : const Text(
+        'Confirm & Pay',
+        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+      ),
     );
   }
 }

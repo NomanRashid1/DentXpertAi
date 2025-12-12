@@ -210,6 +210,7 @@ class PDFReportGenerator:
                 img = Image(image_path, width=6.5*inch, height=4*inch, kind='proportional')
                 elements.append(img)
             except Exception as e:
+                print(f"❌ PDF Image Load Error: {e} | Path: {image_path}")
                 elements.append(Paragraph(f"Error loading image: {e}", self.body_style))
         else:
             elements.append(Paragraph("Annotated image not available", self.body_style))

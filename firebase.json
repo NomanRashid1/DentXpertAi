@@ -1,1 +1,25 @@
-{"flutter":{"platforms":{"android":{"default":{"projectId":"dentxpert-e90d4","appId":"1:278613351640:android:09734351300ac82ae00bad","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"dentxpert-e90d4","configurations":{"android":"1:278613351640:android:09734351300ac82ae00bad","ios":"1:278613351640:ios:9b03d3c832ab167be00bad","macos":"1:278613351640:ios:9b03d3c832ab167be00bad","web":"1:278613351640:web:07557ebbe4af78dde00bad","windows":"1:278613351640:web:4318f1b8f4b34f04e00bad"}}}}}}
+{
+    "flutter": {
+        "platforms": {
+            "android": {
+                "default": {
+                    "projectId": "tomato-disease-app",
+                    "appId": "1:29614196880:android:2e4e6825677a68e21a7015",
+                    "fileOutput": "android/app/google-services.json"
+                }
+            },
+            "dart": {
+                "lib/firebase_options.dart": {
+                    "projectId": "tomato-disease-app",
+                    "configurations": {
+                        "android": "1:29614196880:android:2e4e6825677a68e21a7015",
+                        "ios": "1:29614196880:ios:9b03d3c832ab167be00bad",
+                        "macos": "1:29614196880:ios:9b03d3c832ab167be00bad",
+                        "web": "1:29614196880:web:075577ebbe4af78dde00bad",
+                        "windows": "1:29614196880:web:075577ebbe4af78dde00bad"
+                    }
+                }
+            }
+        }
+    }
+}

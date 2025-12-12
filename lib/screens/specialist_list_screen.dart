@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart'; // ✅ RE-ADDED FIREBASE IMPORT
-
-// ❌ REMOVED: SpecialistData class (no longer needed, using Firestore instead)
+import 'package:cloud_firestore/cloud_firestore.dart';
+// NOTE: Ensure your DoctorAppointmentScreen is correctly imported or referenced
+// for the '/appointment' route, or replace the route name if necessary.
 
 class SpecialistListScreen extends StatefulWidget {
   const SpecialistListScreen({super.key});
@@ -16,7 +16,6 @@ class _SpecialistListScreenState extends State<SpecialistListScreen> {
   @override
   void initState() {
     super.initState();
-    // No local list initialization needed here when using StreamBuilder
   }
 
   @override
@@ -65,7 +64,6 @@ class _SpecialistListScreenState extends State<SpecialistListScreen> {
                   const SizedBox(height: 20),
                   TextField(
                     onChanged: (value) {
-                      // Trigger re-render to apply new search filter
                       setState(() {
                         _searchCity = value.trim().toLowerCase();
                       });
@@ -101,15 +99,14 @@ class _SpecialistListScreenState extends State<SpecialistListScreen> {
             ),
             const SizedBox(height: 20),
 
-            // Dentist List (StreamBuilder Re-implementation)
+            // Dentist List
             Expanded(
               child: StreamBuilder<QuerySnapshot>(
-                // 1. Point to the 'dentists' collection and order by creation time
                 stream:
-                    FirebaseFirestore.instance
-                        .collection('dentists')
-                        .orderBy('createdAt', descending: true)
-                        .snapshots(),
+                FirebaseFirestore.instance
+                    .collection('dentists')
+                    .orderBy('createdAt', descending: true)
+                    .snapshots(),
 
                 builder: (context, snapshot) {
                   // Handle loading state
@@ -121,17 +118,17 @@ class _SpecialistListScreenState extends State<SpecialistListScreen> {
                     );
                   }
 
-                  // Handle errors
+                  // Handle errors (Crucial for debugging Permission Denied)
                   if (snapshot.hasError) {
                     return Center(
                       child: Text(
+                        // This will show the Firebase error (like Permission Denied)
                         'Error loading dentists: ${snapshot.error}',
                         style: const TextStyle(color: Colors.red),
                       ),
                     );
                   }
 
-                  // Handle no data case
                   if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
                     return const Center(
                       child: Text(
@@ -141,20 +138,17 @@ class _SpecialistListScreenState extends State<SpecialistListScreen> {
                     );
                   }
 
-                  // 2. Apply search filter to the documents
                   final filteredDocs =
-                      snapshot.data!.docs.where((doc) {
-                        final data = doc.data() as Map<String, dynamic>;
-                        // Assuming 'clinicAddress' contains the city information
-                        final city =
-                            (data['clinicAddress'] ?? '')
-                                .toString()
-                                .toLowerCase();
-                        return _searchCity.isEmpty ||
-                            city.contains(_searchCity);
-                      }).toList();
+                  snapshot.data!.docs.where((doc) {
+                    final data = doc.data() as Map<String, dynamic>;
+                    final city =
+                    (data['clinicAddress'] ?? '')
+                        .toString()
+                        .toLowerCase();
+                    return _searchCity.isEmpty ||
+                        city.contains(_searchCity);
+                  }).toList();
 
-                  // Handle case after filtering
                   if (filteredDocs.isEmpty) {
                     return const Center(
                       child: Text(
@@ -164,7 +158,6 @@ class _SpecialistListScreenState extends State<SpecialistListScreen> {
                     );
                   }
 
-                  // 3. Build the list view with the filtered, real-time data
                   return ListView.builder(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 16,
@@ -173,11 +166,11 @@ class _SpecialistListScreenState extends State<SpecialistListScreen> {
                     itemCount: filteredDocs.length,
                     itemBuilder: (context, index) {
                       final data =
-                          filteredDocs[index].data() as Map<String, dynamic>;
+                      filteredDocs[index].data() as Map<String, dynamic>;
 
                       return GestureDetector(
                         onTap: () {
-                          // ✅ Navigate to detailed profile screen
+                          // Navigate to detailed profile screen
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -198,6 +191,7 @@ class _SpecialistListScreenState extends State<SpecialistListScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              // ... (Doctor Info display logic)
                               Row(
                                 children: [
                                   const CircleAvatar(
@@ -213,7 +207,7 @@ class _SpecialistListScreenState extends State<SpecialistListScreen> {
                                   Expanded(
                                     child: Column(
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           data['name'] ?? 'Dr. Unknown',
@@ -249,7 +243,7 @@ class _SpecialistListScreenState extends State<SpecialistListScreen> {
                               const SizedBox(height: 16),
                               Row(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                MainAxisAlignment.spaceBetween,
                                 children: [
                                   Row(
                                     children: [
@@ -260,7 +254,8 @@ class _SpecialistListScreenState extends State<SpecialistListScreen> {
                                       ),
                                       const SizedBox(width: 6),
                                       Text(
-                                        // The 'charges' field is stored as 'PKR XXXX'
+                                        // The 'charges' field might be an int/num, but is likely a String here.
+                                        // Still safe if it's already a string like 'PKR XXXX'
                                         '${data['charges'] ?? '0'} /hour',
                                         style: const TextStyle(
                                           color: Colors.white,
@@ -271,6 +266,7 @@ class _SpecialistListScreenState extends State<SpecialistListScreen> {
                                   ),
                                   ElevatedButton.icon(
                                     onPressed: () {
+                                      // Correctly navigate to the appointment screen, passing the doctor's data
                                       Navigator.pushNamed(
                                         context,
                                         '/appointment',
@@ -315,11 +311,22 @@ class _SpecialistListScreenState extends State<SpecialistListScreen> {
   }
 }
 
-// DoctorDetailScreen is included below (unchanged, as it uses map data)
+// --------------------------------------------------------------------------------
+// 🌟 FIX APPLIED HERE: DoctorDetailScreen
+// --------------------------------------------------------------------------------
 
 class DoctorDetailScreen extends StatelessWidget {
   final Map<String, dynamic> data;
   const DoctorDetailScreen({super.key, required this.data});
+
+  // 🎯 NEW: Helper function to safely convert dynamic Firestore data to String
+  String _safeString(String key) {
+    final value = data[key];
+    if (value == null) return 'N/A';
+    if (value is num) return value.toString();
+    if (value is String) return value;
+    return value.toString();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -335,7 +342,7 @@ class DoctorDetailScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // Glowing Avatar
+            // ... (Avatar and basic info)
             Container(
               padding: const EdgeInsets.all(6),
               decoration: BoxDecoration(
@@ -357,7 +364,6 @@ class DoctorDetailScreen extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-            // Name & Specialization
             Text(
               data['name'] ?? 'Dr. Unknown',
               style: const TextStyle(
@@ -374,16 +380,18 @@ class DoctorDetailScreen extends StatelessWidget {
 
             const SizedBox(height: 30),
 
-            // Detail Cards
+            // Detail Cards (Using the safe helper function)
             _infoCard(
               Icons.badge,
               'Experience',
-              '${data['experience'] ?? '0'} years',
+              // 🎯 FIXED LINE: Use _safeString to handle 'experience' (which is likely an int)
+              '${_safeString('experience')} years',
             ),
             _infoCard(
               Icons.monetization_on,
               'Charges',
-              data['charges'] ?? 'N/A',
+              // 🎯 FIXED LINE: Use _safeString to handle 'charges' (which might be an int/num)
+              _safeString('charges'),
             ),
             _infoCard(Icons.business, 'Clinic', data['clinicName'] ?? ''),
             _infoCard(

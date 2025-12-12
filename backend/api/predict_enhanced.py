@@ -25,7 +25,7 @@ load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")  # Load from .env file
 MODEL_PATH = "runs/train/multi_param_dental/weights/best.pt"  # Updated model path
 
-OUTPUT_DIR = "results_pridects"
+OUTPUT_DIR = str(Path(__file__).parent.parent / "results_pridects")
 CSV_REPORT_PATH = os.path.join(OUTPUT_DIR, "report.csv")
 JSON_REPORT_PATH = os.path.join(OUTPUT_DIR, "report.json")
 

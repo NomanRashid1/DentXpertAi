@@ -1,0 +1,131 @@
+================================================================================
+DENTAL X-RAY ANALYSIS REPORT
+================================================================================
+
+Image: d9996094-0caa-41ce-bffe-e7567fb26fc6_report.jpg
+Total Teeth Detected: 29
+
+
+
+📋 OTHER FINDINGS:
+--------------------------------------------------------------------------------
+
+🦷 Tooth #9 (#9)
+   Status: Healthy (None)
+   Confidence: 87.59%
+
+🦷 Tooth #9 (#9)
+   Status: Healthy (None)
+   Confidence: 82.83%
+
+🦷 Tooth #10 (#10)
+   Status: Healthy (None)
+   Confidence: 76.14%
+
+🦷 Tooth #10 (#10)
+   Status: Healthy (None)
+   Confidence: 74.73%
+
+🦷 Upper Right Central Incisor (#11)
+   Status: Healthy (None)
+   Confidence: 75.38%
+
+🦷 Upper Right Lateral Incisor (#12)
+   Status: Enamel Erosion (Mild)
+   Confidence: 25.04%
+
+🦷 Upper Right Canine (#13)
+   Status: Healthy (None)
+   Confidence: 84.87%
+
+🦷 Upper Right Canine (#13)
+   Status: Enamel Erosion (Mild)
+   Confidence: 39.69%
+
+🦷 Upper Right First Premolar (#14)
+   Status: Healthy (None)
+   Confidence: 82.62%
+
+🦷 Upper Right First Premolar (#14)
+   Status: Cavity (Caries) (Mild)
+   Confidence: 63.49%
+
+🦷 Upper Right Second Premolar (#15)
+   Status: Healthy (None)
+   Confidence: 72.45%
+
+🦷 Upper Right Second Premolar (#15)
+   Status: Cavity (Caries) (Mild)
+   Confidence: 57.87%
+
+🦷 Upper Right First Molar (#16)
+   Status: Dental Calculus (Mild)
+   Confidence: 54.68%
+
+🦷 Upper Right Second Molar (#17)
+   Status: Enamel Erosion (Mild)
+   Confidence: 35.56%
+
+🦷 Upper Right Third Molar (Wisdom) (#18)
+   Status: Healthy (None)
+   Confidence: 79.01%
+
+🦷 Upper Right Third Molar (Wisdom) (#18)
+   Status: Tooth Impaction (Moderate)
+   Confidence: 41.08%
+
+🦷 Tooth #19 (#19)
+   Status: Tooth Fracture (Mild)
+   Confidence: 54.41%
+
+🦷 Tooth #19 (#19)
+   Status: Tooth Fracture (Mild)
+   Confidence: 41.44%
+
+🦷 Tooth #20 (#20)
+   Status: Healthy (None)
+   Confidence: 79.54%
+
+🦷 Tooth #20 (#20)
+   Status: Cavity (Caries) (Mild)
+   Confidence: 65.89%
+
+🦷 Upper Left Central Incisor (#21)
+   Status: Healthy (None)
+   Confidence: 85.25%
+
+🦷 Upper Left Central Incisor (#21)
+   Status: Healthy (None)
+   Confidence: 69.45%
+
+🦷 Upper Left Lateral Incisor (#22)
+   Status: Healthy (None)
+   Confidence: 80.31%
+
+🦷 Upper Left Lateral Incisor (#22)
+   Status: Healthy (None)
+   Confidence: 69.95%
+
+🦷 Upper Left Canine (#23)
+   Status: Healthy (None)
+   Confidence: 62.96%
+
+🦷 Upper Left Canine (#23)
+   Status: Healthy (None)
+   Confidence: 60.09%
+
+🦷 Upper Left First Premolar (#24)
+   Status: Cavity (Caries) (Mild)
+   Confidence: 59.18%
+
+🦷 Upper Left First Premolar (#24)
+   Status: Cavity (Caries) (Mild)
+   Confidence: 53.83%
+
+🦷 Tooth #30 (#30)
+   Status: Periodontitis (Moderate)
+   Confidence: 47.29%
+
+================================================================================
+END OF REPORT
+================================================================================

@@ -1,269 +1,269 @@
 import 'package:flutter/material.dart';
-import 'dart:ui'; // Required for BackdropFilter
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'dart:math';
 
-class EmailVerificationScreen extends StatefulWidget {
-  final String email;
-  final bool isLinkSent; // We still use this to display the prompt
-
-  const EmailVerificationScreen({
-    super.key,
-    required this.email,
-    this.isLinkSent = false,
-  });
+class EmailSetupScreen extends StatefulWidget {
+  const EmailSetupScreen({super.key});
 
   @override
-  State<EmailVerificationScreen> createState() =>
-      _EmailVerificationScreenState();
+  State<EmailSetupScreen> createState() => _EmailSetupScreenState();
 }
 
-class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
-  final _codeController = TextEditingController();
+class _EmailSetupScreenState extends State<EmailSetupScreen> {
+  final TextEditingController _emailController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   bool _isLoading = false;
 
   @override
   void dispose() {
-    _codeController.dispose();
+    _emailController.dispose();
     super.dispose();
   }
 
-  // 🚀 Updated Logic: Always navigate after a small delay if form is valid
-  void _verifyCodeAndLogin() async {
-    // Only validate the form structure (6 digits must be present)
-    if (!_formKey.currentState!.validate() || _isLoading) {
-      return;
-    }
+  // Generate a random 6-digit code
+  String _generateCode() {
+    final random = Random();
+    return (random.nextInt(900000) + 100000).toString();
+  }
 
-    setState(() {
-      _isLoading = true;
-    });
+  // Send verification code
+  Future<void> _sendVerificationCode() async {
+    if (!_formKey.currentState!.validate() || _isLoading) return;
 
-    // --- SIMULATION STEP: Simulate network/loading time ---
-    await Future.delayed(const Duration(milliseconds: 800));
+    setState(() => _isLoading = true);
+    final email = _emailController.text.trim();
 
-    // --- SIMULATION SUCCESS: Directly navigate ---
-    if (mounted) {
-      // Navigate to the User Home Screen immediately
-      Navigator.of(
-        context,
-      ).pushNamedAndRemoveUntil('/userHome', (route) => false);
-    }
-    // --- END SIMULATION ---
+    final code = _generateCode();
+    final expirationTime = DateTime.now().add(const Duration(minutes: 5));
 
-    if (mounted) {
-      setState(() {
-        _isLoading = false;
+    try {
+      print('🚀 Attempting to write to Firestore...');
+      print('📧 Email: $email');
+      print('🔢 Code: $code');
+
+      await FirebaseFirestore.instance.collection('emailVerificationCodes').doc(email).set({
+        'email': email,
+        'code': code,
+        'expiresAt': Timestamp.fromMillisecondsSinceEpoch(expirationTime.millisecondsSinceEpoch),
+        'sentAt': FieldValue.serverTimestamp(),
       });
+
+      print('✅ Firestore write successful!');
+
+      if (mounted) {
+        Navigator.pushReplacementNamed(
+          context,
+          '/emailVerification',
+          arguments: {
+            'email': email,
+            'isLinkSent': true,
+          },
+        );
+      }
+
+    } catch (e, stackTrace) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('ERROR: ${e.toString()}'),
+            duration: const Duration(seconds: 8),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+      print('═══════════════════════════════════');
+      print('❌ FIRESTORE ERROR: $e');
+      print('❌ ERROR TYPE: ${e.runtimeType}');
+      print('❌ STACK TRACE: $stackTrace');
+      print('═══════════════════════════════════');
+    } finally {
+      if (mounted) {
+        setState(() => _isLoading = false);
+      }
+    }
+  }
+
+  // 🧪 TEST BUTTON - Test Firestore connection
+  Future<void> _testFirestore() async {
+    try {
+      print('🧪 Testing Firestore write...');
+
+      await FirebaseFirestore.instance
+          .collection('emailVerificationCodes')
+          .doc('test@test.com')
+          .set({
+        'email': 'test@test.com',
+        'code': '123456',
+        'expiresAt': Timestamp.now(),
+        'sentAt': FieldValue.serverTimestamp(),
+      });
+
+      print('✅ Firestore write SUCCESSFUL!');
+
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('✅ Firestore works! Check console for details.'),
+            backgroundColor: Colors.green,
+            duration: Duration(seconds: 3),
+          ),
+        );
+      }
+
+    } catch (e, stackTrace) {
+      print('═══════════════════════════════════');
+      print('❌ TEST ERROR: $e');
+      print('❌ ERROR TYPE: ${e.runtimeType}');
+      print('❌ STACK: $stackTrace');
+      print('═══════════════════════════════════');
+
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('❌ Error: ${e.toString()}'),
+            backgroundColor: Colors.red,
+            duration: const Duration(seconds: 8),
+          ),
+        );
+      }
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Remove AppBar from Scaffold to integrate into Stack
-      // Use the beautiful background from EmailSetupScreen
-      body: Stack(
-        children: [
-          // 1. RADIAL GRADIENT BACKGROUND
-          Container(
-            decoration: const BoxDecoration(
-              gradient: RadialGradient(
-                center: Alignment(0.0, -0.3),
-                radius: 1.2,
-                colors: [Color(0xFF083d77), Color(0xFF001e3c)],
-                stops: [0.0, 1.0],
-              ),
-            ),
-          ),
-
-          // 2. Main Content (includes the custom AppBar space)
-          SafeArea(
-            child: SingleChildScrollView(
-              child: Align(
-                alignment: const Alignment(0.0, -0.1),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 24.0,
-                    vertical: 30.0,
+      backgroundColor: const Color(0xFF0B132B),
+      appBar: AppBar(
+        title: const Text('Sign In / Sign Up'),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.white),
+      ),
+      body: Center(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(30.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  'Enter your Email Address',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: BackdropFilter(
-                      filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                      child: Container(
-                        padding: const EdgeInsets.all(24),
-                        decoration: BoxDecoration(
-                          color: Colors.white.withValues(alpha: 0.18),
-                          borderRadius: BorderRadius.circular(20),
-                          border: Border.all(
-                            color: Colors.cyanAccent.withValues(alpha: 0.5),
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withValues(alpha: 0.3),
-                              blurRadius: 15,
-                              offset: const Offset(0, 8),
-                            ),
-                          ],
-                        ),
-                        child: Form(
-                          key: _formKey,
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              // Title Section
-                              const Icon(
-                                Icons.vpn_key_rounded,
-                                size: 60,
-                                color: Colors.cyanAccent,
-                              ),
-                              const SizedBox(height: 20),
-                              const Text(
-                                'Enter Verification Code',
-                                style: TextStyle(
-                                  fontSize: 28,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                              const SizedBox(height: 15),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 10),
+                const Text(
+                  'We will send a 6-digit verification code to your email.',
+                  style: TextStyle(color: Colors.white70),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 40),
 
-                              // Description
-                              Text(
-                                'A 6-digit code has been sent to:',
-                                style: const TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.white70,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                              const SizedBox(height: 5),
+                // Email Input Field
+                TextFormField(
+                  controller: _emailController,
+                  keyboardType: TextInputType.emailAddress,
+                  autocorrect: false,
+                  style: const TextStyle(color: Colors.white),
+                  decoration: const InputDecoration(
+                    labelText: 'Email Address',
+                    prefixIcon: Icon(Icons.email_outlined, color: Colors.cyanAccent),
+                    filled: true,
+                    fillColor: Color(0xFF1C2849),
+                    labelStyle: TextStyle(color: Colors.white70),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(12)),
+                      borderSide: BorderSide.none,
+                    ),
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty || !value.contains('@')) {
+                      return 'Please enter a valid email address';
+                    }
+                    return null;
+                  },
+                ),
 
-                              // Email Display
-                              Text(
-                                widget.email,
-                                style: const TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.cyanAccent,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                              const SizedBox(height: 30),
+                const SizedBox(height: 30),
 
-                              // 6-Digit Code Input Field
-                              TextFormField(
-                                controller: _codeController,
-                                keyboardType: TextInputType.number,
-                                maxLength: 6, // Limit input to 6 digits
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 24,
-                                  letterSpacing: 10,
-                                ),
-                                cursorColor: Colors.cyanAccent,
-                                decoration: InputDecoration(
-                                  hintText: '• • • • • •',
-                                  hintStyle: TextStyle(
-                                    color: Colors.white54,
-                                    fontSize: 24,
-                                  ),
-                                  filled: true,
-                                  fillColor: Colors.white.withValues(
-                                    alpha: 0.1,
-                                  ),
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(12),
-                                    borderSide: BorderSide.none,
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(12),
-                                    borderSide: const BorderSide(
-                                      color: Colors.cyanAccent,
-                                      width: 2,
-                                    ),
-                                  ),
-                                  counterText: '', // Hide the character counter
-                                ),
-                                validator: (value) {
-                                  // We keep the validator to ensure the field is filled correctly before navigation
-                                  if (value == null || value.length != 6) {
-                                    return 'Code must be exactly 6 digits.';
-                                  }
-                                  return null;
-                                },
-                              ),
-
-                              const SizedBox(height: 40),
-
-                              // VERIFY & LOGIN Button
-                              SizedBox(
-                                width: double.infinity,
-                                height: 55,
-                                child: ElevatedButton.icon(
-                                  onPressed:
-                                      _isLoading ? null : _verifyCodeAndLogin,
-                                  icon:
-                                      _isLoading
-                                          ? const SizedBox(
-                                            height: 20,
-                                            width: 20,
-                                            child: CircularProgressIndicator(
-                                              color: Colors.black,
-                                              strokeWidth: 2,
-                                            ),
-                                          )
-                                          : const Icon(Icons.login),
-                                  label: Text(
-                                    _isLoading
-                                        ? 'VERIFYING...'
-                                        : 'VERIFY & LOGIN',
-                                    style: const TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.cyanAccent,
-                                    foregroundColor: Colors.black,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                  ),
-                                ),
-                              ),
-
-                              const SizedBox(height: 15),
-
-                              // Go Back Button
-                              Center(
-                                child: TextButton(
-                                  onPressed:
-                                      _isLoading
-                                          ? null
-                                          : () {
-                                            Navigator.pop(context);
-                                          },
-                                  child: const Text(
-                                    'Go Back to Email Input',
-                                    style: TextStyle(color: Colors.white54),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
+                // Send Code Button
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: _isLoading ? null : _sendVerificationCode,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.cyanAccent,
+                      foregroundColor: Colors.black,
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    child: _isLoading
+                        ? const SizedBox(
+                      height: 20,
+                      width: 20,
+                      child: CircularProgressIndicator(
+                        color: Colors.black,
+                        strokeWidth: 2,
+                      ),
+                    )
+                        : const Text(
+                      'SEND VERIFICATION CODE',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
                 ),
-              ),
+
+                const SizedBox(height: 20),
+
+                // 🧪 DEBUG TEST BUTTON
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: _testFirestore,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.orange,
+                      foregroundColor: Colors.black,
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    child: const Text(
+                      '🧪 TEST FIRESTORE CONNECTION',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 10),
+
+                const Text(
+                  '👆 Press test button first to check Firestore',
+                  style: TextStyle(
+                    color: Colors.orange,
+                    fontSize: 12,
+                    fontStyle: FontStyle.italic,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }

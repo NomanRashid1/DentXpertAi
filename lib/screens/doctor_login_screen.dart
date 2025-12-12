@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart'; // ✅ Firebase Auth
+import 'package:firebase_auth/firebase_auth.dart';
 import 'doctor_dashboard_screen.dart';
 
 class DoctorLoginScreen extends StatefulWidget {
@@ -25,50 +25,84 @@ class _DoctorLoginScreenState extends State<DoctorLoginScreen> {
       final email = _emailController.text.trim();
       final password = _passwordController.text;
 
-      // ✅ Admin login using FirebaseAuth
+      // 1. ✅ ADMIN LOGIN (Special case)
       if (email == 'admin@dentxpert.com') {
-        try {
-          await FirebaseAuth.instance.signInWithEmailAndPassword(
-            email: email,
-            password: password,
-          );
+        await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: email,
+          password: password,
+        );
+        if (mounted) {
           Navigator.pushReplacementNamed(context, '/adminApproval');
-          return;
-        } catch (e) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Admin login failed: ${e.toString()}')),
-          );
-          return;
         }
+        return;
       }
 
-      // ✅ Dentist login using Firestore
-      final querySnapshot =
-          await FirebaseFirestore.instance
-              .collection('dentists')
-              .where('email', isEqualTo: email)
-              .where('password', isEqualTo: password)
-              .get();
+      // 2. 🔑 ATTEMPT DENTIST LOGIN VIA FIREBASE AUTH
+      final UserCredential userCredential =
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
 
-      if (querySnapshot.docs.isNotEmpty) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (_) => DoctorDashboardScreen(doctorEmail: email),
-          ),
-        );
+      final String uid = userCredential.user!.uid;
+
+      // 3. 🔎 VERIFY USER IS A REGISTERED DENTIST IN FIRESTORE using the UID
+      final docSnapshot = await FirebaseFirestore.instance
+          .collection('dentists')
+          .doc(uid)
+          .get();
+
+      if (docSnapshot.exists) {
+        // Login successful and user is a registered dentist
+        if (mounted) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (_) => DoctorDashboardScreen(doctorEmail: email),
+            ),
+          );
+        }
       } else {
+        // User is authenticated but NOT found in the 'dentists' collection
+        await FirebaseAuth.instance.signOut(); // Log them out immediately
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+                content: Text(
+                    'Profile not approved or incomplete registration. Please contact support.')),
+          );
+        }
+      }
+    } on FirebaseAuthException catch (e) {
+      // Handle Firebase Auth errors (e.g., wrong password, user not found)
+      String message;
+      if (e.code == 'user-not-found' || e.code == 'wrong-password') {
+        message = 'Invalid email or password.';
+      } else {
+        message = 'Login failed: ${e.message}';
+      }
+      if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Invalid email or password.')),
+          SnackBar(content: Text(message)),
         );
       }
     } catch (e) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text('Login error: ${e.toString()}')));
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('An unknown error occurred: ${e.toString()}')));
+      }
     } finally {
-      setState(() => _isLoading = false);
+      if (mounted) {
+        setState(() => _isLoading = false);
+      }
     }
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
   }
 
   @override
@@ -169,36 +203,36 @@ class _DoctorLoginScreenState extends State<DoctorLoginScreen> {
 
                         _isLoading
                             ? const CircularProgressIndicator(
-                              color: Colors.cyanAccent,
-                            )
+                          color: Colors.cyanAccent,
+                        )
                             : SizedBox(
-                              width: double.infinity,
-                              child: ElevatedButton.icon(
-                                onPressed: _loginDoctor,
-                                icon: const Icon(
-                                  Icons.login,
-                                  color: Colors.black,
-                                ),
-                                label: const Text(
-                                  'LOGIN',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16,
-                                  ),
-                                ),
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.cyanAccent,
-                                  foregroundColor: Colors.black,
-                                  padding: const EdgeInsets.symmetric(
-                                    vertical: 14,
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(18),
-                                  ),
-                                  elevation: 10,
-                                ),
+                          width: double.infinity,
+                          child: ElevatedButton.icon(
+                            onPressed: _loginDoctor,
+                            icon: const Icon(
+                              Icons.login,
+                              color: Colors.black,
+                            ),
+                            label: const Text(
+                              'LOGIN',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
                               ),
                             ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.cyanAccent,
+                              foregroundColor: Colors.black,
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 14,
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18),
+                              ),
+                              elevation: 10,
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
