@@ -40,7 +40,6 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   debugPrint("Handling a background message: ${message.messageId}");
 }
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -65,7 +64,8 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xFF001F3F),
         primaryColor: const Color(0xFF00E0FF),
         textTheme: const TextTheme(
-          titleLarge: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          titleLarge:
+              TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           bodyMedium: TextStyle(color: Colors.white70),
           labelLarge: TextStyle(color: Colors.black),
         ),
@@ -86,163 +86,172 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      initialRoute: '/',
-      onGenerateRoute: (settings) {
-        final args = settings.arguments as Map<String, dynamic>?;
+      // initialRoute: '/',
+      home: XrayUploadScreen(),
+      // onGenerateRoute: (settings) {
+      //   final args = settings.arguments as Map<String, dynamic>?;
 
-        switch (settings.name) {
-          case '/':
-            return MaterialPageRoute(builder: (context) => const SplashScreen());
+      //   switch (settings.name) {
+      //     case '/':
+      //       return MaterialPageRoute(
+      //           builder: (context) => const SplashScreen());
 
-          case '/home':
-            return MaterialPageRoute(builder: (context) => const HomeScreen());
+      //     case '/home':
+      //       return MaterialPageRoute(builder: (context) => const HomeScreen());
 
-          case '/userHome':
-            return MaterialPageRoute(
-              builder: (context) => const user_home.UserHomeScreen(),
-            );
+      //     case '/userHome':
+      //       return MaterialPageRoute(
+      //         builder: (context) => const user_home.UserHomeScreen(),
+      //       );
 
-          case '/userEmailInput':
-            return MaterialPageRoute(
-              builder: (context) => const EmailSetupScreen(),
-            );
+      //     case '/userEmailInput':
+      //       return MaterialPageRoute(
+      //         builder: (context) => const EmailSetupScreen(),
+      //       );
 
-          case '/emailVerification':
-            final email = args?['email'] as String? ?? '';
-            final isLinkSent = args?['isLinkSent'] as bool? ?? false;
-            return MaterialPageRoute(
-              builder: (context) => verification.EmailVerificationScreen(
-                email: email,
-                isLinkSent: isLinkSent,
-              ),
-            );
+      //     case '/emailVerification':
+      //       final email = args?['email'] as String? ?? '';
+      //       final isLinkSent = args?['isLinkSent'] as bool? ?? false;
+      //       return MaterialPageRoute(
+      //         builder: (context) => verification.EmailVerificationScreen(
+      //           email: email,
+      //           isLinkSent: isLinkSent,
+      //         ),
+      //       );
 
-          case '/xrayUpload':
-            return MaterialPageRoute(
-                builder: (context) => const XrayUploadScreen());
+      //     case '/xrayUpload':
+      //       return MaterialPageRoute(
+      //           builder: (context) => const XrayUploadScreen());
 
-          case '/specialistList':
-            return MaterialPageRoute(
-                builder: (context) => const SpecialistListScreen());
+      //     case '/specialistList':
+      //       return MaterialPageRoute(
+      //           builder: (context) => const SpecialistListScreen());
 
-          case '/dentistRegistration':
-            return MaterialPageRoute(
-                builder: (context) => const DentistRegistrationScreen());
+      //     case '/dentistRegistration':
+      //       return MaterialPageRoute(
+      //           builder: (context) => const DentistRegistrationScreen());
 
-          case '/aiResults':
-            final analysisData = args?['analysisData'];
-            if (analysisData == null) return _errorPage("Analysis data missing");
-            return MaterialPageRoute(
-              builder: (context) => AIResultsScreen(analysisData: analysisData),
-            );
+      //     case '/aiResults':
+      //       final analysisData = args?['analysisData'];
+      //       if (analysisData == null)
+      //         return _errorPage("Analysis data missing");
+      //       return MaterialPageRoute(
+      //         builder: (context) => AIResultsScreen(analysisData: analysisData),
+      //       );
 
-          case '/analyseXray':
-            return MaterialPageRoute(builder: (context) => const AnalyseXray());
+      //     case '/analyseXray':
+      //       return MaterialPageRoute(builder: (context) => const AnalyseXray());
 
-          case '/healthTracker':
-            return MaterialPageRoute(
-                builder: (context) => const OralHealthTrackerScreen());
+      //     case '/healthTracker':
+      //       return MaterialPageRoute(
+      //           builder: (context) => const OralHealthTrackerScreen());
 
-          case '/emergency':
-            return MaterialPageRoute(
-                builder: (context) => const EmergencyDentalScreen());
+      //     case '/emergency':
+      //       return MaterialPageRoute(
+      //           builder: (context) => const EmergencyDentalScreen());
 
-          case '/registrationSuccess':
-            final name = args?['name'];
-            final specialization = args?['specialization'];
-            if (name == null || specialization == null) {
-              return _errorPage("Name/Specialization missing");
-            }
-            return MaterialPageRoute(
-              builder: (context) => success_screen.DentistRegistrationSuccessScreen(
-                name: name as String,
-                specialization: specialization as String,
-              ),
-            );
+      //     case '/registrationSuccess':
+      //       final name = args?['name'];
+      //       final specialization = args?['specialization'];
+      //       if (name == null || specialization == null) {
+      //         return _errorPage("Name/Specialization missing");
+      //       }
+      //       return MaterialPageRoute(
+      //         builder: (context) =>
+      //             success_screen.DentistRegistrationSuccessScreen(
+      //           name: name as String,
+      //           specialization: specialization as String,
+      //         ),
+      //       );
 
-          case '/doctorChoice':
-            return MaterialPageRoute(
-                builder: (context) => const DoctorChoiceScreen());
+      //     case '/doctorChoice':
+      //       return MaterialPageRoute(
+      //           builder: (context) => const DoctorChoiceScreen());
 
-          case '/doctorLogin':
-            return MaterialPageRoute(
-                builder: (context) => const DoctorLoginScreen());
+      //     case '/doctorLogin':
+      //       return MaterialPageRoute(
+      //           builder: (context) => const DoctorLoginScreen());
 
-          case '/adminApproval':
-            return MaterialPageRoute(
-                builder: (context) => const AdminApprovalScreen());
+      //     case '/adminApproval':
+      //       return MaterialPageRoute(
+      //           builder: (context) => const AdminApprovalScreen());
 
-          case '/appointment':
-            final doctor = args?['doctor'];
-            if (doctor == null) return _errorPage("Doctor data missing");
-            return MaterialPageRoute(
-              builder: (context) => AppointmentScreen(doctor: doctor),
-            );
+      //     case '/appointment':
+      //       final doctor = args?['doctor'];
+      //       if (doctor == null) return _errorPage("Doctor data missing");
+      //       return MaterialPageRoute(
+      //         builder: (context) => AppointmentScreen(doctor: doctor),
+      //       );
 
-          case '/userAppointments':
-            return MaterialPageRoute(
-                builder: (context) => const UserAppointmentsScreen());
+      //     case '/userAppointments':
+      //       return MaterialPageRoute(
+      //           builder: (context) => const UserAppointmentsScreen());
 
-          case '/appointmentDetails':
-            final email = args?['userEmail'];
-            if (email == null) return _errorPage("User email missing");
-            return MaterialPageRoute(
-                builder: (context) => AppointmentDetailScreen(userEmail: email as String));
+      //     case '/appointmentDetails':
+      //       final email = args?['userEmail'];
+      //       if (email == null) return _errorPage("User email missing");
+      //       return MaterialPageRoute(
+      //           builder: (context) =>
+      //               AppointmentDetailScreen(userEmail: email as String));
 
-          case '/doctorAppointments':
-            final email = args?['doctorEmail'];
-            if (email == null) return _errorPage("Doctor email missing");
-            return MaterialPageRoute(
-                builder: (context) =>
-                    DoctorAppointmentsScreen(doctorEmail: email as String));
+      //     case '/doctorAppointments':
+      //       final email = args?['doctorEmail'];
+      //       if (email == null) return _errorPage("Doctor email missing");
+      //       return MaterialPageRoute(
+      //           builder: (context) =>
+      //               DoctorAppointmentsScreen(doctorEmail: email as String));
 
-          case '/patientProfile':
-            final appointmentData = args?['appointmentData'];
-            // 🎯 FIX: appointmentId ko arguments se nikalen.
-            final appointmentId = args?['appointmentId'] as String?;
+      //     case '/patientProfile':
+      //       final appointmentData = args?['appointmentData'];
+      //       // 🎯 FIX: appointmentId ko arguments se nikalen.
+      //       final appointmentId = args?['appointmentId'] as String?;
 
-            if (appointmentData == null) return _errorPage("Appointment data missing");
-            // 🎯 FIX: ID required hai, isliye check zaroori hai.
-            if (appointmentId == null) return _errorPage("Appointment ID missing");
+      //       if (appointmentData == null)
+      //         return _errorPage("Appointment data missing");
+      //       // 🎯 FIX: ID required hai, isliye check zaroori hai.
+      //       if (appointmentId == null)
+      //         return _errorPage("Appointment ID missing");
 
-            return MaterialPageRoute(
-                builder: (context) =>
-                    PatientProfileScreen(
-                      appointmentData: appointmentData,
-                      appointmentId: appointmentId, // <--- Required parameter pass kiya gaya
-                    ));
+      //       return MaterialPageRoute(
+      //           builder: (context) => PatientProfileScreen(
+      //                 appointmentData: appointmentData,
+      //                 appointmentId:
+      //                     appointmentId, // <--- Required parameter pass kiya gaya
+      //               ));
 
-          case '/payment':
-            final appointmentData = args?['appointmentData'];
-            final appointmentId = args?['appointmentId'];
-            if (appointmentData == null || appointmentId == null) {
-              return _errorPage("Payment data missing");
-            }
-            return MaterialPageRoute(
-              builder: (context) => payment.PaymentScreen(
-                appointmentData: appointmentData,
-                appointmentId: appointmentId as String,
-              ),
-            );
+      //     case '/payment':
+      //       final appointmentData = args?['appointmentData'];
+      //       final appointmentId = args?['appointmentId'];
+      //       if (appointmentData == null || appointmentId == null) {
+      //         return _errorPage("Payment data missing");
+      //       }
+      //       return MaterialPageRoute(
+      //         builder: (context) => payment.PaymentScreen(
+      //           appointmentData: appointmentData,
+      //           appointmentId: appointmentId as String,
+      //         ),
+      //       );
 
-          case '/doctorDashboard':
-            final email = args?['email'];
-            if (email == null) return _errorPage("Doctor email missing");
-            return MaterialPageRoute(
-              builder: (context) => DoctorDashboardScreen(doctorEmail: email as String),
-            );
+      //     case '/doctorDashboard':
+      //       final email = args?['email'];
+      //       if (email == null) return _errorPage("Doctor email missing");
+      //       return MaterialPageRoute(
+      //         builder: (context) =>
+      //             DoctorDashboardScreen(doctorEmail: email as String),
+      //       );
 
-          case '/editDoctorProfile':
-            final email = args?['email'];
-            if (email == null) return _errorPage("Doctor email missing");
-            return MaterialPageRoute(
-              builder: (context) => EditDoctorProfileScreen(doctorEmail: email as String),
-            );
-        }
+      //     case '/editDoctorProfile':
+      //       final email = args?['email'];
+      //       if (email == null) return _errorPage("Doctor email missing");
+      //       return MaterialPageRoute(
+      //         builder: (context) =>
+      //             EditDoctorProfileScreen(doctorEmail: email as String),
+      //       );
+      //   }
 
-        return _errorPage("Page not found");
-      },
-      onUnknownRoute: (_) => _errorPage("Unknown route"),
+      //   return _errorPage("Page not found");
+      // },
+      // onUnknownRoute: (_) => _errorPage("Unknown route"),
     );
   }
 

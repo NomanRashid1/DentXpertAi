@@ -88,7 +88,7 @@ class DioService {
   // Upload image and get PDF
   Future<Uint8List> uploadXrayAndGetPdf({
     required File imageFile,
-    double confidenceThreshold = 0.25,
+    double confidenceThreshold = 0.7,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {

@@ -30,7 +30,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.dentxxpert_ai"
-        minSdk = flutter.minSdkVersion.toInt()
+        minSdk = 23
         targetSdk = flutter.targetSdkVersion.toInt()
         versionCode = flutter.versionCode.toInt()
         versionName = flutter.versionName

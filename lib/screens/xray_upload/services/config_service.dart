@@ -13,12 +13,14 @@ class AppConfig {
   // For Android Emulator: 10.0.2.2
   // For iOS Simulator: 127.0.0.1
   // For Physical Device: Your computer's IP
-  static const String apiBaseUrl = 'http://10.0.2.2:5000';
+  static const String apiBaseUrl = 'http://10.0.2.2:8080';
   static const String predictPdfEndpoint = '$apiBaseUrl/api/predict-pdf';
 
   // API Timeouts
-  static const int connectTimeoutSeconds = 30;
-  static const int receiveTimeoutSeconds = 120;
+  static const int connectTimeoutSeconds =
+      120; // Allow time for server processing
+  static const int receiveTimeoutSeconds =
+      180; // 3 minutes for large PDF download
   static const int sendTimeoutSeconds = 30;
 
   // ========== APP CONFIGURATION ==========

@@ -1,0 +1,149 @@
+================================================================================
+DENTAL X-RAY ANALYSIS REPORT
+================================================================================
+
+Image: 57338d4e58844f018fe2e9950ce424d5_54.png
+Total Teeth Detected: 18
+
+
+⚠️  URGENT/HIGH PRIORITY FINDINGS:
+--------------------------------------------------------------------------------
+
+🦷 Tooth #8 (#8)
+   Disease: Root canal treatment
+   Severity: Moderate
+   Affected Area: Root
+   Confidence: 48.26%
+   Urgency: URGENT - Seek immediate dental care
+   Recommendations:
+      • Evaluation of obturation quality
+      • Crown coverage recommended
+      • Monitor periapical status
+
+
+📋 OTHER FINDINGS:
+--------------------------------------------------------------------------------
+
+🦷 Tooth #9 (#9)
+   Status: Healthy (None)
+   Confidence: 84.06%
+
+🦷 Tooth #10 (#10)
+   Status: Healthy (None)
+   Confidence: 76.89%
+
+🦷 Upper Right Central Incisor (#11)
+   Status: Filling (None)
+   Confidence: 75.52%
+
+🦷 Upper Right Lateral Incisor (#12)
+   Status: Caries (Mild)
+   Confidence: 77.33%
+
+🦷 Upper Right Canine (#13)
+   Status: Healthy (None)
+   Confidence: 84.32%
+
+🦷 Upper Right First Premolar (#14)
+   Status: Healthy (None)
+   Confidence: 86.83%
+
+🦷 Upper Right Second Premolar (#15)
+   Status: Healthy (None)
+   Confidence: 91.05%
+
+🦷 Upper Right First Molar (#16)
+   Status: Healthy (None)
+   Confidence: 82.71%
+
+🦷 Upper Right Second Molar (#17)
+   Status: Healthy (None)
+   Confidence: 91.81%
+
+🦷 Upper Right Third Molar (Wisdom) (#18)
+   Status: Caries (Mild)
+   Confidence: 82.18%
+
+🦷 Tooth #19 (#19)
+   Status: Caries (Mild)
+   Confidence: 88.16%
+
+🦷 Tooth #20 (#20)
+   Status: Caries (Mild)
+   Confidence: 80.94%
+
+🦷 Upper Left Central Incisor (#21)
+   Status: Caries (Mild)
+   Confidence: 83.44%
+
+🦷 Upper Left Lateral Incisor (#22)
+   Status: Caries (Mild)
+   Confidence: 77.14%
+
+🦷 Upper Left Canine (#23)
+   Status: Healthy (None)
+   Confidence: 76.34%
+
+🦷 Upper Left First Premolar (#24)
+   Status: Healthy (None)
+   Confidence: 72.13%
+
+🦷 Upper Left Second Premolar (#25)
+   Status: Bone loss (Moderate)
+   Confidence: 29.98%
+
+
+💡 AI-GENERATED INSIGHTS:
+--------------------------------------------------------------------------------
+Error generating AI insights: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp
+Please retry in 56.869561403s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash-exp"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash-exp"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash-exp"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, retry_delay {
+  seconds: 56
+}
+]
+
+================================================================================
+END OF REPORT
+================================================================================

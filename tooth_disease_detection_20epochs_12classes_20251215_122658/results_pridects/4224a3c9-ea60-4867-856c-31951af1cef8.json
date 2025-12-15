@@ -1,0 +1,1204 @@
+{
+  "unique_id": "4224a3c9-ea60-4867-856c-31951af1cef8",
+  "input_image": "uploads\\73413115d19c476a90674cb1cfee20ec_54.png",
+  "output_image": "results_pridects\\4224a3c9-ea60-4867-856c-31951af1cef8.jpg",
+  "total_detections": 18,
+  "detections": [
+    {
+      "tooth_number": 8,
+      "tooth_name": "Tooth #8",
+      "disease_type": "Root canal treatment",
+      "severity": "Moderate",
+      "affected_area": "Root",
+      "confidence": 0.4825919270515442,
+      "bounding_box": {
+        "x1": 874,
+        "y1": 355,
+        "x2": 991,
+        "y2": 622
+      },
+      "polygon": [
+        [
+          903,
+          355
+        ],
+        [
+          961,
+          355
+        ],
+        [
+          991,
+          408
+        ],
+        [
+          991,
+          515
+        ],
+        [
+          961,
+          622
+        ],
+        [
+          903,
+          622
+        ],
+        [
+          874,
+          515
+        ],
+        [
+          874,
+          408
+        ]
+      ],
+      "color": "#00FFFF",
+      "recommendations": [
+        "Evaluation of obturation quality",
+        "Crown coverage recommended",
+        "Monitor periapical status"
+      ],
+      "urgency": "URGENT - Seek immediate dental care"
+    },
+    {
+      "tooth_number": 9,
+      "tooth_name": "Tooth #9",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.8406423926353455,
+      "bounding_box": {
+        "x1": 983,
+        "y1": 368,
+        "x2": 1090,
+        "y2": 626
+      },
+      "polygon": [
+        [
+          1009,
+          368
+        ],
+        [
+          1063,
+          368
+        ],
+        [
+          1090,
+          419
+        ],
+        [
+          1090,
+          522
+        ],
+        [
+          1063,
+          626
+        ],
+        [
+          1009,
+          626
+        ],
+        [
+          983,
+          522
+        ],
+        [
+          983,
+          419
+        ]
+      ],
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 10,
+      "tooth_name": "Tooth #10",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.7689225077629089,
+      "bounding_box": {
+        "x1": 792,
+        "y1": 355,
+        "x2": 898,
+        "y2": 599
+      },
+      "polygon": [
+        [
+          818,
+          355
+        ],
+        [
+          871,
+          355
+        ],
+        [
+          898,
+          403
+        ],
+        [
+          898,
+          501
+        ],
+        [
+          871,
+          599
+        ],
+        [
+          818,
+          599
+        ],
+        [
+          792,
+          501
+        ],
+        [
+          792,
+          403
+        ]
+      ],
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 11,
+      "tooth_name": "Upper Right Central Incisor",
+      "disease_type": "Filling",
+      "severity": "None",
+      "affected_area": "Crown",
+      "confidence": 0.7552429437637329,
+      "bounding_box": {
+        "x1": 1165,
+        "y1": 315,
+        "x2": 1258,
+        "y2": 607
+      },
+      "polygon": [
+        [
+          1188,
+          315
+        ],
+        [
+          1234,
+          315
+        ],
+        [
+          1258,
+          373
+        ],
+        [
+          1258,
+          490
+        ],
+        [
+          1234,
+          607
+        ],
+        [
+          1188,
+          607
+        ],
+        [
+          1165,
+          490
+        ],
+        [
+          1165,
+          373
+        ]
+      ],
+      "color": "#0000FF",
+      "recommendations": [
+        "Monitor for wear or leakage",
+        "Regular polishing",
+        "Check for secondary caries"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 12,
+      "tooth_name": "Upper Right Lateral Incisor",
+      "disease_type": "Caries",
+      "severity": "Mild",
+      "affected_area": "Crown",
+      "confidence": 0.773308515548706,
+      "bounding_box": {
+        "x1": 1229,
+        "y1": 345,
+        "x2": 1328,
+        "y2": 590
+      },
+      "polygon": [
+        [
+          1253,
+          345
+        ],
+        [
+          1303,
+          345
+        ],
+        [
+          1328,
+          394
+        ],
+        [
+          1328,
+          492
+        ],
+        [
+          1303,
+          590
+        ],
+        [
+          1253,
+          590
+        ],
+        [
+          1229,
+          492
+        ],
+        [
+          1229,
+          394
+        ]
+      ],
+      "color": "#FF0000",
+      "recommendations": [
+        "Restorative treatment required",
+        "Fillings or crowns indicated",
+        "Improve oral hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 13,
+      "tooth_name": "Upper Right Canine",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.8431723713874817,
+      "bounding_box": {
+        "x1": 560,
+        "y1": 346,
+        "x2": 660,
+        "y2": 568
+      },
+      "polygon": [
+        [
+          585,
+          346
+        ],
+        [
+          635,
+          346
+        ],
+        [
+          660,
+          390
+        ],
+        [
+          660,
+          479
+        ],
+        [
+          635,
+          568
+        ],
+        [
+          585,
+          568
+        ],
+        [
+          560,
+          479
+        ],
+        [
+          560,
+          390
+        ]
+      ],
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 14,
+      "tooth_name": "Upper Right First Premolar",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.8682839274406433,
+      "bounding_box": {
+        "x1": 1390,
+        "y1": 331,
+        "x2": 1514,
+        "y2": 555
+      },
+      "polygon": [
+        [
+          1421,
+          331
+        ],
+        [
+          1483,
+          331
+        ],
+        [
+          1514,
+          375
+        ],
+        [
+          1514,
+          465
+        ],
+        [
+          1483,
+          555
+        ],
+        [
+          1421,
+          555
+        ],
+        [
+          1390,
+          465
+        ],
+        [
+          1390,
+          375
+        ]
+      ],
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 15,
+      "tooth_name": "Upper Right Second Premolar",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.9104835391044617,
+      "bounding_box": {
+        "x1": 1491,
+        "y1": 302,
+        "x2": 1621,
+        "y2": 524
+      },
+      "polygon": [
+        [
+          1523,
+          302
+        ],
+        [
+          1588,
+          302
+        ],
+        [
+          1621,
+          346
+        ],
+        [
+          1621,
+          435
+        ],
+        [
+          1588,
+          524
+        ],
+        [
+          1523,
+          524
+        ],
+        [
+          1491,
+          435
+        ],
+        [
+          1491,
+          346
+        ]
+      ],
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 16,
+      "tooth_name": "Upper Right First Molar",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.8270615339279175,
+      "bounding_box": {
+        "x1": 255,
+        "y1": 264,
+        "x2": 394,
+        "y2": 456
+      },
+      "polygon": [
+        [
+          289,
+          264
+        ],
+        [
+          359,
+          264
+        ],
+        [
+          394,
+          302
+        ],
+        [
+          394,
+          379
+        ],
+        [
+          359,
+          456
+        ],
+        [
+          289,
+          456
+        ],
+        [
+          255,
+          379
+        ],
+        [
+          255,
+          302
+        ]
+      ],
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 17,
+      "tooth_name": "Upper Right Second Molar",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.9181042313575745,
+      "bounding_box": {
+        "x1": 1597,
+        "y1": 484,
+        "x2": 1749,
+        "y2": 664
+      },
+      "polygon": [
+        [
+          1635,
+          484
+        ],
+        [
+          1711,
+          484
+        ],
+        [
+          1749,
+          520
+        ],
+        [
+          1749,
+          592
+        ],
+        [
+          1711,
+          664
+        ],
+        [
+          1635,
+          664
+        ],
+        [
+          1597,
+          592
+        ],
+        [
+          1597,
+          520
+        ]
+      ],
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 18,
+      "tooth_name": "Upper Right Third Molar (Wisdom)",
+      "disease_type": "Caries",
+      "severity": "Mild",
+      "affected_area": "Crown",
+      "confidence": 0.8217683434486389,
+      "bounding_box": {
+        "x1": 1475,
+        "y1": 514,
+        "x2": 1666,
+        "y2": 730
+      },
+      "polygon": [
+        [
+          1522,
+          514
+        ],
+        [
+          1618,
+          514
+        ],
+        [
+          1666,
+          557
+        ],
+        [
+          1666,
+          643
+        ],
+        [
+          1618,
+          730
+        ],
+        [
+          1522,
+          730
+        ],
+        [
+          1475,
+          643
+        ],
+        [
+          1475,
+          557
+        ]
+      ],
+      "color": "#FF0000",
+      "recommendations": [
+        "Restorative treatment required",
+        "Fillings or crowns indicated",
+        "Improve oral hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 19,
+      "tooth_name": "Tooth #19",
+      "disease_type": "Caries",
+      "severity": "Mild",
+      "affected_area": "Crown",
+      "confidence": 0.8816084861755371,
+      "bounding_box": {
+        "x1": 1343,
+        "y1": 552,
+        "x2": 1558,
+        "y2": 775
+      },
+      "polygon": [
+        [
+          1396,
+          552
+        ],
+        [
+          1504,
+          552
+        ],
+        [
+          1558,
+          596
+        ],
+        [
+          1558,
+          685
+        ],
+        [
+          1504,
+          775
+        ],
+        [
+          1396,
+          775
+        ],
+        [
+          1343,
+          685
+        ],
+        [
+          1343,
+          596
+        ]
+      ],
+      "color": "#FF0000",
+      "recommendations": [
+        "Restorative treatment required",
+        "Fillings or crowns indicated",
+        "Improve oral hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 20,
+      "tooth_name": "Tooth #20",
+      "disease_type": "Caries",
+      "severity": "Mild",
+      "affected_area": "Crown",
+      "confidence": 0.8094091415405273,
+      "bounding_box": {
+        "x1": 1254,
+        "y1": 580,
+        "x2": 1409,
+        "y2": 814
+      },
+      "polygon": [
+        [
+          1292,
+          580
+        ],
+        [
+          1370,
+          580
+        ],
+        [
+          1409,
+          626
+        ],
+        [
+          1409,
+          720
+        ],
+        [
+          1370,
+          814
+        ],
+        [
+          1292,
+          814
+        ],
+        [
+          1254,
+          720
+        ],
+        [
+          1254,
+          626
+        ]
+      ],
+      "color": "#FF0000",
+      "recommendations": [
+        "Restorative treatment required",
+        "Fillings or crowns indicated",
+        "Improve oral hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 21,
+      "tooth_name": "Upper Left Central Incisor",
+      "disease_type": "Caries",
+      "severity": "Mild",
+      "affected_area": "Crown",
+      "confidence": 0.8343745470046997,
+      "bounding_box": {
+        "x1": 675,
+        "y1": 591,
+        "x2": 787,
+        "y2": 822
+      },
+      "polygon": [
+        [
+          703,
+          591
+        ],
+        [
+          759,
+          591
+        ],
+        [
+          787,
+          637
+        ],
+        [
+          787,
+          729
+        ],
+        [
+          759,
+          822
+        ],
+        [
+          703,
+          822
+        ],
+        [
+          675,
+          729
+        ],
+        [
+          675,
+          637
+        ]
+      ],
+      "color": "#FF0000",
+      "recommendations": [
+        "Restorative treatment required",
+        "Fillings or crowns indicated",
+        "Improve oral hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 22,
+      "tooth_name": "Upper Left Lateral Incisor",
+      "disease_type": "Caries",
+      "severity": "Mild",
+      "affected_area": "Crown",
+      "confidence": 0.7713626623153687,
+      "bounding_box": {
+        "x1": 1111,
+        "y1": 614,
+        "x2": 1220,
+        "y2": 815
+      },
+      "polygon": [
+        [
+          1138,
+          614
+        ],
+        [
+          1192,
+          614
+        ],
+        [
+          1220,
+          654
+        ],
+        [
+          1220,
+          734
+        ],
+        [
+          1192,
+          815
+        ],
+        [
+          1138,
+          815
+        ],
+        [
+          1111,
+          734
+        ],
+        [
+          1111,
+          654
+        ]
+      ],
+      "color": "#FF0000",
+      "recommendations": [
+        "Restorative treatment required",
+        "Fillings or crowns indicated",
+        "Improve oral hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 23,
+      "tooth_name": "Upper Left Canine",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.7633918523788452,
+      "bounding_box": {
+        "x1": 847,
+        "y1": 632,
+        "x2": 921,
+        "y2": 808
+      },
+      "polygon": [
+        [
+          882,
+          676
+        ],
+        [
+          879,
+          678
+        ],
+        [
+          867,
+          678
+        ],
+        [
+          864,
+          680
+        ],
+        [
+          863,
+          685
+        ],
+        [
+          866,
+          692
+        ],
+        [
+          866,
+          696
+        ],
+        [
+          861,
+          705
+        ],
+        [
+          861,
+          708
+        ],
+        [
+          859,
+          712
+        ],
+        [
+          854,
+          718
+        ],
+        [
+          854,
+          732
+        ],
+        [
+          853,
+          733
+        ],
+        [
+          853,
+          742
+        ],
+        [
+          852,
+          743
+        ],
+        [
+          852,
+          760
+        ],
+        [
+          853,
+          761
+        ],
+        [
+          852,
+          776
+        ],
+        [
+          853,
+          777
+        ],
+        [
+          853,
+          781
+        ],
+        [
+          855,
+          783
+        ],
+        [
+          864,
+          783
+        ],
+        [
+          868,
+          787
+        ],
+        [
+          869,
+          790
+        ],
+        [
+          873,
+          795
+        ],
+        [
+          880,
+          798
+        ],
+        [
+          887,
+          798
+        ],
+        [
+          888,
+          797
+        ],
+        [
+          893,
+          797
+        ],
+        [
+          895,
+          795
+        ],
+        [
+          895,
+          792
+        ],
+        [
+          898,
+          786
+        ],
+        [
+          901,
+          783
+        ],
+        [
+          903,
+          783
+        ],
+        [
+          905,
+          781
+        ],
+        [
+          906,
+          769
+        ],
+        [
+          904,
+          763
+        ],
+        [
+          904,
+          759
+        ],
+        [
+          905,
+          758
+        ],
+        [
+          903,
+          752
+        ],
+        [
+          909,
+          743
+        ],
+        [
+          909,
+          739
+        ],
+        [
+          908,
+          738
+        ],
+        [
+          908,
+          731
+        ],
+        [
+          904,
+          727
+        ],
+        [
+          904,
+          722
+        ],
+        [
+          905,
+          721
+        ],
+        [
+          905,
+          713
+        ],
+        [
+          908,
+          706
+        ],
+        [
+          909,
+          697
+        ],
+        [
+          912,
+          691
+        ],
+        [
+          913,
+          680
+        ],
+        [
+          912,
+          679
+        ],
+        [
+          908,
+          679
+        ],
+        [
+          902,
+          677
+        ]
+      ],
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 24,
+      "tooth_name": "Upper Left First Premolar",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.7213322520256042,
+      "bounding_box": {
+        "x1": 981,
+        "y1": 635,
+        "x2": 1051,
+        "y2": 811
+      },
+      "polygon": [
+        [
+          998,
+          635
+        ],
+        [
+          1033,
+          635
+        ],
+        [
+          1051,
+          670
+        ],
+        [
+          1051,
+          740
+        ],
+        [
+          1033,
+          811
+        ],
+        [
+          998,
+          811
+        ],
+        [
+          981,
+          740
+        ],
+        [
+          981,
+          670
+        ]
+      ],
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 25,
+      "tooth_name": "Upper Left Second Premolar",
+      "disease_type": "Bone loss",
+      "severity": "Moderate",
+      "affected_area": "Jaw Bone",
+      "confidence": 0.2998467981815338,
+      "bounding_box": {
+        "x1": 914,
+        "y1": 632,
+        "x2": 983,
+        "y2": 808
+      },
+      "polygon": [
+        [
+          931,
+          632
+        ],
+        [
+          965,
+          632
+        ],
+        [
+          983,
+          667
+        ],
+        [
+          983,
+          737
+        ],
+        [
+          965,
+          808
+        ],
+        [
+          931,
+          808
+        ],
+        [
+          914,
+          737
+        ],
+        [
+          914,
+          667
+        ]
+      ],
+      "color": "#DC143C",
+      "recommendations": [
+        "Periodontal evaluation required",
+        "Deep cleaning/root planing",
+        "Bone grafting consultation"
+      ],
+      "urgency": "MODERATE - Schedule appointment within 2-4 weeks"
+    }
+  ],
+  "report": "================================================================================\nDENTAL X-RAY ANALYSIS REPORT\n================================================================================\n\nImage: 73413115d19c476a90674cb1cfee20ec_54.png\nTotal Teeth Detected: 18\n\n\n⚠️  URGENT/HIGH PRIORITY FINDINGS:\n--------------------------------------------------------------------------------\n\n🦷 Tooth #8 (#8)\n   Disease: Root canal treatment\n   Severity: Moderate\n   Affected Area: Root\n   Confidence: 48.26%\n   Urgency: URGENT - Seek immediate dental care\n   Recommendations:\n      • Evaluation of obturation quality\n      • Crown coverage recommended\n      • Monitor periapical status\n\n\n📋 OTHER FINDINGS:\n--------------------------------------------------------------------------------\n\n🦷 Tooth #9 (#9)\n   Status: Healthy (None)\n   Confidence: 84.06%\n\n🦷 Tooth #10 (#10)\n   Status: Healthy (None)\n   Confidence: 76.89%\n\n🦷 Upper Right Central Incisor (#11)\n   Status: Filling (None)\n   Confidence: 75.52%\n\n🦷 Upper Right Lateral Incisor (#12)\n   Status: Caries (Mild)\n   Confidence: 77.33%\n\n🦷 Upper Right Canine (#13)\n   Status: Healthy (None)\n   Confidence: 84.32%\n\n🦷 Upper Right First Premolar (#14)\n   Status: Healthy (None)\n   Confidence: 86.83%\n\n🦷 Upper Right Second Premolar (#15)\n   Status: Healthy (None)\n   Confidence: 91.05%\n\n🦷 Upper Right First Molar (#16)\n   Status: Healthy (None)\n   Confidence: 82.71%\n\n🦷 Upper Right Second Molar (#17)\n   Status: Healthy (None)\n   Confidence: 91.81%\n\n🦷 Upper Right Third Molar (Wisdom) (#18)\n   Status: Caries (Mild)\n   Confidence: 82.18%\n\n🦷 Tooth #19 (#19)\n   Status: Caries (Mild)\n   Confidence: 88.16%\n\n🦷 Tooth #20 (#20)\n   Status: Caries (Mild)\n   Confidence: 80.94%\n\n🦷 Upper Left Central Incisor (#21)\n   Status: Caries (Mild)\n   Confidence: 83.44%\n\n🦷 Upper Left Lateral Incisor (#22)\n   Status: Caries (Mild)\n   Confidence: 77.14%\n\n🦷 Upper Left Canine (#23)\n   Status: Healthy (None)\n   Confidence: 76.34%\n\n🦷 Upper Left First Premolar (#24)\n   Status: Healthy (None)\n   Confidence: 72.13%\n\n🦷 Upper Left Second Premolar (#25)\n   Status: Bone loss (Moderate)\n   Confidence: 29.98%\n\n\n💡 AI-GENERATED INSIGHTS:\n--------------------------------------------------------------------------------\nError generating AI insights: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 54.092689016s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 54\n}\n]\n\n================================================================================\nEND OF REPORT\n================================================================================",
+  "summary": {
+    "total_teeth": 18,
+    "disease_distribution": {
+      "Root canal treatment": 1,
+      "Healthy": 9,
+      "Filling": 1,
+      "Caries": 6,
+      "Bone loss": 1
+    },
+    "severity_distribution": {
+      "Moderate": 2,
+      "None": 10,
+      "Mild": 6
+    },
+    "healthy_teeth": 9,
+    "diseased_teeth": 9
+  }
+}

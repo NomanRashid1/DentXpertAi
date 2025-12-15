@@ -18,7 +18,7 @@ class ApiService {
   // Main method to analyze X-ray
   Future<Uint8List> analyzeXray({
     required File imageFile,
-    double confidenceThreshold = 0.25,
+    double confidenceThreshold = 0.7,
   }) async {
     // Validate image first
     if (!validateImage(imageFile)) {
@@ -125,8 +125,8 @@ class ApiService {
 
       // Send request with timeout
       final streamedResponse = await request.send().timeout(
-        const Duration(seconds: 120),
-      );
+            const Duration(seconds: 120),
+          );
 
       if (streamedResponse.statusCode == 200) {
         // Read response in chunks

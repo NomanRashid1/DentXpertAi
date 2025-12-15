@@ -1,0 +1,549 @@
+{
+  "unique_id": "40124674-b679-481b-9331-b1bfffc77329",
+  "input_image": "uploads\\7d8ccd296345419986ba1962e5ce79f0_53.png",
+  "output_image": "results_pridects\\40124674-b679-481b-9331-b1bfffc77329.jpg",
+  "total_detections": 25,
+  "detections": [
+    {
+      "tooth_number": 2,
+      "tooth_name": "Tooth #2",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.6578996181488037,
+      "bounding_box": {
+        "x1": 524,
+        "y1": 276,
+        "x2": 631,
+        "y2": 487
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 3,
+      "tooth_name": "Tooth #3",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.7783138751983643,
+      "bounding_box": {
+        "x1": 609,
+        "y1": 295,
+        "x2": 715,
+        "y2": 506
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 4,
+      "tooth_name": "Tooth #4",
+      "disease_type": "Crown",
+      "severity": "None",
+      "affected_area": "Crown",
+      "confidence": 0.33246326446533203,
+      "bounding_box": {
+        "x1": 680,
+        "y1": 294,
+        "x2": 783,
+        "y2": 495
+      },
+      "color": "#FFFF00",
+      "recommendations": [
+        "Monitor restoration integrity",
+        "Regular hygiene maintenance",
+        "Check for marginal leakage"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 5,
+      "tooth_name": "Tooth #5",
+      "disease_type": "Filling",
+      "severity": "None",
+      "affected_area": "Crown",
+      "confidence": 0.414744108915329,
+      "bounding_box": {
+        "x1": 681,
+        "y1": 295,
+        "x2": 784,
+        "y2": 494
+      },
+      "color": "#0000FF",
+      "recommendations": [
+        "Monitor for wear or leakage",
+        "Regular polishing",
+        "Check for secondary caries"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 6,
+      "tooth_name": "Tooth #6",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.6731951236724854,
+      "bounding_box": {
+        "x1": 788,
+        "y1": 274,
+        "x2": 863,
+        "y2": 507
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 7,
+      "tooth_name": "Tooth #7",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.7761156558990479,
+      "bounding_box": {
+        "x1": 855,
+        "y1": 318,
+        "x2": 933,
+        "y2": 507
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 8,
+      "tooth_name": "Tooth #8",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.8487542271614075,
+      "bounding_box": {
+        "x1": 917,
+        "y1": 304,
+        "x2": 1010,
+        "y2": 522
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 9,
+      "tooth_name": "Tooth #9",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.8368423581123352,
+      "bounding_box": {
+        "x1": 1003,
+        "y1": 321,
+        "x2": 1098,
+        "y2": 520
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 10,
+      "tooth_name": "Tooth #10",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.8010155558586121,
+      "bounding_box": {
+        "x1": 1090,
+        "y1": 322,
+        "x2": 1172,
+        "y2": 514
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 11,
+      "tooth_name": "Upper Right Central Incisor",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.8118618726730347,
+      "bounding_box": {
+        "x1": 1155,
+        "y1": 267,
+        "x2": 1246,
+        "y2": 504
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 12,
+      "tooth_name": "Upper Right Lateral Incisor",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.7190155982971191,
+      "bounding_box": {
+        "x1": 1213,
+        "y1": 289,
+        "x2": 1303,
+        "y2": 499
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 13,
+      "tooth_name": "Upper Right Canine",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.8544150590896606,
+      "bounding_box": {
+        "x1": 1272,
+        "y1": 285,
+        "x2": 1365,
+        "y2": 483
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 14,
+      "tooth_name": "Upper Right First Premolar",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.690261960029602,
+      "bounding_box": {
+        "x1": 1366,
+        "y1": 303,
+        "x2": 1480,
+        "y2": 487
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 20,
+      "tooth_name": "Tooth #20",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.8324921727180481,
+      "bounding_box": {
+        "x1": 1235,
+        "y1": 520,
+        "x2": 1342,
+        "y2": 717
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 21,
+      "tooth_name": "Upper Left Central Incisor",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.8100855350494385,
+      "bounding_box": {
+        "x1": 1178,
+        "y1": 533,
+        "x2": 1258,
+        "y2": 719
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 22,
+      "tooth_name": "Upper Left Lateral Incisor",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.8808615207672119,
+      "bounding_box": {
+        "x1": 1113,
+        "y1": 532,
+        "x2": 1191,
+        "y2": 757
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 23,
+      "tooth_name": "Upper Left Canine",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.7003162503242493,
+      "bounding_box": {
+        "x1": 1058,
+        "y1": 534,
+        "x2": 1122,
+        "y2": 731
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 24,
+      "tooth_name": "Upper Left First Premolar",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.6010047793388367,
+      "bounding_box": {
+        "x1": 1009,
+        "y1": 535,
+        "x2": 1067,
+        "y2": 699
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 25,
+      "tooth_name": "Upper Left Second Premolar",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.6818767786026001,
+      "bounding_box": {
+        "x1": 962,
+        "y1": 538,
+        "x2": 1020,
+        "y2": 700
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 26,
+      "tooth_name": "Upper Left First Molar",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.7361140251159668,
+      "bounding_box": {
+        "x1": 907,
+        "y1": 537,
+        "x2": 972,
+        "y2": 711
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 27,
+      "tooth_name": "Upper Left Second Molar",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.7942790389060974,
+      "bounding_box": {
+        "x1": 841,
+        "y1": 541,
+        "x2": 917,
+        "y2": 758
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 28,
+      "tooth_name": "Upper Left Third Molar (Wisdom)",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.8070398569107056,
+      "bounding_box": {
+        "x1": 777,
+        "y1": 532,
+        "x2": 850,
+        "y2": 729
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 29,
+      "tooth_name": "Tooth #29",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.8084938526153564,
+      "bounding_box": {
+        "x1": 699,
+        "y1": 527,
+        "x2": 794,
+        "y2": 722
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    },
+    {
+      "tooth_number": 31,
+      "tooth_name": "Lower Left Central Incisor",
+      "disease_type": "Bone loss",
+      "severity": "Moderate",
+      "affected_area": "Jaw Bone",
+      "confidence": 0.3012225329875946,
+      "bounding_box": {
+        "x1": 402,
+        "y1": 447,
+        "x2": 583,
+        "y2": 609
+      },
+      "color": "#DC143C",
+      "recommendations": [
+        "Periodontal evaluation required",
+        "Deep cleaning/root planing",
+        "Bone grafting consultation"
+      ],
+      "urgency": "MODERATE - Schedule appointment within 2-4 weeks"
+    },
+    {
+      "tooth_number": 32,
+      "tooth_name": "Lower Left Lateral Incisor",
+      "disease_type": "Healthy",
+      "severity": "None",
+      "affected_area": "Entire Tooth",
+      "confidence": 0.6877189874649048,
+      "bounding_box": {
+        "x1": 399,
+        "y1": 446,
+        "x2": 582,
+        "y2": 608
+      },
+      "color": "#00FF00",
+      "recommendations": [
+        "Continue routine care",
+        "Regular check-ups",
+        "Maintain hygiene"
+      ],
+      "urgency": "LOW - Mention at next routine checkup"
+    }
+  ],
+  "report": "================================================================================\nDENTAL X-RAY ANALYSIS REPORT\n================================================================================\n\nImage: 7d8ccd296345419986ba1962e5ce79f0_53.png\nTotal Teeth Detected: 25\n\n\n\n📋 OTHER FINDINGS:\n--------------------------------------------------------------------------------\n\n🦷 Tooth #2 (#2)\n   Status: Healthy (None)\n   Confidence: 65.79%\n\n🦷 Tooth #3 (#3)\n   Status: Healthy (None)\n   Confidence: 77.83%\n\n🦷 Tooth #4 (#4)\n   Status: Crown (None)\n   Confidence: 33.25%\n\n🦷 Tooth #5 (#5)\n   Status: Filling (None)\n   Confidence: 41.47%\n\n🦷 Tooth #6 (#6)\n   Status: Healthy (None)\n   Confidence: 67.32%\n\n🦷 Tooth #7 (#7)\n   Status: Healthy (None)\n   Confidence: 77.61%\n\n🦷 Tooth #8 (#8)\n   Status: Healthy (None)\n   Confidence: 84.88%\n\n🦷 Tooth #9 (#9)\n   Status: Healthy (None)\n   Confidence: 83.68%\n\n🦷 Tooth #10 (#10)\n   Status: Healthy (None)\n   Confidence: 80.10%\n\n🦷 Upper Right Central Incisor (#11)\n   Status: Healthy (None)\n   Confidence: 81.19%\n\n🦷 Upper Right Lateral Incisor (#12)\n   Status: Healthy (None)\n   Confidence: 71.90%\n\n🦷 Upper Right Canine (#13)\n   Status: Healthy (None)\n   Confidence: 85.44%\n\n🦷 Upper Right First Premolar (#14)\n   Status: Healthy (None)\n   Confidence: 69.03%\n\n🦷 Tooth #20 (#20)\n   Status: Healthy (None)\n   Confidence: 83.25%\n\n🦷 Upper Left Central Incisor (#21)\n   Status: Healthy (None)\n   Confidence: 81.01%\n\n🦷 Upper Left Lateral Incisor (#22)\n   Status: Healthy (None)\n   Confidence: 88.09%\n\n🦷 Upper Left Canine (#23)\n   Status: Healthy (None)\n   Confidence: 70.03%\n\n🦷 Upper Left First Premolar (#24)\n   Status: Healthy (None)\n   Confidence: 60.10%\n\n🦷 Upper Left Second Premolar (#25)\n   Status: Healthy (None)\n   Confidence: 68.19%\n\n🦷 Upper Left First Molar (#26)\n   Status: Healthy (None)\n   Confidence: 73.61%\n\n🦷 Upper Left Second Molar (#27)\n   Status: Healthy (None)\n   Confidence: 79.43%\n\n🦷 Upper Left Third Molar (Wisdom) (#28)\n   Status: Healthy (None)\n   Confidence: 80.70%\n\n🦷 Tooth #29 (#29)\n   Status: Healthy (None)\n   Confidence: 80.85%\n\n🦷 Lower Left Central Incisor (#31)\n   Status: Bone loss (Moderate)\n   Confidence: 30.12%\n\n🦷 Lower Left Lateral Incisor (#32)\n   Status: Healthy (None)\n   Confidence: 68.77%\n\n\n💡 AI-GENERATED INSIGHTS:\n--------------------------------------------------------------------------------\nError generating AI insights: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 30.006986374s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 30\n}\n]\n\n================================================================================\nEND OF REPORT\n================================================================================",
+  "summary": {
+    "total_teeth": 25,
+    "disease_distribution": {
+      "Healthy": 22,
+      "Crown": 1,
+      "Filling": 1,
+      "Bone loss": 1
+    },
+    "severity_distribution": {
+      "None": 24,
+      "Moderate": 1
+    },
+    "healthy_teeth": 22,
+    "diseased_teeth": 3
+  }
+}

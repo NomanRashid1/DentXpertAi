@@ -49,4 +49,4 @@ app.*.map.json
 /backend/.env
 
 # backend api results
-/backend/api/.env
+# /tooth_disease_detection_20epochs_12classes_20251215_122658/.env

@@ -1,0 +1,167 @@
+================================================================================
+DENTAL X-RAY ANALYSIS REPORT
+================================================================================
+
+Image: 7f0149a644624bed88bafea8df5219e2_53.png
+Total Teeth Detected: 25
+
+
+
+📋 OTHER FINDINGS:
+--------------------------------------------------------------------------------
+
+🦷 Tooth #2 (#2)
+   Status: Healthy (None)
+   Confidence: 65.79%
+
+🦷 Tooth #3 (#3)
+   Status: Healthy (None)
+   Confidence: 77.83%
+
+🦷 Tooth #4 (#4)
+   Status: Crown (None)
+   Confidence: 33.25%
+
+🦷 Tooth #5 (#5)
+   Status: Filling (None)
+   Confidence: 41.47%
+
+🦷 Tooth #6 (#6)
+   Status: Healthy (None)
+   Confidence: 67.32%
+
+🦷 Tooth #7 (#7)
+   Status: Healthy (None)
+   Confidence: 77.61%
+
+🦷 Tooth #8 (#8)
+   Status: Healthy (None)
+   Confidence: 84.88%
+
+🦷 Tooth #9 (#9)
+   Status: Healthy (None)
+   Confidence: 83.68%
+
+🦷 Tooth #10 (#10)
+   Status: Healthy (None)
+   Confidence: 80.10%
+
+🦷 Upper Right Central Incisor (#11)
+   Status: Healthy (None)
+   Confidence: 81.19%
+
+🦷 Upper Right Lateral Incisor (#12)
+   Status: Healthy (None)
+   Confidence: 71.90%
+
+🦷 Upper Right Canine (#13)
+   Status: Healthy (None)
+   Confidence: 85.44%
+
+🦷 Upper Right First Premolar (#14)
+   Status: Healthy (None)
+   Confidence: 69.03%
+
+🦷 Tooth #20 (#20)
+   Status: Healthy (None)
+   Confidence: 83.25%
+
+🦷 Upper Left Central Incisor (#21)
+   Status: Healthy (None)
+   Confidence: 81.01%
+
+🦷 Upper Left Lateral Incisor (#22)
+   Status: Healthy (None)
+   Confidence: 88.09%
+
+🦷 Upper Left Canine (#23)
+   Status: Healthy (None)
+   Confidence: 70.03%
+
+🦷 Upper Left First Premolar (#24)
+   Status: Healthy (None)
+   Confidence: 60.10%
+
+🦷 Upper Left Second Premolar (#25)
+   Status: Healthy (None)
+   Confidence: 68.19%
+
+🦷 Upper Left First Molar (#26)
+   Status: Healthy (None)
+   Confidence: 73.61%
+
+🦷 Upper Left Second Molar (#27)
+   Status: Healthy (None)
+   Confidence: 79.43%
+
+🦷 Upper Left Third Molar (Wisdom) (#28)
+   Status: Healthy (None)
+   Confidence: 80.70%
+
+🦷 Tooth #29 (#29)
+   Status: Healthy (None)
+   Confidence: 80.85%
+
+🦷 Lower Left Central Incisor (#31)
+   Status: Bone loss (Moderate)
+   Confidence: 30.12%
+
+🦷 Lower Left Lateral Incisor (#32)
+   Status: Healthy (None)
+   Confidence: 68.77%
+
+
+💡 AI-GENERATED INSIGHTS:
+--------------------------------------------------------------------------------
+Error generating AI insights: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp
+Please retry in 4.261630127s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash-exp"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash-exp"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash-exp"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, retry_delay {
+  seconds: 4
+}
+]
+
+================================================================================
+END OF REPORT
+================================================================================

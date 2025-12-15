@@ -1,0 +1,17 @@
+
+# Machine Learning & Metrics
+scikit-learn>=1.3.0         # ML utilities and metrics
+scipy>=1.10.0               # Scientific computing
+
+# Configuration & Utilities
+PyYAML>=6.0                 # YAML support for configs
+python-dotenv>=1.0.0        # Environment variables
+
+# AI Integration
+google-generativeai>=0.3.0  # Gemini AI (optional)
+
+# GUI (for file dialogs)
+# Note: tkinter usually comes with Python installation
+
+# Development/Optional
+tqdm>=4.65.0                # Progress bars
